@@ -20,7 +20,7 @@ namespace Survival
 
         public Texture2D bulletTexture; //текстура пуль
         public Vector2 bulletPosition; //позиция пули
-        float angle; //угол
+        float angle; //угол При повороте мыши
 
         public float rotationAngle; //поворот спрайта персонажа
 
