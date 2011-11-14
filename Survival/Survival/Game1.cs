@@ -11,24 +11,15 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Survival
 {
-
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-
-    public class Survival : Microsoft.Xna.Framework.Game
+    public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        heroSprite hero;
-        cursorSprite cursor;
-        backSprite background;
-
-        //
-        private SpriteFont gameFont;
-        //
-        public Survival()
+        public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -40,10 +31,10 @@ namespace Survival
         /// related content.  Calling base.Initialize will enumerate through any components
         /// and initialize them as well.
         /// </summary>
-
-      
         protected override void Initialize()
         {
+            // TODO: Add your initialization logic here
+
             base.Initialize();
         }
 
@@ -53,18 +44,8 @@ namespace Survival
         /// </summary>
         protected override void LoadContent()
         {
+            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //
-            gameFont = Content.Load<SpriteFont>("font");
-            //8
-            Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
-            hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), Content.Load<Texture2D>("bullet"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            hero.velocity = new Vector2(2, 2);
-
-            background = new backSprite(Content.Load<Texture2D>("background"));
-
-            cursor = new cursorSprite(Content.Load<Texture2D>("cursor"));
-
 
             // TODO: use this.Content to load your game content here
         }
@@ -75,9 +56,6 @@ namespace Survival
         /// </summary>
         protected override void UnloadContent()
         {
-            // Освобождаем ранее выделенные ресурсы
-            hero.idle.Dispose();
-            spriteBatch.Dispose();
             // TODO: Unload any non ContentManager content here
         }
 
@@ -92,8 +70,8 @@ namespace Survival
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            hero.Update(gameTime);
-            cursor.Update(gameTime);
+            // TODO: Add your update logic here
+
             base.Update(gameTime);
         }
 
@@ -105,22 +83,9 @@ namespace Survival
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            background.Draw(spriteBatch);
-            hero.Draw(spriteBatch);
-            cursor.Draw(spriteBatch);
-
-            MouseState mouse = Mouse.GetState();
-
-            // Рисуем счет
-            spriteBatch.Begin();
-            spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
-            spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
-            spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
-            spriteBatch.End();
-
+            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
-
         }
     }
 }

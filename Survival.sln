@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survival", "Survival\Survival\Survival.csproj", "{866F7212-F1A8-4013-9830-8DDCE402A362}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survival", "Survival\Survival\Survival.csproj", "{08FB4BA7-34A6-4176-9778-5F3D73723DD7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7542ABD6-FDFB-49FA-9131-3F28D0743F46}"
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SurvivalContent", "Survival\SurvivalContent\SurvivalContent.contentproj", "{52C7ED41-FC81-4565-B3F6-87677A152579}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{866F7212-F1A8-4013-9830-8DDCE402A362}.Debug|x86.ActiveCfg = Debug|x86
-		{866F7212-F1A8-4013-9830-8DDCE402A362}.Debug|x86.Build.0 = Debug|x86
-		{866F7212-F1A8-4013-9830-8DDCE402A362}.Release|x86.ActiveCfg = Release|x86
-		{866F7212-F1A8-4013-9830-8DDCE402A362}.Release|x86.Build.0 = Release|x86
+		{08FB4BA7-34A6-4176-9778-5F3D73723DD7}.Debug|x86.ActiveCfg = Debug|x86
+		{08FB4BA7-34A6-4176-9778-5F3D73723DD7}.Debug|x86.Build.0 = Debug|x86
+		{08FB4BA7-34A6-4176-9778-5F3D73723DD7}.Release|x86.ActiveCfg = Release|x86
+		{08FB4BA7-34A6-4176-9778-5F3D73723DD7}.Release|x86.Build.0 = Release|x86
+		{52C7ED41-FC81-4565-B3F6-87677A152579}.Debug|x86.ActiveCfg = Debug|x86
+		{52C7ED41-FC81-4565-B3F6-87677A152579}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

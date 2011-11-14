@@ -1,8 +1,8 @@
 using System;
 
-namespace SecondAttempt
+namespace Survival
 {
-#if WINDOWS
+#if WINDOWS || XBOX
     static class Program
     {
         /// <summary>
