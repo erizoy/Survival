@@ -1,0 +1,6 @@
+C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\SecondAttempt.exe
+C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\SecondAttempt.pdb
+C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\SecondAttempt.exe
+C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\SecondAttempt.pdb

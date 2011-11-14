@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SecondAttempt</RootNamespace>
-    <AssemblyName>SecondAttempt</AssemblyName>
+    <RootNamespace>Survival</RootNamespace>
+    <AssemblyName>Survival</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
@@ -117,8 +117,8 @@
     <Compile Include="monsterSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="SecondAttemptGame.cs" />
     <Compile Include="bulletSprite.cs" />
+    <Compile Include="SurvivalGame.cs" />
     <Compile Include="weaponLogic.cs" />
     <Compile Include="windowSprite.cs" />
   </ItemGroup>
@@ -127,8 +127,8 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SecondAttemptContent\SecondAttemptContent.contentproj">
-      <Name>SecondAttemptContent</Name>
+    <ProjectReference Include="..\SurvivalContent\SurvivalContent.contentproj">
+      <Name>SurvivalContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
