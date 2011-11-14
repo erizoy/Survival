@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Survival
 {
     /// <summary>
-    /// класс, описывающий спрайт и передвижение со стрельбой персонажа
+    /// класс, описывающий спрайт и передвижение со стрельбой персонажа.
     /// </summary>
     class heroSprite 
     {
