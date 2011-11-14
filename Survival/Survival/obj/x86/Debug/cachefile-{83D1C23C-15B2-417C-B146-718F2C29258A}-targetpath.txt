@@ -1,6 +1,6 @@
 Content\cursor.xnb
 Content\background.xnb
 Content\bullet.xnb
+Content\font.xnb
 Content\hero.xnb
 Content\idlehero.xnb
-Content\font.xnb
