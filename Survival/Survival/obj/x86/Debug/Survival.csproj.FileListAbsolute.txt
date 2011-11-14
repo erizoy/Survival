@@ -22,3 +22,15 @@ C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\ResolveAssemblyReferenc
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\background.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\bullet.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\cursor.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Survival.exe
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Survival.pdb
+C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
+C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb

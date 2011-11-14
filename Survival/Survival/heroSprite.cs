@@ -26,7 +26,7 @@ namespace Survival
 
         public Vector2 heroPosition; //позиция персонажа
 
-        public bool isRunning; //
+        public bool isRunning; //логическая переменная показывающая нахождение персонажа в движении
 
         public List<bulletSprite> bullets = new List<bulletSprite>();  //список с пулями
         int attackSpeed = 8; //время между выстрелами
