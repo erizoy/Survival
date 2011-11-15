@@ -24,6 +24,7 @@ namespace Survival
         heroSprite hero;
         cursorSprite cursor;
         backSprite background;
+        Texture2D monsterTexture;
 
         List<monsterSprite> monsters = new List<monsterSprite>(); // список, содержащий монстров. 
         SpriteFont gameFont;
@@ -53,6 +54,7 @@ namespace Survival
         /// </summary>
         protected override void LoadContent()
         {
+            monsterTexture = Content.Load<Texture2D>("monster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
@@ -82,7 +84,7 @@ namespace Survival
 
         public void AddMonster()
         {
-            monsters.Add(new monsterSprite(Content.Load<Texture2D>("monster"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+            monsters.Add(new monsterSprite(monsterTexture, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
         }
 
         /// <summary>
@@ -99,8 +101,14 @@ namespace Survival
             hero.Update(gameTime);
             cursor.Update(gameTime);
 
+            if (hero.time == 0)
+            {
+                AddMonster();
+            }
+
             foreach (monsterSprite item in monsters)
             {
+                
                 item.Update(gameTime, hero.heroPosition);
             }
 
@@ -126,6 +134,7 @@ namespace Survival
             spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
             spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
             spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
+            spriteBatch.DrawString(gameFont, "Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
             spriteBatch.End();
 
 
@@ -134,7 +143,6 @@ namespace Survival
             {
                 item.Draw(spriteBatch);
             }
-
 
             base.Draw(gameTime);
 

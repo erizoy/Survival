@@ -14,14 +14,9 @@ namespace Survival
 
     class monsterSprite
     {
-        public Texture2D idle;  //текстура спрайта
         public Texture2D run; //текстура спрайта бега
         private Vector2 screenSize;  //размер экрана
-        public Vector2 velocity; //скорость перемещения спрайта
-
-        public Texture2D bulletTexture; //текстура пуль
-        public Vector2 bulletPosition; //позиция пули
-        float angle; //угол
+        public Vector2 velocity = new Vector2(8, 8); //скорость перемещения спрайта
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -88,16 +83,15 @@ namespace Survival
             }
 
             // начало отрисовки монстра
-
-            
-
             Vector2 vect = new Vector2(48, 48); //начальный угол
             Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
+
             spriteBatch.Begin();
             {
                 Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
                 spriteBatch.Draw(run, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
+            spriteBatch.End();
         }
 
         public void Update(GameTime gameTime, Vector2 heroPosition)
@@ -106,6 +100,8 @@ namespace Survival
             directionMonster.Normalize();
 
             monsterPosition += -directionMonster * velocity;
+
+            rotationAngle = (float)Math.Atan2(heroPosition.Y - monsterPosition.Y, heroPosition.X - monsterPosition.X);
 
             // смена кадров анимации монстра
             timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
