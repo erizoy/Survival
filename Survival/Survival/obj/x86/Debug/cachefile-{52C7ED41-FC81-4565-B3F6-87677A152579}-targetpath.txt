@@ -3,4 +3,5 @@ Content\bullet.xnb
 Content\cursor.xnb
 Content\hero.xnb
 Content\idlehero.xnb
+Content\monster.xnb
 Content\font.xnb

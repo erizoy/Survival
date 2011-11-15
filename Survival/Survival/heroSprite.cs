@@ -11,7 +11,10 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Survival
 {
-    class heroSprite
+    /// <summary>
+    /// класс, описывающий спрайт и передвижение со стрельбой персонажа.
+    /// </summary>
+    class heroSprite 
     {
         public Texture2D idle;  //текстура спрайта
         public Texture2D run; //текстура спрайта бега
@@ -20,7 +23,7 @@ namespace Survival
 
         public Texture2D bulletTexture; //текстура пуль
         public Vector2 bulletPosition; //позиция пули
-        float angle; //угол
+        float angle; //угол при повороте мыши
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -33,7 +36,6 @@ namespace Survival
         public int time;
 
         int frameWidth, frameHeight; //высота и ширина экрана
-       
         /// <summary>
         /// "выстрел" сбрасывает счётчик времени до 0, определяет позицию вылета пули, и добавляет в список.
         /// </summary>
@@ -102,8 +104,8 @@ namespace Survival
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 vect = new Vector2(48, 48);
-            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100);
+            Vector2 vect = new Vector2(48, 48); //начальный угол
+            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100); //позиция спрайта и его размеры
             spriteBatch.Begin();
             if (isRunning)
             {
@@ -116,6 +118,7 @@ namespace Survival
             }
             spriteBatch.End();
 
+            // отрисовка пуль
             foreach (bulletSprite item in bullets)
             {
                 item.Draw(spriteBatch);

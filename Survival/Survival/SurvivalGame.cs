@@ -24,10 +24,11 @@ namespace Survival
         heroSprite hero;
         cursorSprite cursor;
         backSprite background;
+        Texture2D monsterTexture;
 
-        //
-        private SpriteFont gameFont;
-        //
+        List<monsterSprite> monsters = new List<monsterSprite>(); // список, содержащий монстров. 
+        SpriteFont gameFont;
+  
         public Survival()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,10 +54,9 @@ namespace Survival
         /// </summary>
         protected override void LoadContent()
         {
+            monsterTexture = Content.Load<Texture2D>("monster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //
             gameFont = Content.Load<SpriteFont>("font");
-            //8
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
             hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), Content.Load<Texture2D>("bullet"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
@@ -81,6 +81,12 @@ namespace Survival
             // TODO: Unload any non ContentManager content here
         }
 
+
+        public void AddMonster()
+        {
+            monsters.Add(new monsterSprite(monsterTexture, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -94,6 +100,18 @@ namespace Survival
 
             hero.Update(gameTime);
             cursor.Update(gameTime);
+
+            if (hero.time == 0)
+            {
+                AddMonster();
+            }
+
+            foreach (monsterSprite item in monsters)
+            {
+                
+                item.Update(gameTime, hero.heroPosition);
+            }
+
             base.Update(gameTime);
         }
 
@@ -116,8 +134,15 @@ namespace Survival
             spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
             spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
             spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
+            spriteBatch.DrawString(gameFont, "Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
             spriteBatch.End();
 
+
+            // отрисовка монстров
+            foreach (monsterSprite item in monsters)
+            {
+                item.Draw(spriteBatch);
+            }
 
             base.Draw(gameTime);
 

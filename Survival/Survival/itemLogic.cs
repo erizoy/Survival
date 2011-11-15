@@ -32,7 +32,7 @@ namespace Survival
 			return health;
 		}
 
-		public int p_athlete(int run) // атлет
+		public int p_athlete(int run) //  атлет
 		{
 			run += 30;
 			return run;

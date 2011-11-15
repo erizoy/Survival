@@ -34,3 +34,5 @@ C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\ResolveAssemblyReference
 C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
+C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb
