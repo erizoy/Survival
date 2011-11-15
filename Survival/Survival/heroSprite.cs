@@ -36,7 +36,6 @@ namespace Survival
         public int time;
 
         int frameWidth, frameHeight; //высота и ширина экрана
-       
         /// <summary>
         /// "выстрел" сбрасывает счётчик времени до 0, определяет позицию вылета пули, и добавляет в список.
         /// </summary>
@@ -119,6 +118,7 @@ namespace Survival
             }
             spriteBatch.End();
 
+            // отрисовка пуль
             foreach (bulletSprite item in bullets)
             {
                 item.Draw(spriteBatch);

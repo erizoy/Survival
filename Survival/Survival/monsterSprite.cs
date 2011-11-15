@@ -33,6 +33,7 @@ namespace Survival
 
         Random randomPosition = new Random();
 
+        public Vector2 directionMonster;
 
         /// <summary>
         /// возвращает количество кадров в спрайте монстра
@@ -103,6 +104,21 @@ namespace Survival
                 spriteBatch.Draw(run, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
         }
-        
+
+        public void Update(GameTime gameTime, Vector2 heroPosition)
+        {
+            directionMonster = monsterPosition - new Vector2(heroPosition.X, heroPosition.Y);
+            directionMonster.Normalize();
+
+            monsterPosition += -directionMonster * velocity;
+
+            // смена кадров анимации монстра
+            timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
+            if (timeElapsed > timeForFrame)
+            {
+                currentFrame = (currentFrame + 1) % Frames;
+                timeElapsed = 0;
+            }
+        }
     }
 }
