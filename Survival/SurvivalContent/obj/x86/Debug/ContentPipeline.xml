@@ -55,6 +55,15 @@
       <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
       <Time>2011-11-14T19:51:19.5623625+04:00</Time>
     </Item>
+    <Item>
+      <Source>monster.png</Source>
+      <Name>monster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb</Output>
+      <Time>2011-11-15T16:22:41.5831724+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -27,13 +27,12 @@ namespace Survival
 
         public Vector2 monsterPosition; //позиция персонажа
 
-        public bool isRunning; //
-
         int frameWidth, frameHeight; //высота и ширина экрана
 
         Random randomPosition = new Random();
 
         public Vector2 directionMonster;
+
 
         /// <summary>
         /// возвращает количество кадров в спрайте монстра
@@ -54,13 +53,9 @@ namespace Survival
         /// <param name="newMonsterPosition"></param>
         /// <param name="screenWidth"></param>
         /// <param name="screenHeight"></param>
-        public monsterSprite(Texture2D newTexture, Texture2D newRunTexture, Vector2 newMonsterPosition , int screenWidth, int screenHeight)
+        public monsterSprite(Texture2D newRunTexture, int screenWidth, int screenHeight)
         {
-            idle = newTexture;
             run = newRunTexture;
-
-            monsterPosition = newMonsterPosition;
-
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = run.Height;
         }
