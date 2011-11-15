@@ -105,7 +105,7 @@ namespace Survival
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 vect = new Vector2(48, 48);
+            Vector2 vect = new Vector2(48, 48); // размер спарйта героя
             Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100);
             spriteBatch.Begin();
             if (isRunning)

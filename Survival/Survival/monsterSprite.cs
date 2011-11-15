@@ -31,6 +31,12 @@ namespace Survival
 
         int frameWidth, frameHeight; //высота и ширина экрана
 
+        Random randomPosition = new Random();
+
+
+        /// <summary>
+        /// возвращает количество кадров в спрайте монстра
+        /// </summary>
         public int Frames
         {
             get
@@ -39,6 +45,14 @@ namespace Survival
             }
         }
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="newTexture"></param>
+        /// <param name="newRunTexture"></param>
+        /// <param name="newMonsterPosition"></param>
+        /// <param name="screenWidth"></param>
+        /// <param name="screenHeight"></param>
         public monsterSprite(Texture2D newTexture, Texture2D newRunTexture, Vector2 newMonsterPosition , int screenWidth, int screenHeight)
         {
             idle = newTexture;
@@ -49,5 +63,27 @@ namespace Survival
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = run.Height;
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            switch (randomPosition.Next(1, 4)) // Случайная выборка позиции монстра
+            {
+                case 1:
+                    monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next(-10, 0));
+                    break;
+                case 2:
+                    monsterPosition = new Vector2(randomPosition.Next((int)screenSize.X, (int)screenSize.X + 10), randomPosition.Next(0, (int)screenSize.Y));
+                    break;
+                case 3:
+                    monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next((int)screenSize.Y, (int)screenSize.Y + 10));
+                    break;
+                case 4:
+                    monsterPosition = new Vector2(randomPosition.Next(-10, 0), randomPosition.Next(0, (int)screenSize.Y));
+                    break;
+            }
+
+
+        }
+        
     }
 }
