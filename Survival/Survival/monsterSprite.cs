@@ -64,9 +64,18 @@ namespace Survival
             frameWidth = frameHeight = run.Height;
         }
 
+        int currentFrame; // текущий кадр анимации
+        int timeElapsed; // сброс времени
+        int timeForFrame = 110; // время задержки кадра
+
+        /// <summary>
+        ///  отрисовка монстра
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            switch (randomPosition.Next(1, 4)) // Случайная выборка позиции монстра
+            // Случайная выборка позиции монстра
+            switch (randomPosition.Next(1, 4)) 
             {
                 case 1:
                     monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next(-10, 0));
@@ -82,7 +91,17 @@ namespace Survival
                     break;
             }
 
+            // начало отрисовки монстра
 
+            
+
+            Vector2 vect = new Vector2(48, 48); //начальный угол
+            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
+            spriteBatch.Begin();
+            {
+                Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
+                spriteBatch.Draw(run, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+            }
         }
         
     }

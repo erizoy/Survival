@@ -105,8 +105,8 @@ namespace Survival
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 vect = new Vector2(48, 48); // размер спарйта героя
-            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100);
+            Vector2 vect = new Vector2(48, 48); //начальный угол
+            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100); //позиция спрайта и его размеры
             spriteBatch.Begin();
             if (isRunning)
             {
