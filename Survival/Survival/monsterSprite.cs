@@ -20,7 +20,7 @@ namespace Survival
 
         public float rotationAngle; //поворот спрайта персонажа
 
-        public Vector2 monsterPosition  = new Vector2(-2, -2); //позиция персонажа
+        public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа
 
         int frameWidth, frameHeight; //высота и ширина экрана
 
@@ -67,7 +67,7 @@ namespace Survival
         {
 
             // Случайная выборка позиции монстра
-            if (monsterPosition == new Vector2(-2, -2))
+           if (monsterPosition == new Vector2(-11, -11))
             switch (randomPosition.Next(1, 4)) 
             {
                 case 1:
@@ -86,7 +86,7 @@ namespace Survival
 
             // начало отрисовки монстра
             Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
+            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 50, 50); //позиция спрайта и его размеры
 
             spriteBatch.Begin();
             {
@@ -101,7 +101,7 @@ namespace Survival
             directionMonster = monsterPosition - new Vector2(heroPosition.X, heroPosition.Y);
             directionMonster.Normalize();
 
-            monsterPosition += new Vector2((int)directionMonster.X * velocity.X, (int)directionMonster.Y * velocity.Y);
+            monsterPosition -= directionMonster * velocity;
 
             rotationAngle = (float)Math.Atan2(heroPosition.Y - monsterPosition.Y, heroPosition.X - monsterPosition.X);
 
