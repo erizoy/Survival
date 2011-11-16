@@ -26,7 +26,7 @@ namespace Survival
         backSprite background;
         Texture2D monsterTexture;
 
-        bool enableConsole;
+        bool enableConsole = true;
 
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
@@ -139,15 +139,17 @@ namespace Survival
             hero.Draw(spriteBatch);
             cursor.Draw(spriteBatch);
 
-
-
             if (enableConsole)
             {
                 spriteBatch.Begin();
-                spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
-                spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
-                spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
-                spriteBatch.DrawString(gameFont, "Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "      Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "       Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
+                if (monsters.Count != 0)
+                {
+                    spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterPosition.X.ToString() + ";" + monsters[0].monsterPosition.Y.ToString(), new Vector2(15, 75), Color.YellowGreen);
+                }
                 spriteBatch.End();
             }
 

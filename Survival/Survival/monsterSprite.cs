@@ -16,11 +16,11 @@ namespace Survival
     {
         public Texture2D run; //текстура спрайта бега
         private Vector2 screenSize;  //размер экрана
-        public Vector2 velocity = new Vector2(8, 8); //скорость перемещения спрайта
+        public Vector2 velocity = new Vector2(2, 2); //скорость перемещения спрайта
 
         public float rotationAngle; //поворот спрайта персонажа
 
-        public Vector2 monsterPosition; //позиция персонажа
+        public Vector2 monsterPosition  = new Vector2(-2, -2); //позиция персонажа
 
         int frameWidth, frameHeight; //высота и ширина экрана
 
@@ -65,7 +65,9 @@ namespace Survival
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
+
             // Случайная выборка позиции монстра
+            if (monsterPosition == new Vector2(-2, -2))
             switch (randomPosition.Next(1, 4)) 
             {
                 case 1:
@@ -99,7 +101,7 @@ namespace Survival
             directionMonster = monsterPosition - new Vector2(heroPosition.X, heroPosition.Y);
             directionMonster.Normalize();
 
-            monsterPosition += -directionMonster * velocity;
+            monsterPosition += new Vector2((int)directionMonster.X * velocity.X, (int)directionMonster.Y * velocity.Y);
 
             rotationAngle = (float)Math.Atan2(heroPosition.Y - monsterPosition.Y, heroPosition.X - monsterPosition.X);
 
