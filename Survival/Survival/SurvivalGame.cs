@@ -121,8 +121,19 @@ namespace Survival
             heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width/2, hero.idle.Height/2);
             foreach (monsterSprite item in monsters)
             {
-                item.Update(gameTime, heroRectangle);
+               /* if (monsters.Count > 1)
+                for (int i = 1; i < monsters.Count; i++)
+                {
+                    if (monsters[i].CheckCollision(monsters[i - 1].monsterRectangle, monsters[i].monsterRectangle))
+                    {
+                        monsters[i].Update(gameTime, heroRectangle);
+                    }
+                }
+                else*/
+                    item.Update(gameTime, heroRectangle);
             }
+
+
             base.Update(gameTime);
 
             oldKey = Keyboard.GetState();

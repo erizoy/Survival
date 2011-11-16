@@ -54,6 +54,27 @@ namespace Survival
             run = newRunTexture;
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = run.Height;
+
+            
+            // Случайная выборка позиции монстра
+            if (monsterPosition == new Vector2(-11, -11)) 
+            {
+                switch (randomPosition.Next(1, 5))
+                {
+                    case 1:
+                        monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next(-10, 0));
+                        break;
+                    case 2:
+                        monsterPosition = new Vector2(randomPosition.Next((int)screenSize.X, (int)screenSize.X + 10), randomPosition.Next(0, (int)screenSize.Y));
+                        break;
+                    case 3:
+                        monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next((int)screenSize.Y, (int)screenSize.Y + 10));
+                        break;
+                    case 4:
+                        monsterPosition = new Vector2(randomPosition.Next(-10, 0), randomPosition.Next(0, (int)screenSize.Y));
+                        break;
+                }
+            }
         }
 
         int currentFrame; // текущий кадр анимации
@@ -66,28 +87,9 @@ namespace Survival
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            // Случайная выборка позиции монстра
-           if (monsterPosition == new Vector2(-11, -11))
-            switch (randomPosition.Next(1, 4)) 
-            {
-                case 1:
-                    monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next(-10, 0));
-                    break;
-                case 2:
-                    monsterPosition = new Vector2(randomPosition.Next((int)screenSize.X, (int)screenSize.X + 10), randomPosition.Next(0, (int)screenSize.Y));
-                    break;
-                case 3:
-                    monsterPosition = new Vector2(randomPosition.Next(0, (int)screenSize.X), randomPosition.Next((int)screenSize.Y, (int)screenSize.Y + 10));
-                    break;
-                case 4:
-                    monsterPosition = new Vector2(randomPosition.Next(-10, 0), randomPosition.Next(0, (int)screenSize.Y));
-                    break;
-            }
-
             // начало отрисовки монстра
             Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
+            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 55, 55); //позиция спрайта и его размеры
 
             spriteBatch.Begin();
             {
@@ -97,21 +99,29 @@ namespace Survival
             spriteBatch.End();
         }
 
+        public bool CheckCollision(Rectangle firstRectngle, Rectangle secondRectangle)
+        {
+            monsterRectangle = new Rectangle((int)firstRectngle.X, (int)firstRectngle.Y, firstRectngle.Width, firstRectngle.Height);
+            if (monsterRectangle.Intersects(secondRectangle))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void Update(GameTime gameTime, Rectangle heroRectangle)
         {
-            bool collisionWithHero = false; //проверка столкновений монстра и героя
             monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, run.Width / Frames / 2, run.Height / 2);
-            if (monsterRectangle.Intersects(heroRectangle))
-            {
-                collisionWithHero = true;
-            }
 
-            if (!collisionWithHero)
+            if (!CheckCollision(monsterRectangle, heroRectangle))
             {
                 directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
                 directionMonster.Normalize();
 
-                monsterPosition -= directionMonster * velocity;
+                monsterPosition += -directionMonster * velocity;
             }
 
             rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
