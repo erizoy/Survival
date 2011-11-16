@@ -99,7 +99,7 @@ namespace Survival
 
         public void Update(GameTime gameTime, Rectangle heroRectangle)
         {
-            bool collisionWithHero = false;
+            bool collisionWithHero = false; //проверка столкновений монстра и героя
             monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, run.Width / Frames / 2, run.Height / 2);
             if (monsterRectangle.Intersects(heroRectangle))
             {
