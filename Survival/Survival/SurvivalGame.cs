@@ -26,6 +26,11 @@ namespace Survival
         backSprite background;
         Texture2D monsterTexture;
 
+        bool enableConsole;
+
+        MouseState mouse = Mouse.GetState();
+        KeyboardState oldKey = Keyboard.GetState();
+
         List<monsterSprite> monsters = new List<monsterSprite>(); // список, содержащий монстров. 
         SpriteFont gameFont;
   
@@ -94,6 +99,11 @@ namespace Survival
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
+            {
+                enableConsole = !enableConsole;
+            }
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -106,13 +116,15 @@ namespace Survival
                 AddMonster();
             }
 
+
             foreach (monsterSprite item in monsters)
             {
                 
                 item.Update(gameTime, hero.heroPosition);
             }
-
             base.Update(gameTime);
+
+            oldKey = Keyboard.GetState();
         }
 
         /// <summary>
@@ -127,15 +139,17 @@ namespace Survival
             hero.Draw(spriteBatch);
             cursor.Draw(spriteBatch);
 
-            MouseState mouse = Mouse.GetState();
 
-            // Рисуем счет
-            spriteBatch.Begin();
-            spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
-            spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
-            spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
-            spriteBatch.DrawString(gameFont, "Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
-            spriteBatch.End();
+
+            if (enableConsole)
+            {
+                spriteBatch.Begin();
+                spriteBatch.DrawString(gameFont, "Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "   Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "    Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
+                spriteBatch.End();
+            }
 
 
             // отрисовка монстров
