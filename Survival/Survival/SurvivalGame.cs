@@ -28,6 +28,8 @@ namespace Survival
 
         bool enableConsole = true;
 
+        Rectangle heroRectangle;
+
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
 
@@ -116,7 +118,7 @@ namespace Survival
                 AddMonster();
             }
 
-            Rectangle heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, (int)hero.heroPosition.X + (int)hero.idle.Height, (int)hero.heroPosition.Y + (int)hero.idle.Width);
+            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width/2, hero.idle.Height/2);
             foreach (monsterSprite item in monsters)
             {
                 item.Update(gameTime, heroRectangle);
@@ -141,13 +143,13 @@ namespace Survival
             if (enableConsole)
             {
                 spriteBatch.Begin();
-                spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString(), new Vector2(15, 15), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString() + ";" + heroRectangle.Width.ToString() + ";" + heroRectangle.Height.ToString(), new Vector2(15, 15), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "      Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "       Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
                 if (monsters.Count != 0)
                 {
-                    spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterPosition.X.ToString() + ";" + monsters[0].monsterPosition.Y.ToString(), new Vector2(15, 75), Color.YellowGreen);
+                    spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
                 }
                 spriteBatch.End();
             }

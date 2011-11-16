@@ -21,6 +21,7 @@ namespace Survival
         public float rotationAngle; //поворот спрайта персонажа
 
         public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа
+        public Rectangle monsterRectangle;
 
         int frameWidth, frameHeight; //высота и ширина экрана
 
@@ -98,10 +99,20 @@ namespace Survival
 
         public void Update(GameTime gameTime, Rectangle heroRectangle)
         {
-            directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
-            directionMonster.Normalize();
+            bool collisionWithHero = false;
+            monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, run.Width / Frames / 2, run.Height / 2);
+            if (monsterRectangle.Intersects(heroRectangle))
+            {
+                collisionWithHero = true;
+            }
 
-            monsterPosition -= directionMonster * velocity;
+            if (!collisionWithHero)
+            {
+                directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
+                directionMonster.Normalize();
+
+                monsterPosition -= directionMonster * velocity;
+            }
 
             rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
 
