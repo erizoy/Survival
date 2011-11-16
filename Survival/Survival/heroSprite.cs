@@ -123,7 +123,6 @@ namespace Survival
             {
                 item.Draw(spriteBatch);
             }
-            
         }
 
 

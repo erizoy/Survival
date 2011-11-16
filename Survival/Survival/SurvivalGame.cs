@@ -116,11 +116,10 @@ namespace Survival
                 AddMonster();
             }
 
-
+            Rectangle heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, (int)hero.heroPosition.X + (int)hero.idle.Height, (int)hero.heroPosition.Y + (int)hero.idle.Width);
             foreach (monsterSprite item in monsters)
             {
-                
-                item.Update(gameTime, hero.heroPosition);
+                item.Update(gameTime, heroRectangle);
             }
             base.Update(gameTime);
 

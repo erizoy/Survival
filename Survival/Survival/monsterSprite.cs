@@ -57,7 +57,7 @@ namespace Survival
 
         int currentFrame; // текущий кадр анимации
         int timeElapsed; // сброс времени
-        int timeForFrame = 110; // время задержки кадра
+        int timeForFrame = 25; // время задержки кадра
 
         /// <summary>
         ///  отрисовка монстра
@@ -86,7 +86,7 @@ namespace Survival
 
             // начало отрисовки монстра
             Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 50, 50); //позиция спрайта и его размеры
+            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
 
             spriteBatch.Begin();
             {
@@ -96,14 +96,14 @@ namespace Survival
             spriteBatch.End();
         }
 
-        public void Update(GameTime gameTime, Vector2 heroPosition)
+        public void Update(GameTime gameTime, Rectangle heroRectangle)
         {
-            directionMonster = monsterPosition - new Vector2(heroPosition.X, heroPosition.Y);
+            directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
             directionMonster.Normalize();
 
             monsterPosition -= directionMonster * velocity;
 
-            rotationAngle = (float)Math.Atan2(heroPosition.Y - monsterPosition.Y, heroPosition.X - monsterPosition.X);
+            rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
 
             // смена кадров анимации монстра
             timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
