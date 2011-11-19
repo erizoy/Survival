@@ -7,6 +7,8 @@ namespace Survival
 {
     class itemLogic
     {
+		heroSprite hero;
+
 		int reg_time = 300;
 
 		public int p_fast_reload(int time)// быстрая перезарядка
@@ -28,21 +30,22 @@ namespace Survival
 
 		public int p_husky(int health) // здоровяк
 		{
-			health += 30;
+			hero.Health += 30;
 			return health;
 		}
 
 		public int p_athlete(int run) //  атлет
 		{
-			run += 30;
+			hero.velocity.X += 30;
+			hero.velocity.Y += 30;
 			return run;
 		}
 
 		public void p_regeneration(int health) // в основной программе сделать глобальную проверку health при взятии этого перка(!)
 		{
-			if ((health != 100) || (health != 130))
+			if ((hero.Health != 100) || (hero.Health != 130))
 			{
-				while ((health == 100) || (health == 130))
+				while ((hero.Health == 100) || (hero.Health == 130))
 				{
 					if (reg_time != 0)
 					{
@@ -50,7 +53,7 @@ namespace Survival
 					}
 					else
 					{
-						health += 1;
+						hero.Health += 1;
 						reg_time = 300; // но будем посмотреть
 					}
 				}

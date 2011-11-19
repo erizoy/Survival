@@ -20,6 +20,7 @@ namespace Survival
         public Texture2D run; //текстура спрайта бега
         private Vector2 screenSize;  //размер экрана
         public Vector2 velocity; //скорость перемещения спрайта
+		public int Health = 100;
 
         public Texture2D bulletTexture; //текстура пуль
         public Vector2 bulletPosition; //позиция пули
