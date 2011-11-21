@@ -12,6 +12,8 @@ namespace Survival
 	{
 		public List<bulletSprite> bullets = new List<bulletSprite>();
 
+		weaponLogic weapon = new weaponLogic();
+
 		private Vector2 screenSize;  //размер экрана
 
 		heroSprite hero = new heroSprite();
@@ -87,9 +89,14 @@ namespace Survival
 						angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
 					}
 					AddBullet(angle, heroPosition);
-				}
+					}
 			}
 			DeleteBullet();
+
+			if (bullets.Count == weapon.assult_rufle_round)
+			{
+				weapon.Reload(gameTime);
+			}
 			foreach (bulletSprite item in bullets)
 			{
 				item.Update(gameTime);
