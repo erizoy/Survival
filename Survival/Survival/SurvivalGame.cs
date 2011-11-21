@@ -23,6 +23,7 @@ namespace Survival
 
         heroSprite hero;
         cursorSprite cursor;
+		bulletLogic bullet;
         backSprite background;
         Texture2D monsterTexture;
 
@@ -65,7 +66,8 @@ namespace Survival
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
-            hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), Content.Load<Texture2D>("bullet"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+			bullet = new bulletLogic(Content.Load<Texture2D>("bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
 
             background = new backSprite(Content.Load<Texture2D>("background"));
@@ -112,8 +114,9 @@ namespace Survival
 
             hero.Update(gameTime);
             cursor.Update(gameTime);
+			bullet.Update(gameTime, hero.heroPosition);
 
-            if (hero.time == 0)
+            if (bullet.time == 0)
             {
                 AddMonster();
             }
@@ -150,13 +153,14 @@ namespace Survival
             background.Draw(spriteBatch);
             hero.Draw(spriteBatch);
             cursor.Draw(spriteBatch);
+			bullet.Draw(spriteBatch);
 
             if (enableConsole)
             {
                 spriteBatch.Begin();
                 spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString() + ";" + heroRectangle.Width.ToString() + ";" + heroRectangle.Height.ToString(), new Vector2(15, 15), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "      Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
-                spriteBatch.DrawString(gameFont, "       Time: " + hero.time, new Vector2(15, 45), Color.YellowGreen);
+                spriteBatch.DrawString(gameFont, "       Time: " + bullet.time, new Vector2(15, 45), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
                 if (monsters.Count != 0)
                 {
@@ -170,7 +174,7 @@ namespace Survival
             foreach (monsterSprite item in monsters)
             {
                 item.Draw(spriteBatch);
-            }
+            }	
 
             base.Draw(gameTime);
 

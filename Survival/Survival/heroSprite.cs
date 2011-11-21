@@ -16,15 +16,13 @@ namespace Survival
     /// </summary>
     class heroSprite 
     {
+		public Vector2 screenSize;
         public Texture2D idle;  //текстура спрайта
         public Texture2D run; //текстура спрайта бега
-        private Vector2 screenSize;  //размер экрана
         public Vector2 velocity; //скорость перемещения спрайта
 		public int Health = 100;
 
-        public Texture2D bulletTexture; //текстура пуль
-        public Vector2 bulletPosition; //позиция пули
-        float angle; //угол при повороте мыши
+		//bulletLogic bullet = new bulletLogic();
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -32,35 +30,9 @@ namespace Survival
 
         public bool isRunning; //логическая переменная показывающая нахождение персонажа в движении
 
-        public List<bulletSprite> bullets = new List<bulletSprite>();  //список с пулями
-        int attackSpeed = 8; //время между выстрелами
-        public int time;
-
         int frameWidth, frameHeight; //высота и ширина экрана
-        /// <summary>
-        /// "выстрел" сбрасывает счётчик времени до 0, определяет позицию вылета пули, и добавляет в список.
-        /// </summary>
-        /// <param name="angle"></param>
-        public void AddBullet(float angle)
-        {
-            time = 0;
-            bulletPosition.X = heroPosition.X + 32 * (float)Math.Cos(angle) - 6 * (float)Math.Sin(angle);
-            bulletPosition.Y = heroPosition.Y + 32 * (float)Math.Sin(angle) + 6 * (float)Math.Cos(angle);
-            bullets.Add(new bulletSprite(bulletTexture, screenSize, bulletPosition, angle));
-        }
+       
 
-        /// <summary>
-        /// удаляет "ненужную" пулю
-        /// </summary>
-        public void DeleteBullet()
-        {
-            int i = 0;
-            while (i < bullets.Count)
-                if (bullets[i].deleting)
-                    bullets.RemoveAt(i);
-                else
-                    i++;
-        }
 
         /// <summary>
         ///  считает, сколько кадров должно быть
@@ -83,17 +55,21 @@ namespace Survival
         /// <param name="newHeroPosition"></param> стартовая позиция персонажа
         /// <param name="screenWidth"></param>
         /// <param name="screenHeight"></param>
-        public heroSprite(Texture2D newTexture, Texture2D newRunTexture, Texture2D newBulletTexture, Vector2 newHeroPosition , int screenWidth, int screenHeight)
+        public heroSprite(Texture2D newTexture, Texture2D newRunTexture, Vector2 newHeroPosition , int screenWidth, int screenHeight)
         {
             idle = newTexture;
             run = newRunTexture;
-            bulletTexture = newBulletTexture;
 
             heroPosition = newHeroPosition;
 
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = run.Height;
         }
+
+		public heroSprite()
+		{
+			// TODO: Complete member initialization
+		}
 
         int currentFrame;
         int timeElapsed;
@@ -118,13 +94,7 @@ namespace Survival
                 spriteBatch.Draw(idle, rect, null, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
             spriteBatch.End();
-
-            // отрисовка пуль
-            foreach (bulletSprite item in bullets)
-            {
-                item.Draw(spriteBatch);
-            }
-        }
+		}
 
 
         /// <summary>
@@ -167,42 +137,9 @@ namespace Survival
                 }
             }
 
-
             rotationAngle = (float)Math.Atan2(Mouse.GetState().Y - heroPosition.Y, Mouse.GetState().X - heroPosition.X);
 
-            //Логика пули
-            if (time != attackSpeed)
-                time++;
-            else
-            {
-                MouseState mouse = Mouse.GetState();
-                if (mouse.LeftButton == ButtonState.Pressed)
-                {
-                    time = 0;
-                    if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
-                    {
-                        angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-                    }
-                    if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
-                    {
-                        angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-                    }
-                    if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
-                    {
-                        angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
-                    }
-                    if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
-                    {
-                        angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
-                    }
-                    AddBullet(angle);
-                }
-            }
-            DeleteBullet();
-            foreach (bulletSprite item in bullets)
-            {
-                item.Update(gameTime);
-            }
+			//bullet.Update(gameTime);
         }
     }
 }

@@ -7,5 +7,10 @@ namespace Survival
 {
     class weaponLogic
     {
+
+		public weaponLogic()
+		{
+			
+		}
     }
 }

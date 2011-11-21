@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="backSprite.cs" />
+    <Compile Include="bulletLogic.cs" />
     <Compile Include="bulletSprite.cs" />
     <Compile Include="cursorSprite.cs" />
     <Compile Include="heroLogic.cs" />
