@@ -3,3 +3,4 @@ C:\Users\erizoy\Survival\Survival\SurvivalContent\obj\x86\Debug\ResolveAssemblyR
 C:\Users\Admin\Survival\Survival\SurvivalContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Admin\Новая папка (2)\Survival\SurvivalContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Admin\Новая папка\Survival\SurvivalContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\rufan\Survival\Survival\SurvivalContent\obj\x86\Debug\ResolveAssemblyReference.cache
