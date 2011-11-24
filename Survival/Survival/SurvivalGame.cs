@@ -26,6 +26,7 @@ namespace Survival
 		bulletLogic bullet;
         backSprite background;
         Texture2D monsterTexture;
+        Texture2D deadTexture;
 
         Random randomPosition = new Random();
         int time;
@@ -65,6 +66,7 @@ namespace Survival
         protected override void LoadContent()
         {
             monsterTexture = Content.Load<Texture2D>("monster");
+            deadTexture = Content.Load<Texture2D>("deadmonster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
@@ -95,7 +97,7 @@ namespace Survival
 
         public void AddMonster()
         {
-            monsters.Add(new monsterSprite(monsterTexture, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+            monsters.Add(new monsterSprite(monsterTexture, deadTexture, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
         }
 
         /// <summary>
@@ -114,9 +116,10 @@ namespace Survival
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            hero.Update(gameTime);
+            
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
+            hero.Update(gameTime);
 
             if (time > 100)
             {
@@ -135,12 +138,11 @@ namespace Survival
             {
                 foreach (bulletSprite one_bullet in bullet.bullets)
                 {
-                    Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 1, 1);
+                    Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 2, 2);
                     if (one_monster.monsterRectangle.Intersects(bulletRectangle))
                     {
                         one_monster.isDead = true; 
-                    }
-                    
+                    }   
                 }
                 one_monster.Update(gameTime, heroRectangle);
                /* if (monsters.Count > 1)
@@ -152,7 +154,6 @@ namespace Survival
                     }
                 }
                 else*/
-                    
             }
 
 
@@ -170,10 +171,10 @@ namespace Survival
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             background.Draw(spriteBatch);
-            hero.Draw(spriteBatch);
+            
             cursor.Draw(spriteBatch);
 			bullet.Draw(spriteBatch);
-
+            
             if (enableConsole)
             {
                 spriteBatch.Begin();
@@ -195,6 +196,9 @@ namespace Survival
             {
                 item.Draw(spriteBatch);
             }
+
+            hero.Draw(spriteBatch);
+
             base.Draw(gameTime);
 
         }

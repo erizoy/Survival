@@ -15,6 +15,7 @@ namespace Survival
     class monsterSprite
     {
         public Texture2D monsterTexture; //текстура спрайта бега
+        public Texture2D deadMonsterTexture;
         private Vector2 screenSize;  //размер экрана
         public Vector2 velocity = new Vector2(2, 2); //скорость перемещения спрайта
 
@@ -50,9 +51,10 @@ namespace Survival
         /// <param name="newMonsterPosition"></param>
         /// <param name="screenWidth"></param>
         /// <param name="screenHeight"></param>
-        public monsterSprite(Texture2D newRunTexture, int screenWidth, int screenHeight)
+        public monsterSprite(Texture2D newRunTexture, Texture2D newDeadTexture, int screenWidth, int screenHeight)
         {
             monsterTexture = newRunTexture;
+            deadMonsterTexture = newDeadTexture;
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = monsterTexture.Height;
 
@@ -91,13 +93,24 @@ namespace Survival
             // начало отрисовки монстра
             Vector2 vect = new Vector2(48, 48); //начальный угол
             Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 55, 55); //позиция спрайта и его размеры
-
-            spriteBatch.Begin();
+            if (!isDead)
             {
-                Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
-                spriteBatch.Draw(monsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                spriteBatch.Begin();
+                {
+                    Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
+                    spriteBatch.Draw(monsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                }
+                spriteBatch.End();
             }
-            spriteBatch.End();
+            else
+            {
+                spriteBatch.Begin();
+                {
+                    spriteBatch.Draw(deadMonsterTexture, rect, Color.White);
+                }
+                spriteBatch.End();
+
+            }
         }
 
         public bool CheckCollision(Rectangle firstRectngle, Rectangle secondRectangle)
