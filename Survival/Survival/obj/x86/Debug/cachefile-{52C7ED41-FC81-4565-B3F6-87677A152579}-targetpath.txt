@@ -4,5 +4,5 @@ Content\cursor.xnb
 Content\hero.xnb
 Content\idlehero.xnb
 Content\monster.xnb
-Content\font.xnb
 Content\deadmonster.xnb
+Content\font.xnb

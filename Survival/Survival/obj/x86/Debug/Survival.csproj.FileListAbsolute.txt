@@ -76,3 +76,4 @@ C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.
 C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
 C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
+c:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
