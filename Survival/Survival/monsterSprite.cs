@@ -14,7 +14,7 @@ namespace Survival
 
     class monsterSprite
     {
-        public Texture2D run; //текстура спрайта бега
+        public Texture2D monsterTexture; //текстура спрайта бега
         private Vector2 screenSize;  //размер экрана
         public Vector2 velocity = new Vector2(2, 2); //скорость перемещения спрайта
 
@@ -22,6 +22,7 @@ namespace Survival
 
         public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа
         public Rectangle monsterRectangle;
+        public bool isDead = false;
 
         int frameWidth, frameHeight; //высота и ширина экрана
 
@@ -37,7 +38,7 @@ namespace Survival
         {
             get
             {
-                return run.Width / frameWidth;
+                return monsterTexture.Width / frameWidth;
             }
         }
 
@@ -51,9 +52,9 @@ namespace Survival
         /// <param name="screenHeight"></param>
         public monsterSprite(Texture2D newRunTexture, int screenWidth, int screenHeight)
         {
-            run = newRunTexture;
+            monsterTexture = newRunTexture;
             screenSize = new Vector2(screenWidth, screenHeight);
-            frameWidth = frameHeight = run.Height;
+            frameWidth = frameHeight = monsterTexture.Height;
 
             
             // Случайная выборка позиции монстра
@@ -94,7 +95,7 @@ namespace Survival
             spriteBatch.Begin();
             {
                 Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
-                spriteBatch.Draw(run, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                spriteBatch.Draw(monsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
             spriteBatch.End();
         }
@@ -114,24 +115,26 @@ namespace Survival
 
         public void Update(GameTime gameTime, Rectangle heroRectangle)
         {
-            monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, run.Width / Frames / 2, run.Height / 2);
-
-            if (!CheckCollision(monsterRectangle, heroRectangle))
+            if (!isDead)
             {
-                directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
-                directionMonster.Normalize();
+                monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
+                if (!CheckCollision(monsterRectangle, heroRectangle))
+                {
+                    directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
+                    directionMonster.Normalize();
 
-                monsterPosition += -directionMonster * velocity;
-            }
+                    monsterPosition += -directionMonster * velocity;
+                }
 
-            rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
+                rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
 
-            // смена кадров анимации монстра
-            timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
-            if (timeElapsed > timeForFrame)
-            {
-                currentFrame = (currentFrame + 1) % Frames;
-                timeElapsed = 0;
+                // смена кадров анимации монстра
+                timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
+                if (timeElapsed > timeForFrame)
+                {
+                    currentFrame = (currentFrame + 1) % Frames;
+                    timeElapsed = 0;
+                }
             }
         }
     }

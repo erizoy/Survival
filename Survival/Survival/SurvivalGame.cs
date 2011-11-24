@@ -27,6 +27,8 @@ namespace Survival
         backSprite background;
         Texture2D monsterTexture;
 
+        Random randomPosition = new Random();
+        int time;
         bool enableConsole = true;
 
         Rectangle heroRectangle;
@@ -116,14 +118,31 @@ namespace Survival
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
 
-            if (bullet.time == 0)
+            if (time > 100)
+            {
+                time = 0;
+            }
+            if (time == randomPosition.Next(0, 100))
             {
                 AddMonster();
             }
+            else
+                time++;
 
-            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width/2, hero.idle.Height/2);
-            foreach (monsterSprite item in monsters)
+            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width / 2, hero.idle.Height / 2);
+
+            foreach (monsterSprite one_monster in monsters)
             {
+                foreach (bulletSprite one_bullet in bullet.bullets)
+                {
+                    Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 1, 1);
+                    if (one_monster.monsterRectangle.Intersects(bulletRectangle))
+                    {
+                        one_monster.isDead = true; 
+                    }
+                    
+                }
+                one_monster.Update(gameTime, heroRectangle);
                /* if (monsters.Count > 1)
                 for (int i = 1; i < monsters.Count; i++)
                 {
@@ -133,7 +152,7 @@ namespace Survival
                     }
                 }
                 else*/
-                    item.Update(gameTime, heroRectangle);
+                    
             }
 
 
@@ -166,6 +185,7 @@ namespace Survival
                 {
                     spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
                 }
+                spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
                 spriteBatch.End();
             }
 
@@ -174,8 +194,7 @@ namespace Survival
             foreach (monsterSprite item in monsters)
             {
                 item.Draw(spriteBatch);
-            }	
-
+            }
             base.Draw(gameTime);
 
         }

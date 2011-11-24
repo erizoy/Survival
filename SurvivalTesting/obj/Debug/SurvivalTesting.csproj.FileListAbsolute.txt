@@ -1,0 +1,5 @@
+C:\Users\erizoy\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.dll
+C:\Users\erizoy\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.pdb
+C:\Users\erizoy\Survival\SurvivalTesting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\erizoy\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.dll
+C:\Users\erizoy\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.pdb
