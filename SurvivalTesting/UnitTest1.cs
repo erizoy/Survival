@@ -60,11 +60,25 @@ namespace SurvivalTesting
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+		public void p_fast_reload()
         {
-            //
-            // TODO: Add test logic here
-            //
+			int x = 40 - 30;
+			Assert.AreEqual(x, 10);
         }
+
+		[TestMethod]
+		public void p_husky()
+		{
+			int x = 100 + 30;
+			Assert.AreEqual(x, 130);
+		}
+
+		[TestMethod]
+		public void p_athlete()
+		{
+			
+		}
+
+		
     }
 }
