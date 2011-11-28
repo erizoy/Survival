@@ -30,15 +30,14 @@ namespace Survival
 
 		public int p_husky(int health) // здоровяк
 		{
-			hero.Health += 30;
+			health += 30;
 			return health;
 		}
 
-		public int p_athlete(int run) //  атлет
+		public void p_athlete() //  атлет
 		{
 			hero.velocity.X += 30;
 			hero.velocity.Y += 30;
-			return run;
 		}
 
 		public void p_regeneration(int health) // в основной программе сделать глобальную проверку health при взятии этого перка(!)

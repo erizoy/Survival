@@ -8,3 +8,8 @@ c:\Users\rufan\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.pdb
 c:\Users\rufan\Survival\SurvivalTesting\obj\Debug\ResolveAssemblyReference.cache
 c:\Users\rufan\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.dll
 c:\Users\rufan\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.pdb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.dll
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.pdb
+C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.dll
+C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.pdb
