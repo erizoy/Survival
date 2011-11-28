@@ -23,7 +23,7 @@ namespace Survival
 
         public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа
         public Rectangle monsterRectangle;
-        public bool isDead, isAlredyDeath = false;
+        public bool isDead = false;
 
         int frameWidth, frameHeight, frameWidthDead, frameHeightDead; //высота и ширина экрана
 
@@ -141,7 +141,6 @@ namespace Survival
         {
             if (!isDead)
             {
-                isAlredyDeath = false;
                 monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 if (!CheckCollision(monsterRectangle, heroRectangle))
                 {
