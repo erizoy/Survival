@@ -23,9 +23,9 @@ namespace Survival
 
         public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа
         public Rectangle monsterRectangle;
-        public bool isDead = false;
+        public bool isDead, isAlredyDeath = false;
 
-        int frameWidth, frameHeight; //высота и ширина экрана
+        int frameWidth, frameHeight, frameWidthDead, frameHeightDead; //высота и ширина экрана
 
         Random randomPosition = new Random();
 
@@ -57,7 +57,7 @@ namespace Survival
             deadMonsterTexture = newDeadTexture;
             screenSize = new Vector2(screenWidth, screenHeight);
             frameWidth = frameHeight = monsterTexture.Height;
-
+            frameWidthDead = frameHeightDead = deadMonsterTexture.Height;
             
             // Случайная выборка позиции монстра
             if (monsterPosition == new Vector2(-11, -11)) 
@@ -91,10 +91,11 @@ namespace Survival
         public void Draw(SpriteBatch spriteBatch)
         {
             // начало отрисовки монстра
-            Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 55, 55); //позиция спрайта и его размеры
+             
             if (!isDead)
             {
+                Vector2 vect = new Vector2(48, 48); //начальный угол
+                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
@@ -104,9 +105,12 @@ namespace Survival
             }
             else
             {
+                Vector2 vect = new Vector2(48, 48); //начальный угол
+                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 125, 125);
                 spriteBatch.Begin();
                 {
-                    spriteBatch.Draw(deadMonsterTexture, rect, Color.White);
+                    Rectangle r = new Rectangle(currentFrame * frameWidthDead, 0, frameWidthDead, frameHeightDead);
+                    spriteBatch.Draw(deadMonsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
                 }
                 spriteBatch.End();
 
@@ -130,6 +134,7 @@ namespace Survival
         {
             if (!isDead)
             {
+                isAlredyDeath = false;
                 monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 if (!CheckCollision(monsterRectangle, heroRectangle))
                 {
@@ -147,6 +152,20 @@ namespace Survival
                 {
                     currentFrame = (currentFrame + 1) % Frames;
                     timeElapsed = 0;
+                }
+            }
+            else
+            {
+                timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
+                while (currentFrame != Frames)
+                {
+                    int timeForDeath = 150;
+                    if (timeElapsed > timeForDeath)
+                    {
+                        currentFrame = (currentFrame + 1) % Frames;
+                        timeElapsed = 0;
+                    }
+                    break;
                 }
             }
         }
