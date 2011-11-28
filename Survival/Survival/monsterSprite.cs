@@ -43,6 +43,14 @@ namespace Survival
             }
         }
 
+        public int FramesDead
+        {
+            get
+            {
+                return deadMonsterTexture.Width / frameWidthDead;
+            }
+        }
+
         /// <summary>
         /// Конструктор класса
         /// </summary>
@@ -80,8 +88,8 @@ namespace Survival
             }
         }
 
-        int currentFrame; // текущий кадр анимации
-        int timeElapsed; // сброс времени
+        public int currentFrame; // текущий кадр анимации
+        public int timeElapsed; // сброс времени
         int timeForFrame = 25; // время задержки кадра
 
         /// <summary>
@@ -113,7 +121,6 @@ namespace Survival
                     spriteBatch.Draw(deadMonsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
                 }
                 spriteBatch.End();
-
             }
         }
 
@@ -156,13 +163,17 @@ namespace Survival
             }
             else
             {
-                timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
-                while (currentFrame != Frames)
+                while (currentFrame != FramesDead)
                 {
+                    timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
                     int timeForDeath = 150;
                     if (timeElapsed > timeForDeath)
                     {
-                        currentFrame = (currentFrame + 1) % Frames;
+                        if (currentFrame == FramesDead - 1)
+                        {
+                            break;
+                        }
+                        currentFrame = (currentFrame + 1) % FramesDead;
                         timeElapsed = 0;
                     }
                     break;

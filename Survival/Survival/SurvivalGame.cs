@@ -141,7 +141,9 @@ namespace Survival
                     Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 2, 2);
                     if (one_monster.monsterRectangle.Intersects(bulletRectangle))
                     {
-                        one_monster.isDead = true; 
+                        one_monster.isDead = true;
+                        one_monster.currentFrame = 0;
+                        one_monster.timeElapsed = 151;
                     }   
                 }
                 one_monster.Update(gameTime, heroRectangle);
