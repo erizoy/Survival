@@ -120,7 +120,6 @@ namespace Survival
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
             hero.Update(gameTime);
-
             if (time > 100)
             {
                 time = 0;
@@ -136,26 +135,20 @@ namespace Survival
 
             foreach (monsterSprite one_monster in monsters)
             {
+                if (!one_monster.isDead)
                 foreach (bulletSprite one_bullet in bullet.bullets)
                 {
                     Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 2, 2);
                     if (one_monster.monsterRectangle.Intersects(bulletRectangle))
                     {
+                        if (!one_monster.isDead)
+                            one_monster.rotationAngle = (float)Math.Atan2(heroRectangle.Y - one_monster.monsterPosition.Y, heroRectangle.X - one_monster.monsterPosition.X);
                         one_monster.isDead = true;
                         one_monster.currentFrame = 0;
                         one_monster.timeElapsed = 151;
                     }   
                 }
                 one_monster.Update(gameTime, heroRectangle);
-               /* if (monsters.Count > 1)
-                for (int i = 1; i < monsters.Count; i++)
-                {
-                    if (monsters[i].CheckCollision(monsters[i - 1].monsterRectangle, monsters[i].monsterRectangle))
-                    {
-                        monsters[i].Update(gameTime, heroRectangle);
-                    }
-                }
-                else*/
             }
 
 
