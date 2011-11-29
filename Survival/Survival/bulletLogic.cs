@@ -22,7 +22,7 @@ namespace Survival
 		public Vector2 bulletPosition; //позиция пули
 		float angle; //угол при повороте мыши
 		public int time;
-		int attackSpeed = 8; //время между выстрелами
+		int attackSpeed = 30; //время между выстрелами
 
 		public bulletLogic(Texture2D newBulletTexture, int screenWidth, int screenHeight)
 		{

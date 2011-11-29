@@ -32,7 +32,7 @@ namespace Survival
         public void Update(GameTime gameTime)
         {
             MouseState m_lastState = Mouse.GetState();
-            mousePosition = new Vector2(m_lastState.X, m_lastState.Y);
+            mousePosition = new Vector2(m_lastState.X - cursorTexture.Width / 2, m_lastState.Y - cursorTexture.Height / 2);
         }
 
     }

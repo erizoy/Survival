@@ -115,11 +115,14 @@ namespace Survival
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+            mouse = Mouse.GetState();
             
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
             hero.Update(gameTime);
+            //
+            //if (monsters.Count < 1)
+           // {
             if (time > 100)
             {
                 time = 0;
@@ -130,7 +133,7 @@ namespace Survival
             }
             else
                 time++;
-
+            //}//
             heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width / 2, hero.idle.Height / 2);
 
             foreach (monsterSprite one_monster in monsters)
@@ -138,11 +141,12 @@ namespace Survival
                 if (!one_monster.isDead)
                 foreach (bulletSprite one_bullet in bullet.bullets)
                 {
-                    Rectangle bulletRectangle = new Rectangle((int)bullet.bulletPosition.X, (int)bullet.bulletPosition.Y, 2, 2);
-                    if (one_monster.monsterRectangle.Intersects(bulletRectangle))
+                    Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
+                    if (bulletRectangle.Intersects(one_monster.monsterRectangle))
                     {
+                        one_bullet.deleting = true;
                         if (!one_monster.isDead)
-                            one_monster.rotationAngle = (float)Math.Atan2(heroRectangle.Y - one_monster.monsterPosition.Y, heroRectangle.X - one_monster.monsterPosition.X);
+                            one_monster.rotationAngle = (float)Math.PI + one_bullet.angle;//угол падения трупа
                         one_monster.isDead = true;
                         one_monster.currentFrame = 0;
                         one_monster.timeElapsed = 151;
@@ -164,12 +168,18 @@ namespace Survival
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             background.Draw(spriteBatch);
-            
-            cursor.Draw(spriteBatch);
 			bullet.Draw(spriteBatch);
-            
+           
+            // отрисовка монстров
+            foreach (monsterSprite item in monsters)
+            {
+                item.Draw(spriteBatch);
+            }
+
+            hero.Draw(spriteBatch);
+            cursor.Draw(spriteBatch);
+
             if (enableConsole)
             {
                 spriteBatch.Begin();
@@ -178,21 +188,12 @@ namespace Survival
                 spriteBatch.DrawString(gameFont, "       Time: " + bullet.time, new Vector2(15, 45), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
                 if (monsters.Count != 0)
-                {
                     spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
-                }
                 spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
+                if (bullet.bullets.Count != 0)
+                    spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 105), Color.YellowGreen);
                 spriteBatch.End();
             }
-
-
-            // отрисовка монстров
-            foreach (monsterSprite item in monsters)
-            {
-                item.Draw(spriteBatch);
-            }
-
-            hero.Draw(spriteBatch);
 
             base.Draw(gameTime);
 

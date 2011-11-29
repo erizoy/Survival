@@ -17,7 +17,7 @@ namespace Survival
         public Texture2D monsterTexture; //текстура спрайта бега
         public Texture2D deadMonsterTexture;
         private Vector2 screenSize;  //размер экрана
-        public Vector2 velocity = new Vector2(2, 2); //скорость перемещения спрайта
+        public Vector2 velocity = new Vector2((float)0.2, (float)0.2); //скорость перемещения спрайта
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -114,7 +114,9 @@ namespace Survival
             else
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
-                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 125, 125);
+                Rectangle rect;
+                rect = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 125, 125);
+                
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidthDead, 0, frameWidthDead, frameHeightDead);
@@ -144,7 +146,7 @@ namespace Survival
                 monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 if (!CheckCollision(monsterRectangle, heroRectangle))
                 {
-                    directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
+                    directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y) + new Vector2(monsterTexture.Height / 2, monsterTexture.Height / 2);
                     directionMonster.Normalize();
 
                     monsterPosition += -directionMonster * velocity;
@@ -165,7 +167,7 @@ namespace Survival
                 while (currentFrame != FramesDead)
                 {
                     timeElapsed += gameTime.ElapsedGameTime.Milliseconds;
-                    int timeForDeath = 150;
+                    int timeForDeath = 35;
                     if (timeElapsed > timeForDeath)
                     {
                         if (currentFrame == FramesDead - 1)

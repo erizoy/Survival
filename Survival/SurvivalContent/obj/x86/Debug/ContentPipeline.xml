@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2011-11-28T19:01:58.3979567+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2011-11-23T01:18:24.4153795+04:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2011-11-28T19:01:58.3999568+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2011-11-23T01:18:24.4303803+04:00</Time>
     </Item>
     <Item>
       <Source>cursor.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\cursor.xnb</Output>
-      <Time>2011-11-28T19:01:58.3999568+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\cursor.xnb</Output>
+      <Time>2011-11-29T02:20:13.92317+04:00</Time>
     </Item>
     <Item>
       <Source>hero.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb</Output>
-      <Time>2011-11-28T19:01:58.4059571+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb</Output>
+      <Time>2011-11-23T01:18:24.4323805+04:00</Time>
     </Item>
     <Item>
       <Source>idlehero.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb</Output>
-      <Time>2011-11-28T19:01:58.4069572+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb</Output>
+      <Time>2011-11-23T01:18:24.4323805+04:00</Time>
     </Item>
     <Item>
       <Source>monster.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb</Output>
-      <Time>2011-11-28T19:01:58.4089573+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb</Output>
+      <Time>2011-11-23T01:18:24.4333805+04:00</Time>
     </Item>
     <Item>
       <Source>deadmonster.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb</Output>
-      <Time>2011-11-28T19:01:58.4019569+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb</Output>
+      <Time>2011-11-28T15:37:55.6429064+04:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -70,8 +70,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2011-11-28T19:01:58.402957+04:00</Time>
+      <Output>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2011-11-23T01:18:24.4313804+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -79,39 +79,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Admin\Survival\Survival\Survival\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\erizoy\Survival\Survival\SurvivalContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\erizoy\Survival\Survival\Survival\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\erizoy\Survival\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Value>2010-08-23T14:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-09-24T12:48:46.0742483+04:00</Value>
+        <Value>2011-11-23T02:43:42.5163946+04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
