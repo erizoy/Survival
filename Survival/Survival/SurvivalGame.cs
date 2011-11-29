@@ -122,7 +122,7 @@ namespace Survival
             hero.Update(gameTime);
             //
             //if (monsters.Count < 1)
-           // {
+            //{
             if (time > 100)
             {
                 time = 0;
@@ -133,7 +133,7 @@ namespace Survival
             }
             else
                 time++;
-            //}//
+            //}
             heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width / 2, hero.idle.Height / 2);
 
             foreach (monsterSprite one_monster in monsters)

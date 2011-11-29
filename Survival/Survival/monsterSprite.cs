@@ -17,7 +17,7 @@ namespace Survival
         public Texture2D monsterTexture; //текстура спрайта бега
         public Texture2D deadMonsterTexture;
         private Vector2 screenSize;  //размер экрана
-        public Vector2 velocity = new Vector2((float)0.2, (float)0.2); //скорость перемещения спрайта
+        public Vector2 velocity = new Vector2((float)2, (float)2); //скорость перемещения спрайта
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -103,7 +103,8 @@ namespace Survival
             if (!isDead)
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
-                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 100, 100); //позиция спрайта и его размеры
+                int spriteHeight = 100, spriteWidth = 100;
+                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y,  spriteWidth, spriteHeight); //позиция спрайта и его размеры
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
@@ -116,7 +117,7 @@ namespace Survival
                 Vector2 vect = new Vector2(48, 48); //начальный угол
                 Rectangle rect;
                 rect = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 125, 125);
-                
+                //rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 125, 125);
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidthDead, 0, frameWidthDead, frameHeightDead);
@@ -146,7 +147,7 @@ namespace Survival
                 monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 if (!CheckCollision(monsterRectangle, heroRectangle))
                 {
-                    directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y) + new Vector2(monsterTexture.Height / 2, monsterTexture.Height / 2);
+                    directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
                     directionMonster.Normalize();
 
                     monsterPosition += -directionMonster * velocity;

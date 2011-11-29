@@ -18,7 +18,7 @@ namespace Survival
         
         public Vector2 bulletPosition, screenSize;
         public bool starting, deleting;
-        public float angle, speed = 10f;
+        public float angle, speed = 16f;
 
         public bulletSprite(Texture2D newBulletTexture, Vector2 newScreenSize, Vector2 newBulletPoition, float newAngle)
         {

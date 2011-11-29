@@ -82,7 +82,7 @@ namespace Survival
         public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 55, 55); //позиция спрайта и его размеры
+            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100); //позиция спрайта и его размеры
             spriteBatch.Begin();
             if (isRunning)
             {
