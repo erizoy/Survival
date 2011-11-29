@@ -22,7 +22,7 @@ namespace Survival
 		public Vector2 bulletPosition; //позиция пули
 		float angle; //угол при повороте мыши
 		public int time;
-		int attackSpeed = 30; //время между выстрелами
+		int attackSpeed = 3; //время между выстрелами
 
 		public bulletLogic(Texture2D newBulletTexture, int screenWidth, int screenHeight)
 		{
@@ -43,8 +43,8 @@ namespace Survival
 		{
 			//screenSize = new Vector2(screenWidth, screenHeight);			
 			time = 0;
-			bulletPosition.X = heroPosition.X + 32 * (float)Math.Cos(angle) - 6 * (float)Math.Sin(angle);
-			bulletPosition.Y = heroPosition.Y + 32 * (float)Math.Sin(angle) + 6 * (float)Math.Cos(angle);
+			bulletPosition.X = heroPosition.X + 10 * (float)Math.Cos(angle) - 6 * (float)Math.Sin(angle);
+			bulletPosition.Y = heroPosition.Y + 10 * (float)Math.Sin(angle) + 6 * (float)Math.Cos(angle);
 			bullets.Add(new bulletSprite(bulletTexture, screenSize, bulletPosition, angle));
 		}
 

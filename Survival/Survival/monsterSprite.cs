@@ -18,6 +18,7 @@ namespace Survival
         public Texture2D deadMonsterTexture;
         private Vector2 screenSize;  //размер экрана
         public Vector2 velocity = new Vector2((float)2, (float)2); //скорость перемещения спрайта
+        public Rectangle drawingRectangle;
 
         public float rotationAngle; //поворот спрайта персонажа
 
@@ -104,24 +105,23 @@ namespace Survival
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
                 int spriteHeight = 100, spriteWidth = 100;
-                Rectangle rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y,  spriteWidth, spriteHeight); //позиция спрайта и его размеры
+                drawingRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y,  spriteWidth, spriteHeight); //позиция спрайта и его размеры
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
-                    spriteBatch.Draw(monsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(monsterTexture, drawingRectangle, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
                 }
                 spriteBatch.End();
             }
             else
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
-                Rectangle rect;
-                rect = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 125, 125);
+                drawingRectangle = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 125, 125);
                 //rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 125, 125);
                 spriteBatch.Begin();
                 {
                     Rectangle r = new Rectangle(currentFrame * frameWidthDead, 0, frameWidthDead, frameHeightDead);
-                    spriteBatch.Draw(deadMonsterTexture, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(deadMonsterTexture, drawingRectangle, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
                 }
                 spriteBatch.End();
             }
@@ -152,7 +152,7 @@ namespace Survival
 
                     monsterPosition += -directionMonster * velocity;
                 }
-
+                monsterRectangle = new Rectangle((int)monsterPosition.X - drawingRectangle.Width / 2, (int)monsterPosition.Y - drawingRectangle.Height / 2, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 rotationAngle = (float)Math.Atan2(heroRectangle.Y - monsterPosition.Y, heroRectangle.X - monsterPosition.X);
 
                 // смена кадров анимации монстра

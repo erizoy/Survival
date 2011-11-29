@@ -134,7 +134,7 @@ namespace Survival
             else
                 time++;
             //}
-            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.idle.Width / 2, hero.idle.Height / 2);
+            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
 
             foreach (monsterSprite one_monster in monsters)
             {

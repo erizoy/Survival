@@ -22,6 +22,8 @@ namespace Survival
         public Vector2 velocity; //скорость перемещения спрайта
 		public int Health = 100;
 
+        public Rectangle drawingRectangle;
+
 		//bulletLogic bullet = new bulletLogic();
 
         public float rotationAngle; //поворот спрайта персонажа
@@ -82,16 +84,16 @@ namespace Survival
         public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 vect = new Vector2(48, 48); //начальный угол
-            Rectangle rect = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 100, 100); //позиция спрайта и его размеры
+            drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 50, 50); //позиция спрайта и его размеры
             spriteBatch.Begin();
             if (isRunning)
             {
                 Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
-                spriteBatch.Draw(run, rect, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                spriteBatch.Draw(run, drawingRectangle, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
             else
             {
-                spriteBatch.Draw(idle, rect, null, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+                spriteBatch.Draw(idle, drawingRectangle, null, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
             }
             spriteBatch.End();
 		}
