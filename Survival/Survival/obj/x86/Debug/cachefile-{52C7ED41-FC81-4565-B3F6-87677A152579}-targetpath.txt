@@ -5,5 +5,5 @@ Content\hero.xnb
 Content\idlehero.xnb
 Content\monster.xnb
 Content\deadmonster.xnb
-Content\font.xnb
 Content\rifle.xnb
+Content\font.xnb

@@ -53,6 +53,7 @@ namespace Survival
 				if (bullets.Count == 30)
 				{
 					Reload();
+					bullets.Clear();
 				}
 			}
 		}
