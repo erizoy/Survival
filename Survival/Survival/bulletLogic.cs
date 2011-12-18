@@ -12,11 +12,11 @@ namespace Survival
 	{
 		public List<bulletSprite> bullets = new List<bulletSprite>();
 
-		weaponLogic weapon = new weaponLogic();
-
 		private Vector2 screenSize;  //размер экрана
 
 		heroSprite hero = new heroSprite();
+
+		public int Count = 0;
 
 		public Texture2D bulletTexture; //текстура пуль
 		public Vector2 bulletPosition; //позиция пули
@@ -63,6 +63,7 @@ namespace Survival
 
 		public void Update(GameTime gameTime, Vector2 heroPosition)
 		{
+			Count++;
 			//Логика пули
 			if (time != attackSpeed)
 				time++;
@@ -91,12 +92,8 @@ namespace Survival
 					AddBullet(angle, heroPosition);
 					}
 			}
-			DeleteBullet();
+			//DeleteBullet();
 
-			if (bullets.Count == weapon.assult_rufle_round)
-			{
-				weapon.Reload(gameTime);
-			}
 			foreach (bulletSprite item in bullets)
 			{
 				item.Update(gameTime);

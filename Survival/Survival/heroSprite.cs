@@ -24,8 +24,6 @@ namespace Survival
 
         public Rectangle drawingRectangle;
 
-		//bulletLogic bullet = new bulletLogic();
-
         public float rotationAngle; //поворот спрайта персонажа
 
         public Vector2 heroPosition; //позиция персонажа

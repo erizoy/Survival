@@ -13,3 +13,8 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\SurvivalTesting.pdb
 C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.dll
 C:\Users\Admin\Survival\SurvivalTesting\obj\Debug\SurvivalTesting.pdb
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\SurvivalTesting.dll
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\SurvivalTesting.pdb
+C:\Users\Admin\Новая папка\SurvivalTesting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Новая папка\SurvivalTesting\obj\Debug\SurvivalTesting.dll
+C:\Users\Admin\Новая папка\SurvivalTesting\obj\Debug\SurvivalTesting.pdb

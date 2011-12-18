@@ -78,3 +78,5 @@ C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
 C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 c:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\rifle.xnb

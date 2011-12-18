@@ -21,6 +21,7 @@ namespace Survival
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+		rifleSprite rifle;
         heroSprite hero;
         cursorSprite cursor;
 		bulletLogic bullet;
@@ -70,6 +71,8 @@ namespace Survival
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
+			Vector2 riflePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 100);
+			rifle = new rifleSprite(Content.Load<Texture2D>("rifle"), riflePosition);
             hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			bullet = new bulletLogic(Content.Load<Texture2D>("bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
@@ -116,7 +119,8 @@ namespace Survival
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             mouse = Mouse.GetState();
-            
+
+			rifle.Update(gameTime, bullet.bullets, bullet.Count);
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
             hero.Update(gameTime);
@@ -155,6 +159,11 @@ namespace Survival
                 one_monster.Update(gameTime, heroRectangle);
             }
 
+			if ((rifle.riflePosition.X == hero.heroPosition.X) && (rifle.riflePosition.Y == hero.heroPosition.Y))
+			{
+				rifle.raised = true;
+			}
+
 
             base.Update(gameTime);
 
@@ -179,6 +188,7 @@ namespace Survival
 
             hero.Draw(spriteBatch);
             cursor.Draw(spriteBatch);
+			rifle.Draw(spriteBatch);
 
             if (enableConsole)
             {
