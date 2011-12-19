@@ -29,6 +29,11 @@ namespace Survival
             bulletPosition = newBulletPoition;
         }
 
+        public bulletSprite()
+        { 
+            
+        }
+
         public void Update(GameTime gameTime)
         {
             if (starting)

@@ -15,6 +15,8 @@ namespace SurvivalTesting
 		Survival.rifleSprite rifle = new Survival.rifleSprite();
 		Survival.itemLogic item = new Survival.itemLogic();
 		Survival.heroSprite hero = new Survival.heroSprite();
+        Survival.bulletLogic l_bullet = new Survival.bulletLogic();
+        Survival.bulletSprite s_bullet = new Survival.bulletSprite();
 
         public UnitTest1()
         {
@@ -84,6 +86,26 @@ namespace SurvivalTesting
 			Assert.IsFalse(x);
 		}
 
-		
+        [TestMethod]
+        public void Test4()
+        {
+            var x = l_bullet.bullets;
+            Assert.IsNotNull(x);
+        }
+
+        [TestMethod]
+        public void Test5()
+        {
+            bool x = s_bullet.starting;
+            Assert.IsFalse(x);
+        }
+
+        [TestMethod]
+        public void Test6()
+        {
+            var x = rifle;
+            var y = l_bullet;
+            Assert.AreNotSame(x, y);
+        }
     }
 }
