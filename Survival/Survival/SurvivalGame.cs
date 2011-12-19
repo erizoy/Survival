@@ -120,7 +120,7 @@ namespace Survival
                 this.Exit();
             mouse = Mouse.GetState();
 
-			rifle.Update(gameTime, bullet.bullets, bullet.Count);
+			rifle.Update(gameTime, bullet.bullets);
             cursor.Update(gameTime);
 			bullet.Update(gameTime, hero.heroPosition);
             hero.Update(gameTime);

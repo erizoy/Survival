@@ -16,8 +16,6 @@ namespace Survival
 
 		heroSprite hero = new heroSprite();
 
-		public int Count = 0;
-
 		public Texture2D bulletTexture; //текстура пуль
 		public Vector2 bulletPosition; //позиция пули
 		float angle; //угол при повороте мыши
@@ -63,7 +61,6 @@ namespace Survival
 
 		public void Update(GameTime gameTime, Vector2 heroPosition)
 		{
-			Count++;
 			//Логика пули
 			if (time != attackSpeed)
 				time++;
