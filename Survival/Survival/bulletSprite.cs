@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Survival
 {
 
-    class bulletSprite
+    public class bulletSprite
     {
         public Texture2D bulletTexture;
         

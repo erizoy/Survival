@@ -5,11 +5,16 @@ using System.Text;
 
 namespace Survival
 {
-    class itemLogic
+    public class itemLogic
     {
 		heroSprite hero;
 
 		int reg_time = 300;
+
+		public itemLogic()
+		{ 
+			
+		}
 
 		public int p_fast_reload(int time)// быстрая перезарядка
 		{

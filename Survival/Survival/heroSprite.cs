@@ -14,7 +14,7 @@ namespace Survival
     /// <summary>
     /// класс, описывающий спрайт и передвижение со стрельбой персонажа.
     /// </summary>
-    class heroSprite 
+    public class heroSprite 
     {
 		public Vector2 screenSize;
         public Texture2D idle;  //текстура спрайта

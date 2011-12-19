@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Survival
 {
-	class bulletLogic
+	public class bulletLogic
 	{
 		public List<bulletSprite> bullets = new List<bulletSprite>();
 

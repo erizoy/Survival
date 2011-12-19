@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Survival
 {
 
-    class cursorSprite
+    public class cursorSprite
     {
         public Texture2D cursorTexture;
         public Vector2 mousePosition = Vector2.Zero;

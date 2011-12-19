@@ -12,6 +12,10 @@ namespace SurvivalTesting
     [TestClass]
     public class UnitTest1
     {
+		Survival.rifleSprite rifle = new Survival.rifleSprite();
+		Survival.itemLogic item = new Survival.itemLogic();
+		Survival.heroSprite hero = new Survival.heroSprite();
+
         public UnitTest1()
         {
             //
@@ -60,23 +64,24 @@ namespace SurvivalTesting
         #endregion
 
         [TestMethod]
-		public void p_fast_reload()
+		public void Test1()
         {
-			int x = 40 - 30;
-			Assert.AreEqual(x, 10);
+			bool x = rifle.raised;
+			Assert.IsFalse(x);
         }
 
 		[TestMethod]
-		public void p_husky()
+		public void Test2()
 		{
-			int x = 100 + 30;
-			Assert.AreEqual(x, 130);
+			int x = item.p_husky(30);
+			Assert.AreEqual(x, 60);
 		}
 
 		[TestMethod]
-		public void p_athlete()
+		public void Test3()
 		{
-			
+			bool x = hero.isRunning;
+			Assert.IsFalse(x);
 		}
 
 		

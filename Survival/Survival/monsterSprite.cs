@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Survival
 {
 
-    class monsterSprite
+    public class monsterSprite
     {
         public Texture2D monsterTexture; //текстура спрайта бега
         public Texture2D deadMonsterTexture;

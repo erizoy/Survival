@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Survival
 {
-	class rifleSprite
+	public class rifleSprite
 	{
 		public Texture2D rifle;
 		public Vector2 riflePosition;
@@ -21,6 +21,11 @@ namespace Survival
 		{
 			rifle = newRifle;
 			riflePosition = NewriflePosition;
+		}
+
+		public rifleSprite()
+		{ 
+			
 		}
 
 		public void Reload()

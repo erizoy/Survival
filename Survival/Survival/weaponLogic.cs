@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace Survival
 {
-    class weaponLogic
+    public class weaponLogic
     {
 		public int assult_rufle_round = 1;
 		public int time_reload;
