@@ -22,6 +22,7 @@ namespace Survival
         SpriteBatch spriteBatch;
 
 		pistolDefault pistol = new pistolDefault();
+		flamethrowerSprite flame;
 		rifleSprite rifle;
         heroSprite hero;
         cursorSprite cursor;
@@ -35,9 +36,11 @@ namespace Survival
         bool enableConsole = true;
 		bool reload;
 		bool auto;
+		bool b_flame;
 
         Rectangle heroRectangle;
 		Rectangle rifleRectangle;
+		Rectangle flameRectangle;
 
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
@@ -76,6 +79,8 @@ namespace Survival
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
 			Vector2 riflePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 100);
+			Vector2 flamePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 - 100);
+			flame = new flamethrowerSprite(Content.Load<Texture2D>("flamethrower"), flamePosition);
 			rifle = new rifleSprite(Content.Load<Texture2D>("rifle"), riflePosition);
             hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			bullet = new bulletLogic(Content.Load<Texture2D>("bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
@@ -124,7 +129,7 @@ namespace Survival
                 this.Exit();
             mouse = Mouse.GetState();
 
-			if (rifle.raised)
+			if (rifle.raised_rifle)
 			{
 				rifle.Update(gameTime, bullet.bullets, reload);
 				if (rifle.l_reload)
@@ -140,7 +145,7 @@ namespace Survival
 			
 			//rifle.Update(gameTime, bullet.bullets);
             cursor.Update(gameTime);
-			bullet.Update(gameTime, hero.heroPosition, reload, auto);
+			bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame);
             hero.Update(gameTime);
             //
             //if (monsters.Count < 1)
@@ -158,10 +163,17 @@ namespace Survival
             //}
             heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
 			rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
+			flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
+
+			if (heroRectangle.Intersects(flameRectangle))
+			{
+				flame.raised_flame = true;
+				b_flame = true;
+			}
 
 			if (heroRectangle.Intersects(rifleRectangle))
 			{
-				rifle.raised = true;
+				rifle.raised_rifle = true;
 				auto = true;
 			}
             foreach (monsterSprite one_monster in monsters)
@@ -197,6 +209,7 @@ namespace Survival
             GraphicsDevice.Clear(Color.CornflowerBlue);
             background.Draw(spriteBatch);
 			bullet.Draw(spriteBatch);
+			flame.Draw(spriteBatch);
            
             // отрисовка монстров
             foreach (monsterSprite item in monsters)

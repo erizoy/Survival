@@ -61,13 +61,15 @@ namespace Survival
 					i++;
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto)
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame)
 		{
 			//Логика пули
 			if (!reload)
 			{
+
 				if (auto)
 				{
+					attackSpeed = 10;
 					if (time != attackSpeed)
 						time++;
 					else
@@ -98,33 +100,42 @@ namespace Survival
 				}
 				else
 				{
-						MouseState mouse = Mouse.GetState();
-						if (mouse.LeftButton == ButtonState.Pressed)
-						{
-							time = 0;
-							shoot = true;
-							if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
-							{
-								angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-							}
-							if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
-							{
-								angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-							}
-							if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
-							{
-								angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
-							}
-							if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
-							{
-								angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
-							}
-						
-					}
-					if (shoot)
+					if (b_flame)
 					{
-						AddBullet(angle, heroPosition);
-						shoot = false;
+						attackSpeed = 0;
+						if (time != attackSpeed)
+							time++;
+						else
+						{
+							MouseState mouse = Mouse.GetState();
+							if (mouse.LeftButton == ButtonState.Pressed)
+							{
+								time = 0;
+								shoot = true;
+								if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
+								{
+									angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+								}
+								if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
+								{
+									angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+								}
+								if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
+								{
+									angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
+								}
+								if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
+								{
+									angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
+								}
+
+							}
+							if (shoot)
+							{
+								AddBullet(angle, heroPosition);
+								shoot = false;
+							}
+						}
 					}
 				}
 			}

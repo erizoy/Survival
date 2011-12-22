@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Survival
 {
@@ -18,7 +19,7 @@ namespace Survival
 
 		bulletLogic bullet = new bulletLogic();
 
-		public bool raised = false; // поднял оружие
+		public bool raised_rifle = false; // поднял оружие
 
 		public rifleSprite(Texture2D newRifle, Vector2 NewriflePosition)
 		{
@@ -39,7 +40,7 @@ namespace Survival
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			if (!raised)
+			if (!raised_rifle)
 			{
 				drawingRectangle = new Rectangle((int)riflePosition.X, (int)riflePosition.Y, 75, 30);
 				spriteBatch.Begin();
@@ -57,7 +58,7 @@ namespace Survival
 
 		public void Update(GameTime gameTime, List<bulletSprite> bullets, bool reload)
 		{
-			if (raised)
+			if (raised_rifle)
 			{
 				if (bullets.Count == 30)
 				{

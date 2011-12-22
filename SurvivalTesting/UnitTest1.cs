@@ -68,7 +68,7 @@ namespace SurvivalTesting
         [TestMethod]
 		public void Test1()
         {
-			bool x = rifle.raised;
+			bool x = rifle.raised_rifle;
 			Assert.IsFalse(x);
         }
 

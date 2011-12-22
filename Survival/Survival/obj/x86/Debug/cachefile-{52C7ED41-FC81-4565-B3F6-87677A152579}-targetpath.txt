@@ -7,3 +7,4 @@ Content\monster.xnb
 Content\deadmonster.xnb
 Content\rifle.xnb
 Content\font.xnb
+Content\flamethrower.xnb

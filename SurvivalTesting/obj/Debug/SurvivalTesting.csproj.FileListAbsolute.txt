@@ -40,3 +40,4 @@ C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\rifle.xnb
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\font.xnb
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.exe
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.pdb
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\flamethrower.xnb

@@ -81,3 +81,4 @@ C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\flamethrower.xnb

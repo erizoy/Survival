@@ -111,6 +111,7 @@
     <Compile Include="bulletLogic.cs" />
     <Compile Include="bulletSprite.cs" />
     <Compile Include="cursorSprite.cs" />
+    <Compile Include="flamethrowerSprite.cs" />
     <Compile Include="heroLogic.cs" />
     <Compile Include="heroSprite.cs" />
     <Compile Include="itemLogic.cs" />
