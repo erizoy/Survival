@@ -22,6 +22,8 @@ namespace Survival
 		public int time;
 		int attackSpeed = 3; //время между выстрелами
 
+		bool shoot = false;
+
 		public bulletLogic(Texture2D newBulletTexture, int screenWidth, int screenHeight)
 		{
 			bulletTexture = newBulletTexture;
@@ -59,36 +61,74 @@ namespace Survival
 					i++;
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition)
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto)
 		{
 			//Логика пули
-			if (time != attackSpeed)
-				time++;
-			else
+			if (!reload)
 			{
-				MouseState mouse = Mouse.GetState();
-				if (mouse.LeftButton == ButtonState.Pressed)
+				if (auto)
 				{
-					time = 0;
-					if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
+					if (time != attackSpeed)
+						time++;
+					else
 					{
-						angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+						MouseState mouse = Mouse.GetState();
+						if (mouse.LeftButton == ButtonState.Pressed)
+						{
+							time = 0;
+							if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
+							{
+								angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+							}
+							if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
+							{
+								angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+							}
+							if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
+							{
+								angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
+							}
+							if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
+							{
+								angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
+							}
+							AddBullet(angle, heroPosition);
+						}
 					}
-					if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
+				}
+				else
+				{
+						MouseState mouse = Mouse.GetState();
+						if (mouse.LeftButton == ButtonState.Pressed)
+						{
+							time = 0;
+							shoot = true;
+							if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
+							{
+								angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+							}
+							if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
+							{
+								angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+							}
+							if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
+							{
+								angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
+							}
+							if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
+							{
+								angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
+							}
+						
+					}
+					if (shoot)
 					{
-						angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+						AddBullet(angle, heroPosition);
+						shoot = false;
 					}
-					if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
-					{
-						angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
-					}
-					if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
-					{
-						angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
-					}
-					AddBullet(angle, heroPosition);
-					}
+				}
 			}
+			
 			//DeleteBullet();
 
 			foreach (bulletSprite item in bullets)

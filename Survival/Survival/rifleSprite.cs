@@ -12,7 +12,8 @@ namespace Survival
 		public Texture2D rifle;
 		public Vector2 riflePosition;
 		public Rectangle drawingRectangle;
-		public int time_reload;
+		int time_reload = 0;
+		int openfire = 0;
 		public bool l_reload = false;
 
 		bulletLogic bullet = new bulletLogic();
@@ -32,7 +33,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload = (int)gameTime.ElapsedGameTime.Seconds + 2;
+			time_reload += 150;
 			l_reload = true;
 		}
 
@@ -40,7 +41,7 @@ namespace Survival
 		{
 			if (!raised)
 			{
-				drawingRectangle = new Rectangle((int)riflePosition.X, (int)riflePosition.Y, 85, 50);
+				drawingRectangle = new Rectangle((int)riflePosition.X, (int)riflePosition.Y, 75, 30);
 				spriteBatch.Begin();
 				spriteBatch.Draw(rifle, drawingRectangle, Color.White);
 				spriteBatch.End();
@@ -54,7 +55,7 @@ namespace Survival
 			}
 		}
 
-		public void Update(GameTime gameTime, List<bulletSprite> bullets)
+		public void Update(GameTime gameTime, List<bulletSprite> bullets, bool reload)
 		{
 			if (raised)
 			{
@@ -65,11 +66,14 @@ namespace Survival
 				}
 				if (l_reload)
 				{
-					if (gameTime.ElapsedGameTime.Seconds < time_reload)
-						raised = false;
+					if (openfire < time_reload)
+					{
+						reload = true;
+						openfire++;
+					}
 					else
 					{
-						raised = true;
+						reload = false;
 						l_reload = false;
 					}
 				}

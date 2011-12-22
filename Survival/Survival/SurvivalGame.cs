@@ -21,6 +21,7 @@ namespace Survival
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+		pistolDefault pistol = new pistolDefault();
 		rifleSprite rifle;
         heroSprite hero;
         cursorSprite cursor;
@@ -32,8 +33,11 @@ namespace Survival
         Random randomPosition = new Random();
         int time;
         bool enableConsole = true;
+		bool reload;
+		bool auto;
 
         Rectangle heroRectangle;
+		Rectangle rifleRectangle;
 
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
@@ -120,9 +124,23 @@ namespace Survival
                 this.Exit();
             mouse = Mouse.GetState();
 
-			rifle.Update(gameTime, bullet.bullets);
+			if (rifle.raised)
+			{
+				rifle.Update(gameTime, bullet.bullets, reload);
+				if (rifle.l_reload)
+					reload = true;
+				else
+					reload = false;
+			}
+			else
+			{
+				pistol.Update(gameTime, bullet.bullets, reload);
+			}
+
+			
+			//rifle.Update(gameTime, bullet.bullets);
             cursor.Update(gameTime);
-			bullet.Update(gameTime, hero.heroPosition);
+			bullet.Update(gameTime, hero.heroPosition, reload, auto);
             hero.Update(gameTime);
             //
             //if (monsters.Count < 1)
@@ -139,7 +157,13 @@ namespace Survival
                 time++;
             //}
             heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
+			rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
 
+			if (heroRectangle.Intersects(rifleRectangle))
+			{
+				rifle.raised = true;
+				auto = true;
+			}
             foreach (monsterSprite one_monster in monsters)
             {
                 if (!one_monster.isDead)
@@ -158,12 +182,6 @@ namespace Survival
                 }
                 one_monster.Update(gameTime, heroRectangle);
             }
-
-			if ((rifle.riflePosition.X == hero.heroPosition.X) && (rifle.riflePosition.Y == hero.heroPosition.Y))
-			{
-				rifle.raised = true;
-			}
-
 
             base.Update(gameTime);
 
