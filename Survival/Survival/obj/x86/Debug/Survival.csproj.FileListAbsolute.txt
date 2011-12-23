@@ -82,3 +82,11 @@ C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\dea
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\flamethrower.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\herodead.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\first-aid.xnb
+C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\husky.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\flamethrower.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\herodead.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\first-aid.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\husky.xnb

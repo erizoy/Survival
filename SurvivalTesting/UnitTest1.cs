@@ -75,8 +75,8 @@ namespace SurvivalTesting
 		[TestMethod]
 		public void Test2()
 		{
-			int x = item.p_husky(30);
-			Assert.AreEqual(x, 60);
+			double x = item.p_husky(30);
+			Assert.AreEqual(x, 80);
 		}
 
 		[TestMethod]

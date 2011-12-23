@@ -6,5 +6,8 @@ Content\idlehero.xnb
 Content\monster.xnb
 Content\deadmonster.xnb
 Content\rifle.xnb
-Content\font.xnb
 Content\flamethrower.xnb
+Content\herodead.xnb
+Content\first-aid.xnb
+Content\husky.xnb
+Content\font.xnb

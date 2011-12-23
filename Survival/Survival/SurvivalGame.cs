@@ -22,6 +22,7 @@ namespace Survival
         SpriteBatch spriteBatch;
 
 		pistolDefault pistol = new pistolDefault();
+		itemLogic item_b;
 		flamethrowerSprite flame;
 		rifleSprite rifle;
         heroSprite hero;
@@ -41,6 +42,8 @@ namespace Survival
         Rectangle heroRectangle;
 		Rectangle rifleRectangle;
 		Rectangle flameRectangle;
+		Rectangle firstaidbRectangle;
+		Rectangle huskyRectangle;
 
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
@@ -80,9 +83,12 @@ namespace Survival
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
 			Vector2 riflePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 100);
 			Vector2 flamePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 - 100);
+			Vector2 itemPosition = new Vector2(graphics.PreferredBackBufferWidth / 2 + 100, graphics.PreferredBackBufferHeight / 2);
+			Vector2 itemPosition2 = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 200);
+			item_b = new itemLogic(Content.Load<Texture2D>("first-aid"), Content.Load<Texture2D>("husky"), itemPosition, itemPosition2);
 			flame = new flamethrowerSprite(Content.Load<Texture2D>("flamethrower"), flamePosition);
 			rifle = new rifleSprite(Content.Load<Texture2D>("rifle"), riflePosition);
-            hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            hero = new heroSprite(Content.Load<Texture2D>("idlehero"), Content.Load<Texture2D>("hero"), Content.Load<Texture2D>("herodead"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			bullet = new bulletLogic(Content.Load<Texture2D>("bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
 
@@ -142,11 +148,12 @@ namespace Survival
 				pistol.Update(gameTime, bullet.bullets, reload);
 			}
 
-			
-			//rifle.Update(gameTime, bullet.bullets);
             cursor.Update(gameTime);
-			bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame);
-            hero.Update(gameTime);
+			if (!hero.heroIsDead)
+			{
+				hero.Update(gameTime);
+				bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame);
+			}
             //
             //if (monsters.Count < 1)
             //{
@@ -161,9 +168,21 @@ namespace Survival
             else
                 time++;
             //}
-            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
+            heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width, hero.drawingRectangle.Height);
 			rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
 			flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
+			firstaidbRectangle = new Rectangle((int)item_b.itemPosition.X, (int)item_b.itemPosition.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
+			huskyRectangle = new Rectangle((int)item_b.itemPosition2.X, (int)item_b.itemPosition2.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
+
+			if (heroRectangle.Intersects(huskyRectangle))
+			{
+				hero.currentHealth = item_b.p_husky(hero.currentHealth);
+			}
+
+			if (heroRectangle.Intersects(firstaidbRectangle))
+			{
+				hero.Health = item_b.first_aid(hero.Health, hero.currentHealth);
+			}
 
 			if (heroRectangle.Intersects(flameRectangle))
 			{
@@ -192,6 +211,11 @@ namespace Survival
                         one_monster.timeElapsed = 151;
                     }   
                 }
+				if (!one_monster.isDead)
+				{
+					if (heroRectangle.Intersects(one_monster.monsterRectangle))
+						hero.Damage(one_monster.damage);
+				}
                 one_monster.Update(gameTime, heroRectangle);
             }
 
@@ -210,6 +234,7 @@ namespace Survival
             background.Draw(spriteBatch);
 			bullet.Draw(spriteBatch);
 			flame.Draw(spriteBatch);
+			item_b.Draw(spriteBatch);
            
             // отрисовка монстров
             foreach (monsterSprite item in monsters)
@@ -231,8 +256,10 @@ namespace Survival
                 if (monsters.Count != 0)
                     spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
                 spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
+				spriteBatch.DrawString(gameFont, "     Health: " + hero.Health, new Vector2(15, 105), Color.YellowGreen);
+				spriteBatch.DrawString(gameFont, "  curHealth: " + (int)hero.currentHealth, new Vector2(15, 120), Color.YellowGreen);
                 if (bullet.bullets.Count != 0)
-                    spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 105), Color.YellowGreen);
+                    spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 135), Color.YellowGreen);
                 spriteBatch.End();
             }
 

@@ -19,8 +19,10 @@ namespace Survival
 		public Vector2 screenSize;
         public Texture2D idle;  //текстура спрайта
         public Texture2D run; //текстура спрайта бега
+		public Texture2D deadhero; // текстура смерти
         public Vector2 velocity; //скорость перемещения спрайта
-		public int Health = 100;
+		public double Health = 100;
+		public double currentHealth = 100;
 
         public Rectangle drawingRectangle;
 
@@ -29,6 +31,7 @@ namespace Survival
         public Vector2 heroPosition; //позиция персонажа
 
         public bool isRunning; //логическая переменная показывающая нахождение персонажа в движении
+		public bool heroIsDead;
 
         int frameWidth, frameHeight; //высота и ширина экрана
        
@@ -55,10 +58,11 @@ namespace Survival
         /// <param name="newHeroPosition"></param> стартовая позиция персонажа
         /// <param name="screenWidth"></param>
         /// <param name="screenHeight"></param>
-        public heroSprite(Texture2D newTexture, Texture2D newRunTexture, Vector2 newHeroPosition , int screenWidth, int screenHeight)
+        public heroSprite(Texture2D newTexture, Texture2D newRunTexture, Texture2D newDeadHeroTexture, Vector2 newHeroPosition , int screenWidth, int screenHeight)
         {
             idle = newTexture;
             run = newRunTexture;
+			deadhero = newDeadHeroTexture;
 
             heroPosition = newHeroPosition;
 
@@ -75,25 +79,44 @@ namespace Survival
         int timeElapsed;
         int timeForFrame = 110;
 
+		public void Damage(double monster_damage)
+		{
+			Health -= monster_damage;
+			if (Health <= 0)
+			{
+				heroIsDead = true;
+			}
+		}
+
         /// <summary>
         /// отрисовка героя
         /// </summary>
         /// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 vect = new Vector2(48, 48); //начальный угол
-            drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 50, 50); //позиция спрайта и его размеры
-            spriteBatch.Begin();
-            if (isRunning)
-            {
-                Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
-                spriteBatch.Draw(run, drawingRectangle, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
-            }
-            else
-            {
-                spriteBatch.Draw(idle, drawingRectangle, null, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
-            }
-            spriteBatch.End();
+			if (!heroIsDead)
+			{
+				Vector2 vect = new Vector2(48, 48); //начальный угол
+				drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 50, 50); //позиция спрайта и его размеры
+				spriteBatch.Begin();
+				if (isRunning)
+				{
+					Rectangle r = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
+					spriteBatch.Draw(run, drawingRectangle, r, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+				}
+				else
+				{
+					spriteBatch.Draw(idle, drawingRectangle, null, Color.White, rotationAngle, vect, SpriteEffects.None, 0f);
+				}
+				spriteBatch.End();
+			}
+			else
+			{
+				drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 50, 50);
+				spriteBatch.Begin();
+				spriteBatch.Draw(deadhero, drawingRectangle, Color.White);
+				spriteBatch.End();
+			}
 		}
 
 

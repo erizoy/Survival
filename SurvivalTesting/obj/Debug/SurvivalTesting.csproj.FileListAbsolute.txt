@@ -41,3 +41,6 @@ C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\font.xnb
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.exe
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.pdb
 C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\flamethrower.xnb
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\herodead.xnb
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\first-aid.xnb
+C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\husky.xnb

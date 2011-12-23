@@ -20,7 +20,7 @@ namespace Survival
 		public Vector2 bulletPosition; //позиция пули
 		float angle; //угол при повороте мыши
 		public int time;
-		int attackSpeed = 3; //время между выстрелами
+		int attackSpeed = 0; //время между выстрелами
 
 		bool shoot = false;
 

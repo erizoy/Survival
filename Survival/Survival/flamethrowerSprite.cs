@@ -25,7 +25,7 @@ namespace Survival
 		{
 			if (!raised_flame)
 			{
-				drawingRectangle = new Rectangle((int)flamePosition.X, (int)flamePosition.Y, 75, 30);
+				drawingRectangle = new Rectangle((int)flamePosition.X, (int)flamePosition.Y, 95, 30);
 				spriteBatch.Begin();
 				spriteBatch.Draw(flame, drawingRectangle, Color.White);
 				spriteBatch.End();

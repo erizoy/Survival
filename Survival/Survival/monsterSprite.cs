@@ -20,6 +20,8 @@ namespace Survival
         public Vector2 velocity = new Vector2((float)2, (float)2); //скорость перемещения спрайта
         public Rectangle drawingRectangle;
 
+		public double damage = 0.1; // урон от монстра
+
         public float rotationAngle; //поворот спрайта персонажа
 
         public Vector2 monsterPosition  = new Vector2(-11, -11); //позиция персонажа

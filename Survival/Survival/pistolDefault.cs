@@ -10,6 +10,7 @@ namespace Survival
 	{
 
 		int time_reload;
+		int openfire = 0;
 		bool l_reload = false;
 
 		public pistolDefault()
@@ -19,7 +20,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload = (int)gameTime.ElapsedGameTime.Seconds + 2;
+			time_reload = 120;
 			l_reload = true;
 		}
 
@@ -32,8 +33,11 @@ namespace Survival
 			}
 			if (l_reload)
 			{
-				if (gameTime.ElapsedGameTime.Seconds < time_reload)
+				if (openfire < time_reload)
+				{
 					reload = true;
+					openfire++;
+				}
 				else
 				{
 					reload = false;
