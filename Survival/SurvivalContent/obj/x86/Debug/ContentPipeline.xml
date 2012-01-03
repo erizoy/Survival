@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb</Output>
-      <Time>2011-11-28T19:01:58.4059571+04:00</Time>
+      <Time>2011-11-21T17:05:46.9343919+04:00</Time>
     </Item>
     <Item>
       <Source>idlehero.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb</Output>
-      <Time>2011-11-28T19:01:58.4069572+04:00</Time>
+      <Time>2011-12-25T23:03:36.3115713+04:00</Time>
     </Item>
     <Item>
       <Source>monster.png</Source>
