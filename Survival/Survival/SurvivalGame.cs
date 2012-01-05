@@ -33,6 +33,7 @@ namespace Survival
         Texture2D deadTexture;
 		Menu menu;
 		deathMenu deathmenu;
+		SoundEffectInstance gamesound;
 
         Random randomPosition = new Random();
         int time;
@@ -88,6 +89,7 @@ namespace Survival
         /// </summary>
         protected override void LoadContent()
         {
+			gamesound = Content.Load<SoundEffect>("Sound/gamesound").CreateInstance();
             monsterTexture = Content.Load<Texture2D>("Texture/monster");
             deadTexture = Content.Load<Texture2D>("Texture/deadmonster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -104,7 +106,8 @@ namespace Survival
             hero = new heroSprite(Content.Load<Texture2D>("Texture/idlehero"), Content.Load<Texture2D>("Texture/hero"), Content.Load<Texture2D>("Texture/herodead"), heroPosition, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			bullet = new bulletLogic(Content.Load<Texture2D>("Texture/bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
-			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"));
+			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"),
+				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
 			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"));
 			
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
@@ -143,6 +146,7 @@ namespace Survival
 			if (b_menuState)
 			{
 				menu.Update(gameTime);
+				gamesound.Stop();
 				cursor.Update(gameTime);
 				MouseState m_cursor = Mouse.GetState();
 				if ((m_cursor.LeftButton == ButtonState.Pressed) && (menu.mouseOnGame))
@@ -150,13 +154,19 @@ namespace Survival
 					game_start = true;
 					b_menuState = false;
 					menu.mouseOnGame = false;
+					menu.choose.Play();
 				}
 				if ((m_cursor.LeftButton == ButtonState.Pressed) && (menu.mouseOnExit))
+				{
 					this.Exit();
+					menu.choose.Play();
+				}
 			}
 
 			if(game_start)
 			{
+				menu.mainsound.Stop();
+				gamesound.Play();
 				if (b_restart) // сброс параметров на defualt после перезапуска(!)
 				{
 					hero.Health = 100;
@@ -285,6 +295,8 @@ namespace Survival
 
 			if (b_deathState)
 			{
+				menu.mainsound.Stop();
+				gamesound.Stop();
 				deathmenu.Update(gameTime);
 				cursor.Update(gameTime);
 				MouseState m_state = Mouse.GetState();
@@ -294,6 +306,7 @@ namespace Survival
 					b_deathState = false;
 					b_restart = true;
 					hero.heroIsDead = false;
+					menu.choose.Play();
 				}
 
 				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_mainmenu)
@@ -302,6 +315,7 @@ namespace Survival
 					b_deathState = false;
 					b_restart = true;
 					hero.heroIsDead = false;
+					menu.choose.Play();
 				}
 			}
 

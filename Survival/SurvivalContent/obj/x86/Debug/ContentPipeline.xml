@@ -190,6 +190,42 @@
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb</Output>
       <Time>2012-01-05T00:17:33+04:00</Time>
     </Item>
+    <Item>
+      <Source>Sound\choose.wav</Source>
+      <Name>Sound\choose</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\choose.xnb</Output>
+      <Time>2012-01-05T22:36:38.5312535+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\guidance.wav</Source>
+      <Name>Sound\guidance</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\guidance.xnb</Output>
+      <Time>2012-01-05T22:36:38.5342536+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\mainsound.wav</Source>
+      <Name>Sound\mainsound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\mainsound.xnb</Output>
+      <Time>2012-01-06T00:28:17.9254369+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\gamesound.wav</Source>
+      <Name>Sound\gamesound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\gamesound.xnb</Output>
+      <Time>2012-01-06T00:46:32.3700355+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

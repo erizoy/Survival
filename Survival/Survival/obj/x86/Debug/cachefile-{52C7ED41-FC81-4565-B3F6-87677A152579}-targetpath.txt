@@ -19,3 +19,7 @@ Content\font.xnb
 Content\Texture\restart.xnb
 Content\Texture\mainmenu.xnb
 Content\Texture\deathmenu.xnb
+Content\Sound\choose.xnb
+Content\Sound\guidance.xnb
+Content\Sound\mainsound.xnb
+Content\Sound\gamesound.xnb
