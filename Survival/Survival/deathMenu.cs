@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Survival
 {
@@ -13,17 +14,20 @@ namespace Survival
 		public Texture2D deathMenuTexture;
 		public Texture2D restartTexture;
 		public Texture2D mainMenuTexture;
+		public SoundEffectInstance deathsound;
 		public bool b_restart, b_mainmenu;
 
-		public deathMenu(Texture2D newDeathMenu, Texture2D newRestartTexture, Texture2D newMainMenuTexture)
+		public deathMenu(Texture2D newDeathMenu, Texture2D newRestartTexture, Texture2D newMainMenuTexture, SoundEffectInstance newDeathSound)
 		{
 			deathMenuTexture = newDeathMenu;
 			restartTexture = newRestartTexture;
 			mainMenuTexture = newMainMenuTexture;
+			deathsound = newDeathSound;
 		}
 
 		public void Update(GameTime gameTime)
 		{
+			deathsound.Play();
 			MouseState State = Mouse.GetState();
 			Rectangle mouse = new Rectangle((int)State.X, (int)State.Y, 7, 7);
 			Rectangle r_restart = new Rectangle(517, 398, 231, 44);

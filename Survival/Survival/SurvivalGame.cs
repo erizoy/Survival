@@ -108,7 +108,7 @@ namespace Survival
             hero.velocity = new Vector2(2, 2);
 			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"),
 				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
-			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"));
+			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"), Content.Load<SoundEffect>("Sound/deathsound").CreateInstance());
 			
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
@@ -145,6 +145,7 @@ namespace Survival
         {
 			if (b_menuState)
 			{
+				deathmenu.deathsound.Stop();
 				menu.Update(gameTime);
 				gamesound.Stop();
 				cursor.Update(gameTime);
@@ -166,6 +167,7 @@ namespace Survival
 			if(game_start)
 			{
 				menu.mainsound.Stop();
+				deathmenu.deathsound.Stop();
 				gamesound.Play();
 				if (b_restart) // сброс параметров на defualt после перезапуска(!)
 				{

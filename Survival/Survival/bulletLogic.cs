@@ -122,7 +122,7 @@ namespace Survival
 				if (pistol)
 				{
 					MouseState mouse = Mouse.GetState();
-					if ((mouse.LeftButton == ButtonState.Pressed) && (oldmouse.LeftButton == ButtonState.Released))
+					if (((mouse.LeftButton == ButtonState.Pressed) && (oldmouse.LeftButton == ButtonState.Released)) || ((mouse.LeftButton == ButtonState.Released) && (oldmouse.LeftButton == ButtonState.Pressed)))
 					{
 						Shoot(heroPosition, mouse);
 						AddBullet(angle, heroPosition);

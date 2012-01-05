@@ -95,7 +95,6 @@ C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb
-<<<<<<< HEAD
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\choose.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\guidance.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\mainsound.xnb
@@ -121,4 +120,4 @@ C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb
->>>>>>> b87c87701c8e05c19329de515f85ff870aae712d
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\deathsound.xnb

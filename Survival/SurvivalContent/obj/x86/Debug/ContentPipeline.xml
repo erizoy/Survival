@@ -226,6 +226,15 @@
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\gamesound.xnb</Output>
       <Time>2012-01-06T00:46:32.3700355+04:00</Time>
     </Item>
+    <Item>
+      <Source>Sound\deathsound.wav</Source>
+      <Name>Sound\deathsound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\deathsound.xnb</Output>
+      <Time>2012-01-06T02:01:11.3642193+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
