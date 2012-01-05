@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb</Output>
-      <Time>2012-01-05T09:28:33.2369779+04:00</Time>
+      <Time>2012-01-06T00:52:31.0405503+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\bullet.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\Menu.xnb</Output>
-      <Time>2012-01-05T09:28:32.0569104+04:00</Time>
+      <Time>2012-01-06T00:52:31.0065484+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\start_game.png</Source>
@@ -155,15 +155,6 @@
       <Time>2012-01-05T09:28:33.3489843+04:00</Time>
     </Item>
     <Item>
-      <Source>font.spritefont</Source>
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-01-05T09:28:35.1890895+04:00</Time>
-    </Item>
-    <Item>
       <Source>Texture\restart.png</Source>
       <Name>Texture\restart</Name>
       <Importer>TextureImporter</Importer>
@@ -189,6 +180,15 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb</Output>
       <Time>2012-01-05T00:17:33+04:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-01-05T09:28:35.1890895+04:00</Time>
     </Item>
     <Item>
       <Source>Sound\choose.wav</Source>
