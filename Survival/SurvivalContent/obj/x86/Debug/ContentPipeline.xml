@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb</Output>
-      <Time>2012-01-05T09:28:33.2369779+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb</Output>
+      <Time>2012-01-05T22:37:33.0182238+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\bullet.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\bullet.xnb</Output>
-      <Time>2012-01-05T09:28:33.238978+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\bullet.xnb</Output>
+      <Time>2012-01-05T22:37:33.0542259+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\cursor.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb</Output>
-      <Time>2012-01-05T09:28:33.2509787+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb</Output>
+      <Time>2012-01-05T22:37:33.0552259+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\hero.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\hero.xnb</Output>
-      <Time>2012-01-05T09:28:34.4580477+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\hero.xnb</Output>
+      <Time>2012-01-05T22:37:33.440248+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\idlehero.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\idlehero.xnb</Output>
-      <Time>2012-01-05T09:28:34.8530703+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\idlehero.xnb</Output>
+      <Time>2012-01-05T22:37:33.5092519+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\monster.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\monster.xnb</Output>
-      <Time>2012-01-05T09:28:35.0540818+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\monster.xnb</Output>
+      <Time>2012-01-05T22:37:33.529253+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\deadmonster.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deadmonster.xnb</Output>
-      <Time>2012-01-05T09:28:33.3479842+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deadmonster.xnb</Output>
+      <Time>2012-01-05T22:37:33.1072289+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\rifle.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\rifle.xnb</Output>
-      <Time>2012-01-05T09:28:35.1520874+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\rifle.xnb</Output>
+      <Time>2012-01-05T22:37:33.686262+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\flamethrower.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\flamethrower.xnb</Output>
-      <Time>2012-01-05T09:28:34.3480414+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\flamethrower.xnb</Output>
+      <Time>2012-01-05T22:37:33.3862449+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\herodead.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\herodead.xnb</Output>
-      <Time>2012-01-05T09:28:34.5490529+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\herodead.xnb</Output>
+      <Time>2012-01-05T22:37:33.47625+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\first-aid.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\first-aid.xnb</Output>
-      <Time>2012-01-05T09:28:33.3899866+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\first-aid.xnb</Output>
+      <Time>2012-01-05T22:37:33.3042402+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\husky.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\husky.xnb</Output>
-      <Time>2012-01-05T09:28:34.6960613+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\husky.xnb</Output>
+      <Time>2012-01-05T22:37:33.4902508+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\Menu.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\Menu.xnb</Output>
-      <Time>2012-01-05T09:28:32.0569104+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\Menu.xnb</Output>
+      <Time>2012-01-05T22:37:32.8522143+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\start_game.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\start_game.xnb</Output>
-      <Time>2012-01-05T09:28:35.1540875+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\start_game.xnb</Output>
+      <Time>2012-01-05T22:37:33.7592662+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\stat.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\stat.xnb</Output>
-      <Time>2012-01-05T09:28:35.1560876+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\stat.xnb</Output>
+      <Time>2012-01-05T22:37:33.860272+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\options.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\options.xnb</Output>
-      <Time>2012-01-05T09:28:35.0560819+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\options.xnb</Output>
+      <Time>2012-01-05T22:37:33.5842562+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\exit.png</Source>
@@ -151,17 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb</Output>
-      <Time>2012-01-05T09:28:33.3489843+04:00</Time>
-    </Item>
-    <Item>
-      <Source>font.spritefont</Source>
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-01-05T09:28:35.1890895+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb</Output>
+      <Time>2012-01-05T22:37:33.2212354+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\restart.png</Source>
@@ -169,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.xnb</Output>
-      <Time>2012-01-04T23:27:36+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.xnb</Output>
+      <Time>2012-01-05T22:37:33.5862563+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\mainmenu.png</Source>
@@ -178,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb</Output>
-      <Time>2012-01-04T23:28:02+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb</Output>
+      <Time>2012-01-05T22:37:33.511252+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\deathmenu.png</Source>
@@ -187,8 +178,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb</Output>
-      <Time>2012-01-05T00:17:33+04:00</Time>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb</Output>
+      <Time>2012-01-05T22:37:33.1112291+04:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2011-11-16T23:22:09.7583787+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -196,39 +196,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Admin\Survival\Survival\Survival\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\rufan\Survival\Survival\SurvivalContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\rufan\Survival\Survival\Survival\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\rufan\Survival\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-09-24T12:48:46.0742483+04:00</Value>
+        <Value>2011-11-16T22:53:25.2837444+04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

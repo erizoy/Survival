@@ -21,14 +21,6 @@ C:\Users\Admin\Новая папка\SurvivalTesting\obj\Debug\SurvivalTesting.p
 C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Content\font.xnb
 C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Survival.exe
 C:\Users\Admin\Новая папка\SurvivalTesting\bin\Debug\Survival.pdb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\background.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\bullet.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\cursor.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\hero.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\idlehero.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\monster.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\deadmonster.xnb
-C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\rifle.xnb
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\font.xnb
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.exe
 C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Survival.pdb
@@ -72,3 +64,23 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Survival.pdb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\restart.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\mainmenu.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\deathmenu.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\background.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\bullet.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\cursor.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\hero.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\idlehero.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\monster.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\deadmonster.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\rifle.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\flamethrower.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\herodead.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\first-aid.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\husky.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\Menu.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\start_game.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\stat.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\options.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\exit.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\restart.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\mainmenu.xnb
+C:\Users\rufan\Survival\SurvivalTesting\bin\Debug\Content\Texture\deathmenu.xnb
