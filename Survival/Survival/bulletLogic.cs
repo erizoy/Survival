@@ -14,6 +14,8 @@ namespace Survival
 
 		private Vector2 screenSize;  //размер экрана
 
+		MouseState oldmouse;
+
 		heroSprite hero = new heroSprite();
 
 		public Texture2D bulletTexture; //текстура пуль
@@ -42,7 +44,7 @@ namespace Survival
 		public void AddBullet(float angle, Vector2 heroPosition)
 		{
 			//screenSize = new Vector2(screenWidth, screenHeight);			
-			time = 0;
+			//time = 0;
 			bulletPosition.X = heroPosition.X + 10 * (float)Math.Cos(angle) - 6 * (float)Math.Sin(angle);
 			bulletPosition.Y = heroPosition.Y + 10 * (float)Math.Sin(angle) + 6 * (float)Math.Cos(angle);
 			bullets.Add(new bulletSprite(bulletTexture, screenSize, bulletPosition, angle));
@@ -61,12 +63,32 @@ namespace Survival
 					i++;
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame)
+		public void Shoot(Vector2 heroPosition, MouseState mouse)
+		{
+			time = 0;
+			if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
+			{
+				angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+			}
+			if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
+			{
+				angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
+			}
+			if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
+			{
+				angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
+			}
+			if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
+			{
+				angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
+			}
+		}
+
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool pistol)
 		{
 			//Логика пули
 			if (!reload)
 			{
-
 				if (auto)
 				{
 					attackSpeed = 10;
@@ -77,66 +99,36 @@ namespace Survival
 						MouseState mouse = Mouse.GetState();
 						if (mouse.LeftButton == ButtonState.Pressed)
 						{
-							time = 0;
-							if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
-							{
-								angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-							}
-							if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
-							{
-								angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-							}
-							if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
-							{
-								angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
-							}
-							if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
-							{
-								angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
-							}
+							Shoot(heroPosition, mouse);
 							AddBullet(angle, heroPosition);
 						}
+						//DeleteBullet();
 					}
 				}
-				else
+				if (b_flame)
 				{
-					if (b_flame)
+					MouseState mouse = Mouse.GetState();
+					if (mouse.LeftButton == ButtonState.Pressed)
 					{
-						attackSpeed = 0;
-						if (time != attackSpeed)
-							time++;
-						else
-						{
-							MouseState mouse = Mouse.GetState();
-							if (mouse.LeftButton == ButtonState.Pressed)
-							{
-								time = 0;
-								shoot = true;
-								if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
-								{
-									angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-								}
-								if (mouse.X < heroPosition.X & mouse.Y > heroPosition.Y)
-								{
-									angle = -(float)Math.Atan((mouse.Y - heroPosition.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
-								}
-								if (mouse.X > heroPosition.X & mouse.Y < heroPosition.Y)
-								{
-									angle = -(float)Math.Atan((heroPosition.Y - mouse.Y) / (mouse.X - heroPosition.X));
-								}
-								if (mouse.X > heroPosition.X & mouse.Y > heroPosition.Y)
-								{
-									angle = (float)Math.Atan((mouse.Y - heroPosition.Y) / (mouse.X - heroPosition.X));
-								}
+						Shoot(heroPosition, mouse);
 
-							}
-							if (shoot)
-							{
-								AddBullet(angle, heroPosition);
-								shoot = false;
-							}
-						}
 					}
+					if (shoot)
+					{
+						AddBullet(angle, heroPosition);
+						shoot = false;
+					}
+				}
+				if (pistol)
+				{
+					MouseState mouse = Mouse.GetState();
+					if ((mouse.LeftButton == ButtonState.Pressed) && (oldmouse.LeftButton == ButtonState.Released))
+					{
+						Shoot(heroPosition, mouse);
+						AddBullet(angle, heroPosition);
+						oldmouse = mouse;
+					}
+					//DeleteBullet();
 				}
 			}
 			
@@ -153,7 +145,8 @@ namespace Survival
 			// отрисовка пуль
 			foreach (bulletSprite item in bullets)
 			{
-				item.Draw(spriteBatch);
+				if(!item.deleting)
+					item.Draw(spriteBatch);
 			}
 		}
 	}

@@ -49,7 +49,8 @@ namespace Survival
 			}
 			else
 			{
-				drawingRectangle = new Rectangle(-100, -100, 65, 50);
+				riflePosition.X = riflePosition.Y = -100;
+				drawingRectangle = new Rectangle((int)riflePosition.X, (int)riflePosition.Y, 65, 50);
 				spriteBatch.Begin();
 				spriteBatch.Draw(rifle, drawingRectangle, Color.White);
 				spriteBatch.End();

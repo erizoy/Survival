@@ -11,7 +11,7 @@ namespace Survival
 
 		int time_reload;
 		int openfire = 0;
-		bool l_reload = false;
+		public bool l_reload = false;
 
 		public pistolDefault()
 		{ 

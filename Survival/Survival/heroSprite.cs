@@ -97,7 +97,7 @@ namespace Survival
 			if (!heroIsDead)
 			{
 				Vector2 vect = new Vector2(48, 48); //начальный угол
-				drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 50, 50); //позиция спрайта и его размеры
+				drawingRectangle = new Rectangle((int)heroPosition.X, (int)heroPosition.Y, 40, 40); //позиция спрайта и его размеры
 				spriteBatch.Begin();
 				if (isRunning)
 				{

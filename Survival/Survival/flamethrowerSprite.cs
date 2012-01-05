@@ -32,7 +32,8 @@ namespace Survival
 			}
 			else
 			{
-				drawingRectangle = new Rectangle(-100, -100, 65, 50);
+				flamePosition.X = flamePosition.Y = -150;
+				drawingRectangle = new Rectangle((int)flamePosition.X, (int)flamePosition.Y, 65, 50);
 				spriteBatch.Begin();
 				spriteBatch.Draw(flame, drawingRectangle, Color.White);
 				spriteBatch.End();

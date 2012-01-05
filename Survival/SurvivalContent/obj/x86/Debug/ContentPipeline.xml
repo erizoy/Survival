@@ -2,121 +2,166 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>background.png</Source>
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2011-11-28T19:01:58.3979567+04:00</Time>
-    </Item>
-    <Item>
-      <Source>bullet.png</Source>
-      <Name>bullet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2011-11-28T19:01:58.3999568+04:00</Time>
-    </Item>
-    <Item>
-      <Source>cursor.png</Source>
-      <Name>cursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\cursor.xnb</Output>
-      <Time>2011-11-30T21:33:40.8780935+04:00</Time>
-    </Item>
-    <Item>
-      <Source>hero.png</Source>
-      <Name>hero</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb</Output>
-      <Time>2011-11-21T17:05:46.9343919+04:00</Time>
-    </Item>
-    <Item>
-      <Source>idlehero.png</Source>
-      <Name>idlehero</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb</Output>
-      <Time>2011-12-25T23:03:36.3115713+04:00</Time>
-    </Item>
-    <Item>
-      <Source>monster.png</Source>
-      <Name>monster</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb</Output>
-      <Time>2011-11-28T19:01:58.4089573+04:00</Time>
-    </Item>
-    <Item>
-      <Source>deadmonster.png</Source>
-      <Name>deadmonster</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb</Output>
-      <Time>2011-11-28T19:01:58.4019569+04:00</Time>
-    </Item>
-    <Item>
-      <Source>rifle.png</Source>
-      <Name>rifle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb</Output>
-      <Time>2011-12-22T20:04:36.0319045+04:00</Time>
-    </Item>
-    <Item>
-      <Source>flamethrower.png</Source>
-      <Name>flamethrower</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\flamethrower.xnb</Output>
-      <Time>2011-12-22T20:49:24.5606796+04:00</Time>
-    </Item>
-    <Item>
-      <Source>herodead.png</Source>
-      <Name>herodead</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\herodead.xnb</Output>
-      <Time>2011-12-23T15:40:14.5158294+04:00</Time>
-    </Item>
-    <Item>
-      <Source>first-aid.png</Source>
-      <Name>first-aid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\first-aid.xnb</Output>
-      <Time>2011-12-23T16:16:06.3999091+04:00</Time>
-    </Item>
-    <Item>
-      <Source>husky.png</Source>
-      <Name>husky</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\husky.xnb</Output>
-      <Time>2011-12-23T16:54:39.7476102+04:00</Time>
-    </Item>
-    <Item>
       <Source>font.spritefont</Source>
       <Name>font</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
       <Time>2011-11-28T19:01:58.402957+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\background.png</Source>
+      <Name>Texture\background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb</Output>
+      <Time>2011-11-28T19:01:58.3979567+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\bullet.png</Source>
+      <Name>Texture\bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\bullet.xnb</Output>
+      <Time>2011-11-28T19:01:58.3999568+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\cursor.png</Source>
+      <Name>Texture\cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb</Output>
+      <Time>2011-11-30T21:33:40.8780935+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\hero.png</Source>
+      <Name>Texture\hero</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\hero.xnb</Output>
+      <Time>2011-11-21T17:05:46.9343919+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\idlehero.png</Source>
+      <Name>Texture\idlehero</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\idlehero.xnb</Output>
+      <Time>2011-12-25T23:03:36.3115713+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\monster.png</Source>
+      <Name>Texture\monster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\monster.xnb</Output>
+      <Time>2011-11-28T19:01:58.4089573+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\deadmonster.png</Source>
+      <Name>Texture\deadmonster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\deadmonster.xnb</Output>
+      <Time>2011-11-28T19:01:58.4019569+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\rifle.png</Source>
+      <Name>Texture\rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\rifle.xnb</Output>
+      <Time>2011-12-22T20:04:36.0319045+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\flamethrower.png</Source>
+      <Name>Texture\flamethrower</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\flamethrower.xnb</Output>
+      <Time>2011-12-22T20:49:24.5606796+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\herodead.png</Source>
+      <Name>Texture\herodead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\herodead.xnb</Output>
+      <Time>2011-12-23T15:40:14.5158294+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\first-aid.png</Source>
+      <Name>Texture\first-aid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\first-aid.xnb</Output>
+      <Time>2011-12-23T16:16:06.3999091+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\husky.png</Source>
+      <Name>Texture\husky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\husky.xnb</Output>
+      <Time>2011-12-23T16:54:39.7476102+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\Menu.png</Source>
+      <Name>Texture\Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\Menu.xnb</Output>
+      <Time>2012-01-04T14:46:59+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\start_game.png</Source>
+      <Name>Texture\start_game</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\start_game.xnb</Output>
+      <Time>2012-01-04T00:11:53+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\stat.png</Source>
+      <Name>Texture\stat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\stat.xnb</Output>
+      <Time>2012-01-04T00:12:38+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\options.png</Source>
+      <Name>Texture\options</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\options.xnb</Output>
+      <Time>2012-01-04T00:13:14+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\exit.png</Source>
+      <Name>Texture\exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb</Output>
+      <Time>2012-01-04T00:14:05+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -124,10 +169,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Admin\Survival\Survival\Survival\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Admin\Survival\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Admin\Новая папка\Survival\SurvivalContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Admin\Новая папка\Survival\Survival\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Admin\Новая папка\Survival\SurvivalContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

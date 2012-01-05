@@ -106,7 +106,7 @@ namespace Survival
             if (!isDead)
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
-                int spriteHeight = 100, spriteWidth = 100;
+                int spriteHeight = 75, spriteWidth = 75;
                 drawingRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y,  spriteWidth, spriteHeight); //позиция спрайта и его размеры
                 spriteBatch.Begin();
                 {
@@ -118,7 +118,7 @@ namespace Survival
             else
             {
                 Vector2 vect = new Vector2(48, 48); //начальный угол
-                drawingRectangle = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 125, 125);
+                drawingRectangle = new Rectangle((int)((float)monsterPosition.X + 6 * (float)Math.Cos(rotationAngle) + 20 * (float)Math.Sin(rotationAngle)), (int)((float)monsterPosition.Y + 6 * (float)Math.Sin(rotationAngle) - 20 * (float)Math.Cos(rotationAngle)), 100, 100);
                 //rect = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, 125, 125);
                 spriteBatch.Begin();
                 {

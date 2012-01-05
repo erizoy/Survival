@@ -25,8 +25,8 @@ namespace Survival
         {
             spriteBatch.Begin();
             spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0,
-                             1280,
-                             1024),
+                             1024,
+                             768),
                              Color.LightGray);
             spriteBatch.End();
         }

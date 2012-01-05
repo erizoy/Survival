@@ -116,6 +116,7 @@
     <Compile Include="heroSprite.cs" />
     <Compile Include="itemLogic.cs" />
     <Compile Include="itemSprite.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="monsterLogic.cs" />
     <Compile Include="monsterSprite.cs" />
     <Compile Include="pistolDefault.cs" />
