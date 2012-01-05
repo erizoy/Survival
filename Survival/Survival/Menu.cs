@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -15,7 +16,6 @@ namespace Survival
 		public Texture2D option;
 		public Texture2D stat;
 		public Texture2D exit;
-		public Vector2 menuPosition;
 		public bool mouseOnGame, mouseOnStat, mouseOnOption, mouseOnExit;
 
 		public Menu(Texture2D newMenuTexture, Texture2D n_newgame, Texture2D newOption, Texture2D newStat, Texture2D newExit)
@@ -25,7 +25,6 @@ namespace Survival
 			option = newOption;
 			stat = newStat;
 			exit = newExit;
-			//menuPosition = newMenuPosition;
         }
 
 		public void Update(GameTime gameTime)

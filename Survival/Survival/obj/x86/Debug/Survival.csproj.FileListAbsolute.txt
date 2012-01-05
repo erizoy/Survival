@@ -22,11 +22,6 @@ C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\ResolveAssemblyReferenc
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\erizoy\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\background.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\bullet.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\cursor.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\hero.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\idlehero.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Survival.exe
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Survival.pdb
@@ -35,7 +30,6 @@ C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Microsoft.Xna.Framework.
 C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\Admin\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
 C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\monster.xnb
 C:\Users\Admin\Новая папка (2)\Survival\Survival\bin\x86\Debug\Content\background.xnb
 C:\Users\Admin\Новая папка (2)\Survival\Survival\bin\x86\Debug\Content\bullet.xnb
 C:\Users\Admin\Новая папка (2)\Survival\Survival\bin\x86\Debug\Content\cursor.xnb
@@ -71,13 +65,7 @@ C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Survival.exe
 C:\Users\rufan\Survival\Survival\Survival\obj\x86\Debug\Survival.pdb
 C:\Users\erizoy\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 c:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\deadmonster.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\rifle.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\flamethrower.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\herodead.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\first-aid.xnb
-C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\husky.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\bullet.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb
@@ -95,3 +83,23 @@ C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Tex
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\stat.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\options.xnb
 C:\Users\Admin\Новая папка\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\background.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\bullet.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\hero.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\idlehero.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\monster.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deadmonster.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\rifle.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\flamethrower.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\herodead.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\first-aid.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\husky.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\Menu.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\start_game.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\stat.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\options.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\exit.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb

@@ -32,6 +32,7 @@ namespace Survival
         Texture2D monsterTexture;
         Texture2D deadTexture;
 		Menu menu;
+		deathMenu deathmenu;
 
         Random randomPosition = new Random();
         int time;
@@ -43,7 +44,9 @@ namespace Survival
 		public bool p_first_raised = true;
 		bool b_menuState = true;
 		bool game_start = false;
+		bool b_deathState = false;
 		bool first_raised = true;
+		bool b_restart;
 
         Rectangle heroRectangle;
 		Rectangle rifleRectangle;
@@ -102,6 +105,7 @@ namespace Survival
 			bullet = new bulletLogic(Content.Load<Texture2D>("Texture/bullet"), graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             hero.velocity = new Vector2(2, 2);
 			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"));
+			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"));
 			
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
@@ -150,8 +154,17 @@ namespace Survival
 				if ((m_cursor.LeftButton == ButtonState.Pressed) && (menu.mouseOnExit))
 					this.Exit();
 			}
+
 			if(game_start)
 			{
+				if (b_restart) // сброс параметров на defualt после перезапуска(!)
+				{
+					hero.Health = 100;
+					hero.currentHealth = 100;
+					b_restart = false;
+					monsters.Clear();
+					hero.heroPosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
+				}
 				if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
 				{
 					enableConsole = !enableConsole;
@@ -195,7 +208,7 @@ namespace Survival
 				else
 				{
 					game_start = false;
-					b_menuState = true;
+					b_deathState = true;
 				}
 				//
 				//if (monsters.Count < 1)
@@ -270,6 +283,28 @@ namespace Survival
 				}
 			}
 
+			if (b_deathState)
+			{
+				deathmenu.Update(gameTime);
+				cursor.Update(gameTime);
+				MouseState m_state = Mouse.GetState();
+				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_restart)
+				{
+					game_start = true;
+					b_deathState = false;
+					b_restart = true;
+					hero.heroIsDead = false;
+				}
+
+				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_mainmenu)
+				{
+					b_menuState = true;
+					b_deathState = false;
+					b_restart = true;
+					hero.heroIsDead = false;
+				}
+			}
+
             base.Update(gameTime);
 
             oldKey = Keyboard.GetState();
@@ -321,6 +356,12 @@ namespace Survival
 						spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 150), Color.YellowGreen);
 					spriteBatch.End();
 				}
+			}
+
+			if (b_deathState)
+			{
+				deathmenu.Draw(spriteBatch);
+				cursor.Draw(spriteBatch);
 			}
             base.Draw(gameTime);
 
