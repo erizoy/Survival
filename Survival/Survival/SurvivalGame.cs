@@ -80,7 +80,7 @@ namespace Survival
       
         protected override void Initialize()
 		{
-			//graphics.IsFullScreen = true;
+			graphics.IsFullScreen = true;
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
 			graphics.ApplyChanges();
@@ -290,7 +290,7 @@ namespace Survival
 						foreach (bulletSprite one_bullet in bullet.bullets)
 						{
 							Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
-							if (bulletRectangle.Intersects(one_monster.monsterRectangle))
+							if (one_monster.monsterRectangle.Intersects(bulletRectangle))
 							{
 								one_bullet.deleting = true;
 								if (!one_monster.isDead)

@@ -35,7 +35,7 @@ namespace Survival
 			else
 			{
 				spriteBatch.Begin();
-				spriteBatch.Draw(maincursorTexture, new Rectangle((int)mousePosition.X, (int)mousePosition.Y, 21, 28), Color.White);
+				spriteBatch.Draw(maincursorTexture, new Rectangle ((int)mousePosition.X, (int)mousePosition.Y, 21, 28), Color.White);
 				spriteBatch.End();
 			}
 
@@ -51,7 +51,7 @@ namespace Survival
 			else
 			{
 				MouseState m_lastState = Mouse.GetState();
-				mousePosition = new Vector2(m_lastState.X - maincursorTexture.Width / 2, m_lastState.Y - maincursorTexture.Height / 2);
+				mousePosition = new Vector2(m_lastState.X, m_lastState.Y);
 			}
         }
 
