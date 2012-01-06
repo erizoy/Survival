@@ -188,7 +188,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-01-05T09:28:35.1890895+04:00</Time>
+      <Time>2012-01-06T21:16:02.8753129+04:00</Time>
     </Item>
     <Item>
       <Source>Sound\choose.wav</Source>
@@ -279,6 +279,15 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\maincursor.xnb</Output>
       <Time>2012-01-06T20:18:23.1074255+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\xp.png</Source>
+      <Name>Texture\xp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\xp.xnb</Output>
+      <Time>2012-01-06T21:29:21.8670126+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

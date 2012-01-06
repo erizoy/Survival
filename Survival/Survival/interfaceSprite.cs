@@ -13,6 +13,7 @@ namespace Survival
 		public Texture2D curammo;
 		public Texture2D levelup;
 		public Texture2D sp_curhealth;
+		public Texture2D xp;
 		//heroSprite hero = new heroSprite();
 
 		public List<curhealthSprite> curhealth = new List<curhealthSprite>();
@@ -21,12 +22,13 @@ namespace Survival
 
 		public bool b_levelup = false;
 
-		public interfaceSprite(Texture2D newHealthAmmo, Texture2D newCurHealth, Texture2D newCurAmmo, Texture2D newLevelUp)
+		public interfaceSprite(Texture2D newHealthAmmo, Texture2D newCurHealth, Texture2D newCurAmmo, Texture2D newLevelUp, Texture2D newXP)
 		{
 			healthammo = newHealthAmmo;
 			curammo = newCurAmmo;
 			levelup = newLevelUp;
 			sp_curhealth = newCurHealth;
+			xp = newXP;
 		}
 
 		public void Update(GameTime gameTime, double Health)
@@ -48,6 +50,7 @@ namespace Survival
 			}
 			curhealth.Clear();
 			position = 124;
+			spriteBach.Draw(xp, new Rectangle(0, 205, 162, 43), Color.White);
 			if(b_levelup)
 				spriteBach.Draw(levelup, new Rectangle(649, 0, 375, 60), Color.White);
 			spriteBach.End();

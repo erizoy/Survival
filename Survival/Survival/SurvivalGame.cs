@@ -113,7 +113,7 @@ namespace Survival
 			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"),
 				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
 			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"), Content.Load<SoundEffect>("Sound/deathsound").CreateInstance());
-			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"));
+			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"), Content.Load<Texture2D>("Texture/xp"));
 
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
@@ -379,6 +379,9 @@ namespace Survival
 				info.Draw(spriteBatch);
 				cursor.Draw(spriteBatch, d_indicator);
 				rifle.Draw(spriteBatch);
+				spriteBatch.Begin();
+				spriteBatch.DrawString(gameFont, "" + score, new Vector2(60, 212), Color.FromNonPremultiplied(0, 175, 220, 1000));
+				spriteBatch.End();
 
 				if (enableConsole)
 				{

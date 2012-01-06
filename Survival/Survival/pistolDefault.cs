@@ -20,7 +20,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload = 120;
+			time_reload = 100;
 			l_reload = true;
 		}
 
