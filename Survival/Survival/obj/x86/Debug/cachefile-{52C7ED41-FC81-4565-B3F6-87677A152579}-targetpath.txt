@@ -24,3 +24,7 @@ Content\Sound\guidance.xnb
 Content\Sound\mainsound.xnb
 Content\Sound\gamesound.xnb
 Content\Sound\deathsound.xnb
+Content\Texture\curhealth.xnb
+Content\Texture\healthammo.xnb
+Content\Texture\levelup.xnb
+Content\Texture\curammo.xnb

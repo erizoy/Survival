@@ -110,12 +110,13 @@
     <Compile Include="backSprite.cs" />
     <Compile Include="bulletLogic.cs" />
     <Compile Include="bulletSprite.cs" />
+    <Compile Include="curhealthSprite.cs" />
     <Compile Include="cursorSprite.cs" />
     <Compile Include="deathMenu.cs" />
     <Compile Include="flamethrowerSprite.cs" />
     <Compile Include="heroSprite.cs" />
+    <Compile Include="interfaceSprite.cs" />
     <Compile Include="itemLogic.cs" />
-    <Compile Include="itemSprite.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="monsterLogic.cs" />
     <Compile Include="monsterSprite.cs" />

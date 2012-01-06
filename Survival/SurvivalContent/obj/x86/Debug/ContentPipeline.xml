@@ -235,6 +235,42 @@
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\deathsound.xnb</Output>
       <Time>2012-01-06T02:01:11.3642193+04:00</Time>
     </Item>
+    <Item>
+      <Source>Texture\curhealth.png</Source>
+      <Name>Texture\curhealth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curhealth.xnb</Output>
+      <Time>2012-01-06T16:11:10.1090265+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\healthammo.png</Source>
+      <Name>Texture\healthammo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\healthammo.xnb</Output>
+      <Time>2012-01-06T16:11:10.1200272+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\levelup.png</Source>
+      <Name>Texture\levelup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\levelup.xnb</Output>
+      <Time>2012-01-06T16:11:10.1150269+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\curammo.png</Source>
+      <Name>Texture\curammo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curammo.xnb</Output>
+      <Time>2012-01-06T16:11:10.1050263+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -34,9 +34,12 @@ namespace Survival
 		Menu menu;
 		deathMenu deathmenu;
 		SoundEffectInstance gamesound;
+		interfaceSprite info;
 
         Random randomPosition = new Random();
         int time;
+		public int score = 0;
+		int i_levelup = 300;
         bool enableConsole = true;
 		bool reload;
 		bool auto = false;
@@ -76,7 +79,7 @@ namespace Survival
       
         protected override void Initialize()
 		{
-			graphics.IsFullScreen = true;
+			//graphics.IsFullScreen = true;
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
 			graphics.ApplyChanges();
@@ -109,7 +112,8 @@ namespace Survival
 			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"),
 				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
 			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"), Content.Load<SoundEffect>("Sound/deathsound").CreateInstance());
-			
+			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"));
+
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
             cursor = new cursorSprite(Content.Load<Texture2D>("Texture/cursor"));
@@ -180,6 +184,7 @@ namespace Survival
 					b_restart = false;
 					monsters.Clear();
 					hero.heroPosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
+					bullet.bullets.Clear();
 				}
 				if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
 				{
@@ -213,8 +218,8 @@ namespace Survival
 					else
 						reload = false;
 				}
-				
 
+				info.Update(gameTime, hero.Health);
 				cursor.Update(gameTime);
 				if (!hero.heroIsDead)
 				{
@@ -290,6 +295,7 @@ namespace Survival
 								one_monster.isDead = true;
 								one_monster.currentFrame = 0;
 								one_monster.timeElapsed = 151;
+								score += 30;
 							}
 						}
 					if (!one_monster.isDead)
@@ -298,6 +304,12 @@ namespace Survival
 							hero.Damage(one_monster.damage);
 					}
 					one_monster.Update(gameTime, heroRectangle);
+				}
+
+				if (score >= i_levelup)
+				{
+					info.b_levelup = true;
+					i_levelup += 600;
 				}
 			}
 
@@ -358,6 +370,7 @@ namespace Survival
 				}
 
 				hero.Draw(spriteBatch);
+				info.Draw(spriteBatch);
 				cursor.Draw(spriteBatch);
 				rifle.Draw(spriteBatch);
 
@@ -373,9 +386,10 @@ namespace Survival
 					spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
 					spriteBatch.DrawString(gameFont, "     Health: " + (int)hero.Health, new Vector2(15, 105), Color.YellowGreen);
 					spriteBatch.DrawString(gameFont, "  curHealth: " + (int)hero.currentHealth, new Vector2(15, 120), Color.YellowGreen);
-					spriteBatch.DrawString(gameFont, "Bullet Count:" + bullet.bullets.Count, new Vector2(15, 135), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "      Score: " + score, new Vector2(15, 135), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "Bullet Count:" + bullet.bullets.Count, new Vector2(15, 150), Color.YellowGreen);
 					if (bullet.bullets.Count != 0)
-						spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 150), Color.YellowGreen);
+						spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 165), Color.YellowGreen);
 					spriteBatch.End();
 				}
 			}

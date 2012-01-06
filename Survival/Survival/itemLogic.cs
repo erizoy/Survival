@@ -9,7 +9,6 @@ namespace Survival
 {
     public class itemLogic
     {
-
 		int reg_time = 300;
 		public Rectangle drawingRectangle;
 		public Vector2 itemPosition;
@@ -17,7 +16,7 @@ namespace Survival
 		public Texture2D huskyTexture;
 		public Vector2 itemPosition2;
 		bool activ = false;
-		bool activ2 = false;
+		public bool activ2 = false;
 		double rez = 0.0;
 
 		public itemLogic(Texture2D newItemTexture, Texture2D newHuskyTexture, Vector2 newitemPosition, Vector2 newitemPosition_2)
@@ -117,6 +116,7 @@ namespace Survival
 			}
 			if (!activ2)
 			{
+				itemPosition2.X = itemPosition2.Y = 300;
 				drawingRectangle = new Rectangle((int)itemPosition2.X, (int)itemPosition2.Y, 20, 20);
 				spriteBatch.Begin();
 				spriteBatch.Draw(huskyTexture, drawingRectangle, Color.White);

@@ -121,3 +121,7 @@ C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\restart.
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenu.xnb
 C:\Users\rufan\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\deathmenu.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\deathsound.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curhealth.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\healthammo.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\levelup.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curammo.xnb
