@@ -51,6 +51,7 @@ namespace Survival
 		bool b_deathState = false;
 		bool first_raised = true;
 		bool b_restart;
+		bool u_indicator = true, d_indicator = true;
 
         Rectangle heroRectangle;
 		Rectangle rifleRectangle;
@@ -116,7 +117,7 @@ namespace Survival
 
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
-            cursor = new cursorSprite(Content.Load<Texture2D>("Texture/cursor"));
+            cursor = new cursorSprite(Content.Load<Texture2D>("Texture/cursor"), Content.Load<Texture2D>("Texture/maincursor"));
 
 
             // TODO: use this.Content to load your game content here
@@ -149,10 +150,11 @@ namespace Survival
         {
 			if (b_menuState)
 			{
+				u_indicator = true;
 				deathmenu.deathsound.Stop();
 				menu.Update(gameTime);
 				gamesound.Stop();
-				cursor.Update(gameTime);
+				cursor.Update(gameTime, u_indicator);
 				MouseState m_cursor = Mouse.GetState();
 				if ((m_cursor.LeftButton == ButtonState.Pressed) && (menu.mouseOnGame))
 				{
@@ -170,6 +172,7 @@ namespace Survival
 
 			if(game_start)
 			{
+				u_indicator = false;
 				menu.mainsound.Stop();
 				deathmenu.deathsound.Stop();
 				gamesound.Play();
@@ -220,7 +223,7 @@ namespace Survival
 				}
 
 				info.Update(gameTime, hero.Health);
-				cursor.Update(gameTime);
+				cursor.Update(gameTime, u_indicator);
 				if (!hero.heroIsDead)
 				{
 					hero.Update(gameTime);
@@ -315,10 +318,11 @@ namespace Survival
 
 			if (b_deathState)
 			{
+				u_indicator = true;
 				menu.mainsound.Stop();
 				gamesound.Stop();
 				deathmenu.Update(gameTime);
-				cursor.Update(gameTime);
+				cursor.Update(gameTime, u_indicator);
 				MouseState m_state = Mouse.GetState();
 				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_restart)
 				{
@@ -352,11 +356,13 @@ namespace Survival
         {
 			if (b_menuState)
 			{
+				d_indicator = true;
 				menu.Draw(spriteBatch);
-				cursor.Draw(spriteBatch);
+				cursor.Draw(spriteBatch, d_indicator);
 			}
 			if (game_start)
 			{
+				d_indicator = false;
 				GraphicsDevice.Clear(Color.CornflowerBlue);
 				background.Draw(spriteBatch);
 				bullet.Draw(spriteBatch);
@@ -371,7 +377,7 @@ namespace Survival
 
 				hero.Draw(spriteBatch);
 				info.Draw(spriteBatch);
-				cursor.Draw(spriteBatch);
+				cursor.Draw(spriteBatch, d_indicator);
 				rifle.Draw(spriteBatch);
 
 				if (enableConsole)
@@ -396,8 +402,9 @@ namespace Survival
 
 			if (b_deathState)
 			{
+				d_indicator = true;
 				deathmenu.Draw(spriteBatch);
-				cursor.Draw(spriteBatch);
+				cursor.Draw(spriteBatch, d_indicator);
 			}
             base.Draw(gameTime);
 

@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\cursor.xnb</Output>
-      <Time>2012-01-05T09:28:33.2509787+04:00</Time>
+      <Time>2012-01-06T17:16:17+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\hero.png</Source>
@@ -270,6 +270,15 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curammo.xnb</Output>
       <Time>2012-01-06T16:11:10.1050263+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\maincursor.png</Source>
+      <Name>Texture\maincursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\maincursor.xnb</Output>
+      <Time>2012-01-06T20:18:23.1074255+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

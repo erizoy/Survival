@@ -94,3 +94,4 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\curhealth.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\healthammo.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\levelup.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\curammo.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\maincursor.xnb

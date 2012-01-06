@@ -125,3 +125,4 @@ C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curhealt
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\healthammo.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\levelup.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curammo.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\maincursor.xnb
