@@ -113,7 +113,6 @@
     <Compile Include="cursorSprite.cs" />
     <Compile Include="deathMenu.cs" />
     <Compile Include="flamethrowerSprite.cs" />
-    <Compile Include="heroLogic.cs" />
     <Compile Include="heroSprite.cs" />
     <Compile Include="itemLogic.cs" />
     <Compile Include="itemSprite.cs" />

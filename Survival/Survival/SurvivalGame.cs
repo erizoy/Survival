@@ -39,7 +39,7 @@ namespace Survival
         int time;
         bool enableConsole = true;
 		bool reload;
-		bool auto;
+		bool auto = false;
 		bool b_flame;
 		public bool b_pistol = true;
 		public bool p_first_raised = true;
@@ -171,6 +171,10 @@ namespace Survival
 				gamesound.Play();
 				if (b_restart) // сброс параметров на defualt после перезапуска(!)
 				{
+					auto = false;
+					b_flame = false;
+					b_pistol = true;
+					rifle.raised_rifle = false;
 					hero.Health = 100;
 					hero.currentHealth = 100;
 					b_restart = false;
@@ -181,7 +185,7 @@ namespace Survival
 				{
 					enableConsole = !enableConsole;
 				}
-				mouse = Mouse.GetState();
+				//mouse = Mouse.GetState();
 
 				if (rifle.raised_rifle)
 				{
@@ -208,7 +212,7 @@ namespace Survival
 						reload = true;
 					else
 						reload = false;
-					}
+				}
 				
 
 				cursor.Update(gameTime);
@@ -236,7 +240,7 @@ namespace Survival
 				else
 					time++;
 				//}
-				heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width, hero.drawingRectangle.Height);
+				heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
 				rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
 				flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
 				firstaidbRectangle = new Rectangle((int)item_b.itemPosition.X, (int)item_b.itemPosition.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
@@ -252,6 +256,16 @@ namespace Survival
 					hero.Health = item_b.first_aid(hero.Health, hero.currentHealth);
 				}
 
+				if (heroRectangle.Intersects(rifleRectangle))
+				{
+					rifle.raised_rifle = true;
+					auto = true;
+					b_flame = false;
+					b_pistol = false;
+					p_first_raised = true;
+					first_raised = true;
+				}
+
 				if (heroRectangle.Intersects(flameRectangle))
 				{
 					flame.raised_flame = true;
@@ -262,14 +276,6 @@ namespace Survival
 					p_first_raised = true;
 				}
 
-				if (heroRectangle.Intersects(rifleRectangle))
-				{
-					rifle.raised_rifle = true;
-					auto = true;
-					b_flame = false;
-					b_pistol = false;
-					p_first_raised = true;
-				}
 				foreach (monsterSprite one_monster in monsters)
 				{
 					if (!one_monster.isDead)
@@ -288,7 +294,7 @@ namespace Survival
 						}
 					if (!one_monster.isDead)
 					{
-						if (heroRectangle.Intersects(one_monster.monsterRectangle))
+						if (one_monster.monsterRectangle.Intersects(heroRectangle))
 							hero.Damage(one_monster.damage);
 					}
 					one_monster.Update(gameTime, heroRectangle);

@@ -146,7 +146,7 @@ namespace Survival
         {
             if (!isDead)
             {
-                monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
+				monsterRectangle = new Rectangle((int)monsterPosition.X, (int)monsterPosition.Y, monsterTexture.Width / Frames / 2, monsterTexture.Height / 2);
                 if (!CheckCollision(monsterRectangle, heroRectangle))
                 {
                     directionMonster = monsterPosition - new Vector2(heroRectangle.X, heroRectangle.Y);
