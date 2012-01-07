@@ -128,3 +128,11 @@ C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\curammo.
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\maincursor.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\xp.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\pp.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_athlete.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_big.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_def.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_fr.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\athlete.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\big.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\fr.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenuperk.xnb

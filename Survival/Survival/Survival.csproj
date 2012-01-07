@@ -119,6 +119,7 @@
     <Compile Include="itemLogic.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="monsterSprite.cs" />
+    <Compile Include="perkSprite.cs" />
     <Compile Include="pistolDefault.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

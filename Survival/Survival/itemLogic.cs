@@ -13,18 +13,15 @@ namespace Survival
 		public Rectangle drawingRectangle;
 		public Vector2 itemPosition;
 		public Texture2D firstaidTexture;
-		public Texture2D huskyTexture;
 		public Vector2 itemPosition2;
 		bool activ = false;
 		public bool activ2 = false;
 		double rez = 0.0;
 
-		public itemLogic(Texture2D newItemTexture, Texture2D newHuskyTexture, Vector2 newitemPosition, Vector2 newitemPosition_2)
+		public itemLogic(Texture2D newItemTexture, Vector2 newitemPosition)
 		{
 			firstaidTexture = newItemTexture;
-			huskyTexture = newHuskyTexture;
 			itemPosition = newitemPosition;
-			itemPosition2 = newitemPosition_2;
 		}
 
 		public itemLogic()
@@ -51,15 +48,8 @@ namespace Survival
 
 		public double p_husky(double health) // здоровяк
 		{
-			health += 50;
-			activ2 = true;
+			health += 60;
 			return health;
-		}
-
-		public void p_athlete(int X, int Y) //  атлет
-		{
-			X += 30;
-			Y += 30;
 		}
 
 		public void p_regeneration(int health) // в основной программе сделать глобальную проверку health при взятии этого перка(!)
@@ -112,23 +102,6 @@ namespace Survival
 				drawingRectangle = new Rectangle((int)itemPosition.X, (int)itemPosition.Y, 20, 20);
 				spriteBatch.Begin();
 				spriteBatch.Draw(firstaidTexture, drawingRectangle, Color.White);
-				spriteBatch.End();
-			}
-			if (!activ2)
-			{
-				itemPosition2.X = itemPosition2.Y = 300;
-				drawingRectangle = new Rectangle((int)itemPosition2.X, (int)itemPosition2.Y, 20, 20);
-				spriteBatch.Begin();
-				spriteBatch.Draw(huskyTexture, drawingRectangle, Color.White);
-				spriteBatch.End();
-			}
-			else
-			{
-				itemPosition2.X = -150;
-				itemPosition2.Y = -150;
-				drawingRectangle = new Rectangle((int)itemPosition2.X, (int)itemPosition2.Y, 20, 20);
-				spriteBatch.Begin();
-				spriteBatch.Draw(huskyTexture, drawingRectangle, Color.White);
 				spriteBatch.End();
 			}
 		}

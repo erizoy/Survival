@@ -23,9 +23,7 @@ namespace Survival
 
 		public void Draw(SpriteBatch spriteBatch, int position)
 		{
-			//spriteBatch.Begin();
 			spriteBatch.Draw(curhealth, new Rectangle(position, 23, 2, 9), Color.Red);
-			//spriteBatch.End();
 		}
 	}
 }

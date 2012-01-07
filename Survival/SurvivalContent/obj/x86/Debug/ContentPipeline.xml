@@ -188,7 +188,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-01-06T21:16:02.8753129+04:00</Time>
+      <Time>2012-01-07T18:52:20.3335212+04:00</Time>
     </Item>
     <Item>
       <Source>Sound\choose.wav</Source>
@@ -297,6 +297,78 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\pp.xnb</Output>
       <Time>2012-01-07T13:08:08.7601668+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\about_athlete.png</Source>
+      <Name>Texture\about_athlete</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_athlete.xnb</Output>
+      <Time>2012-01-07T18:03:23.0615188+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\about_big.png</Source>
+      <Name>Texture\about_big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_big.xnb</Output>
+      <Time>2012-01-07T18:03:23.0915205+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\about_def.png</Source>
+      <Name>Texture\about_def</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_def.xnb</Output>
+      <Time>2012-01-07T18:03:23.0725195+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\about_fr.png</Source>
+      <Name>Texture\about_fr</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_fr.xnb</Output>
+      <Time>2012-01-07T18:03:23.08252+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\athlete.png</Source>
+      <Name>Texture\athlete</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\athlete.xnb</Output>
+      <Time>2012-01-07T18:03:23.0555185+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\big.png</Source>
+      <Name>Texture\big</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\big.xnb</Output>
+      <Time>2012-01-07T18:03:23.0865203+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\fr.png</Source>
+      <Name>Texture\fr</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\fr.xnb</Output>
+      <Time>2012-01-07T16:18:07+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\mainmenuperk.png</Source>
+      <Name>Texture\mainmenuperk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenuperk.xnb</Output>
+      <Time>2012-01-07T18:03:23.0775197+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

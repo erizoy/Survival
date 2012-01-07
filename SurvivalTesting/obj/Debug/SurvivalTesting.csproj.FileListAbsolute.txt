@@ -97,3 +97,11 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\curammo.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\maincursor.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\xp.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\pp.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\about_athlete.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\about_big.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\about_def.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\about_fr.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\athlete.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\big.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\fr.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\mainmenuperk.xnb

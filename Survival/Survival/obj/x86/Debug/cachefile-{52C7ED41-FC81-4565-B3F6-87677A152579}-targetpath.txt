@@ -31,3 +31,11 @@ Content\Texture\curammo.xnb
 Content\Texture\maincursor.xnb
 Content\Texture\xp.xnb
 Content\Texture\pp.xnb
+Content\Texture\about_athlete.xnb
+Content\Texture\about_big.xnb
+Content\Texture\about_def.xnb
+Content\Texture\about_fr.xnb
+Content\Texture\athlete.xnb
+Content\Texture\big.xnb
+Content\Texture\fr.xnb
+Content\Texture\mainmenuperk.xnb
