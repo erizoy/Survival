@@ -21,7 +21,7 @@ namespace Survival
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-		pistolDefault pistol = new pistolDefault();
+		pistolDefault pistol;
 		itemLogic item_b;
 		perkSprite perk;
 		flamethrowerSprite flame;
@@ -40,7 +40,7 @@ namespace Survival
 
         Random randomPosition = new Random();
         int time;
-		public int score = 300;
+		public int score = 0;
 		int i_levelup = 300;
         bool enableConsole;
 		bool reload;
@@ -123,6 +123,7 @@ namespace Survival
 			subgun = new subgunSprite(Content.Load<Texture2D>("Texture/pp"), subgunPosition);
 			perk = new perkSprite(Content.Load<Texture2D>("Texture/mainmenuperk"), Content.Load<Texture2D>("Texture/fr"), Content.Load<Texture2D>("Texture/about_fr"), Content.Load<Texture2D>("Texture/athlete"), Content.Load<Texture2D>("Texture/about_athlete"),
 				Content.Load<Texture2D>("Texture/about_def"), Content.Load<Texture2D>("Texture/big"), Content.Load<Texture2D>("Texture/about_big"));
+			pistol = new pistolDefault(Content.Load<SoundEffect>("Sound/pistolshot").CreateInstance());
 
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
@@ -186,7 +187,7 @@ namespace Survival
 				menu.mainsound.Stop();
 				gamesound.Stop();
 				deathmenu.Update(gameTime);
-				cursor.Update(gameTime, u_indicator);
+				//cursor.Update(gameTime, u_indicator);
 				MouseState m_state = Mouse.GetState();
 				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_restart)
 				{
@@ -215,7 +216,7 @@ namespace Survival
 				{
 					u_indicator = true;
 					perk.Update(gameTime);
-					cursor.Update(gameTime, u_indicator);
+					//cursor.Update(gameTime, u_indicator);
 					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_big) // перк здоровяк
 					{
 						hero.currentHealth = item_b.p_husky(hero.currentHealth);
@@ -298,11 +299,11 @@ namespace Survival
 						}
 
 						info.Update(gameTime, hero.Health);
-						cursor.Update(gameTime, u_indicator);
+						//cursor.Update(gameTime, u_indicator);
 						if (!hero.heroIsDead)
 						{
 							hero.Update(gameTime);
-							bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol, b_subgun);
+							bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol, b_subgun, pistol.pistolshot);
 						}
 						else
 						{
@@ -422,6 +423,8 @@ namespace Survival
 
 			}
 
+			cursor.Update(gameTime, u_indicator);
+
             base.Update(gameTime);
 
             oldKey = Keyboard.GetState();
@@ -461,7 +464,7 @@ namespace Survival
 
 				hero.Draw(spriteBatch);
 				info.Draw(spriteBatch);
-				cursor.Draw(spriteBatch, d_indicator);
+				//cursor.Draw(spriteBatch, d_indicator);
 				rifle.Draw(spriteBatch);
 				spriteBatch.Begin();
 				spriteBatch.DrawString(gameFont, "" + score, new Vector2(60, 212), Color.FromNonPremultiplied(0, 175, 220, 1000));
@@ -470,15 +473,16 @@ namespace Survival
 				{
 					d_indicator = true;
 					perk.Draw(spriteBatch);
-					cursor.Draw(spriteBatch, d_indicator);
+					//cursor.Draw(spriteBatch, d_indicator);
 				}
 
 				if (b_deathState)
 				{
 					d_indicator = true;
 					deathmenu.Draw(spriteBatch);
-					cursor.Draw(spriteBatch, d_indicator);
+					//cursor.Draw(spriteBatch, d_indicator);
 				}
+				cursor.Draw(spriteBatch, d_indicator);
 
 				if (enableConsole)
 				{

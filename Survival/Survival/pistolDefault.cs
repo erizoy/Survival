@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Survival
 {
 	public class pistolDefault
 	{
+		public SoundEffectInstance pistolshot;
 
 		int time_reload;
 		int openfire = 0;
 		public bool l_reload = false;
 		public int damage = 35;
+
+		public pistolDefault(SoundEffectInstance newPistolShot)
+		{
+			pistolshot = newPistolShot;
+		}
 
 		public pistolDefault()
 		{ 

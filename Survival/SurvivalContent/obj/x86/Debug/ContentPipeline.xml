@@ -370,6 +370,15 @@
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\mainmenuperk.xnb</Output>
       <Time>2012-01-07T18:03:23.0775197+04:00</Time>
     </Item>
+    <Item>
+      <Source>Sound\pistolshot.wav</Source>
+      <Name>Sound\pistolshot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\pistolshot.xnb</Output>
+      <Time>2012-01-08T00:54:59.9881022+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

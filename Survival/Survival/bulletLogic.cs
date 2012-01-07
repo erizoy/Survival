@@ -5,6 +5,8 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Survival
 {
@@ -86,7 +88,7 @@ namespace Survival
 			}
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool pistol, bool subgun)
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool b_pistol, bool subgun, SoundEffectInstance pistolshot)
 		{
 			//Логика пули
 			if (!reload)
@@ -120,7 +122,7 @@ namespace Survival
 						shoot = false;
 					}
 				}
-				if (pistol)
+				if (b_pistol)
 				{
 					attackSpeed = 25;
 					if (time != attackSpeed)
@@ -131,6 +133,7 @@ namespace Survival
 						if (((m_mouse.LeftButton == ButtonState.Pressed) && (oldmouse.LeftButton == ButtonState.Released)))
 						{
 							Shoot(heroPosition, m_mouse);
+							pistolshot.Play();
 							AddBullet(angle, heroPosition);
 						}
 						oldmouse = m_mouse;
