@@ -41,7 +41,7 @@ namespace Survival
         int time;
 		public int score = 0;
 		int i_levelup = 300;
-        bool enableConsole = true;
+        bool enableConsole;
 		bool reload;
 		bool auto = false;
 		bool b_subgun = false;
@@ -227,7 +227,7 @@ namespace Survival
 					else
 						reload = false;
 				}
-				if (b_pistol)
+				if (b_pistol) // Валера, пришло твое время
 				{
 					if (p_first_raised)
 					{
@@ -319,19 +319,31 @@ namespace Survival
 
 				foreach (monsterSprite one_monster in monsters)
 				{
+					
 					if (!one_monster.isDead)
 						foreach (bulletSprite one_bullet in bullet.bullets)
 						{
+							//int m_health = 100;
 							Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
 							if (one_monster.monsterRectangle.Intersects(bulletRectangle))
 							{
 								one_bullet.deleting = true;
-								if (!one_monster.isDead)
-									one_monster.rotationAngle = (float)Math.PI + one_bullet.angle;//угол падения трупа
-								one_monster.isDead = true;
-								one_monster.currentFrame = 0;
-								one_monster.timeElapsed = 151;
-								score += 30;
+								if (b_pistol)
+									one_monster.health -= pistol.damage;
+								if (b_subgun)
+									one_monster.health -= subgun.damage;
+								if (auto)
+									one_monster.health -= rifle.damage;
+								if (one_monster.health <= 0)
+								{
+									if (!one_monster.isDead)
+										one_monster.rotationAngle = (float)Math.PI + one_bullet.angle;//угол падения трупа
+									one_monster.isDead = true;
+									one_monster.currentFrame = 0;
+									one_monster.timeElapsed = 151;
+									score += 30;
+									m_health = 100;
+								}
 							}
 						}
 					if (!one_monster.isDead)

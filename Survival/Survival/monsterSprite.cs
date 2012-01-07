@@ -29,6 +29,7 @@ namespace Survival
         public bool isDead = false;
 
         int frameWidth, frameHeight, frameWidthDead, frameHeightDead; //высота и ширина экрана
+		public int health = 100; // здоровье монстра
 
         Random randomPosition = new Random();
 

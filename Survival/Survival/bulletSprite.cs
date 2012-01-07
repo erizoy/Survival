@@ -36,14 +36,21 @@ namespace Survival
 
         public void Update(GameTime gameTime)
         {
-            if (starting)
-            {
-                bulletPosition += new Vector2(speed * (float)Math.Cos(angle), speed * (float)Math.Sin(angle));
-            }
-            if (bulletPosition.X > screenSize.X || bulletPosition.Y > screenSize.Y || bulletPosition.X < 0 || bulletPosition.Y < 0)
-            {
-                deleting = true;
-            }
+			if (!deleting)
+			{
+				if (starting)
+				{
+					bulletPosition += new Vector2(speed * (float)Math.Cos(angle), speed * (float)Math.Sin(angle));
+				}
+				if (bulletPosition.X > screenSize.X || bulletPosition.Y > screenSize.Y || bulletPosition.X < 0 || bulletPosition.Y < 0)
+				{
+					deleting = true;
+				}
+			}
+			else
+			{
+				bulletPosition.X = bulletPosition.Y = -1000;
+			}
         }
 
         public void Draw(SpriteBatch spriteBatch)

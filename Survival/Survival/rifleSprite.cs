@@ -16,6 +16,7 @@ namespace Survival
 		int time_reload = 0;
 		int openfire = 0;
 		public bool l_reload = false;
+		public int damage = 100;
 
 		public bool raised_rifle = false; // поднял оружие
 

@@ -165,7 +165,7 @@ namespace Survival
 			// отрисовка пуль
 			foreach (bulletSprite item in bullets)
 			{
-				if(!item.deleting)
+				if (!item.deleting)
 					item.Draw(spriteBatch);
 			}
 		}

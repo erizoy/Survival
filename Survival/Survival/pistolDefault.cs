@@ -12,6 +12,7 @@ namespace Survival
 		int time_reload;
 		int openfire = 0;
 		public bool l_reload = false;
+		public int damage = 35;
 
 		public pistolDefault()
 		{ 

@@ -118,7 +118,6 @@
     <Compile Include="interfaceSprite.cs" />
     <Compile Include="itemLogic.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="monsterLogic.cs" />
     <Compile Include="monsterSprite.cs" />
     <Compile Include="pistolDefault.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,8 +15,7 @@ namespace Survival
 		int time_reload = 0;
 		int openfire = 0;
 		public bool l_reload = false;
-
-		bulletLogic bullet = new bulletLogic();
+		public int damage = 50;
 
 		public bool raised_rifle = false; // поднял оружие
 
