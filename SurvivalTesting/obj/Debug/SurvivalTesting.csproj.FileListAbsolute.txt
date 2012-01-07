@@ -96,3 +96,4 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\levelup.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\curammo.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\maincursor.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\xp.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\pp.xnb

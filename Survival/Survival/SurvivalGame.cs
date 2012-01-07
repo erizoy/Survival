@@ -25,6 +25,7 @@ namespace Survival
 		itemLogic item_b;
 		flamethrowerSprite flame;
 		rifleSprite rifle;
+		subgunSprite subgun;
         heroSprite hero;
         cursorSprite cursor;
 		bulletLogic bullet;
@@ -43,6 +44,7 @@ namespace Survival
         bool enableConsole = true;
 		bool reload;
 		bool auto = false;
+		bool b_subgun = false;
 		bool b_flame;
 		public bool b_pistol = true;
 		public bool p_first_raised = true;
@@ -58,6 +60,7 @@ namespace Survival
 		Rectangle flameRectangle;
 		Rectangle firstaidbRectangle;
 		Rectangle huskyRectangle;
+		Rectangle subgunRectangle;
 
         MouseState mouse = Mouse.GetState();
         KeyboardState oldKey = Keyboard.GetState();
@@ -100,9 +103,10 @@ namespace Survival
             gameFont = Content.Load<SpriteFont>("font");
             Vector2 heroPosition = new Vector2(graphics.PreferredBackBufferWidth/2, graphics.PreferredBackBufferHeight/2);
 			Vector2 riflePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 100);
+			Vector2 subgunPosition = new Vector2(200, 500);
 			Vector2 flamePosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 - 100);
+			Vector2 itemPosition2 = new Vector2(300, 300);
 			Vector2 itemPosition = new Vector2(graphics.PreferredBackBufferWidth / 2 + 100, graphics.PreferredBackBufferHeight / 2);
-			Vector2 itemPosition2 = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 200);
 			Vector2 menuPosition = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			item_b = new itemLogic(Content.Load<Texture2D>("Texture/first-aid"), Content.Load<Texture2D>("Texture/husky"), itemPosition, itemPosition2);
 			flame = new flamethrowerSprite(Content.Load<Texture2D>("Texture/flamethrower"), flamePosition);
@@ -114,6 +118,7 @@ namespace Survival
 				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
 			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"), Content.Load<SoundEffect>("Sound/deathsound").CreateInstance());
 			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"), Content.Load<Texture2D>("Texture/xp"));
+			subgun = new subgunSprite(Content.Load<Texture2D>("Texture/pp"), subgunPosition);
 
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
 
@@ -195,6 +200,20 @@ namespace Survival
 				}
 				//mouse = Mouse.GetState();
 
+				if (subgun.raised_rifle)
+				{
+					if (first_raised)
+					{
+						bullet.bullets.Clear();
+						first_raised = false;
+					}
+					subgun.Update(gameTime, bullet.bullets, reload);
+					if (subgun.l_reload)
+						reload = true;
+					else
+						reload = false;
+				}
+
 				if (rifle.raised_rifle)
 				{
 					if (first_raised)
@@ -227,7 +246,7 @@ namespace Survival
 				if (!hero.heroIsDead)
 				{
 					hero.Update(gameTime);
-					bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol);
+					bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol, b_subgun);
 				}
 				else
 				{
@@ -250,6 +269,7 @@ namespace Survival
 				//}
 				heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
 				rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
+				subgunRectangle = new Rectangle((int)subgun.subgunPosition.X, (int)subgun.subgunPosition.Y, subgun.drawingRectangle.Width, subgun.drawingRectangle.Height);
 				flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
 				firstaidbRectangle = new Rectangle((int)item_b.itemPosition.X, (int)item_b.itemPosition.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
 				huskyRectangle = new Rectangle((int)item_b.itemPosition2.X, (int)item_b.itemPosition2.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
@@ -264,12 +284,24 @@ namespace Survival
 					hero.Health = item_b.first_aid(hero.Health, hero.currentHealth);
 				}
 
+				if (heroRectangle.Intersects(subgunRectangle))
+				{
+					subgun.raised_rifle = true;
+					auto = false;
+					b_subgun = true;
+					b_flame = false;
+					b_pistol = false;
+					p_first_raised = true;
+					first_raised = true;
+				}
+
 				if (heroRectangle.Intersects(rifleRectangle))
 				{
 					rifle.raised_rifle = true;
 					auto = true;
 					b_flame = false;
 					b_pistol = false;
+					b_subgun = false;
 					p_first_raised = true;
 					first_raised = true;
 				}
@@ -282,6 +314,7 @@ namespace Survival
 					b_pistol = false;
 					first_raised = true;
 					p_first_raised = true;
+					b_subgun = false;
 				}
 
 				foreach (monsterSprite one_monster in monsters)
@@ -367,6 +400,7 @@ namespace Survival
 				background.Draw(spriteBatch);
 				bullet.Draw(spriteBatch);
 				flame.Draw(spriteBatch);
+				subgun.Draw(spriteBatch);
 				item_b.Draw(spriteBatch);
 
 				// отрисовка монстров

@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\rifle.xnb</Output>
-      <Time>2012-01-05T09:28:35.1520874+04:00</Time>
+      <Time>2012-01-07T12:55:26.0894228+04:00</Time>
     </Item>
     <Item>
       <Source>Texture\flamethrower.png</Source>
@@ -288,6 +288,15 @@
       <Options>None</Options>
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\xp.xnb</Output>
       <Time>2012-01-06T21:29:21.8670126+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\pp.png</Source>
+      <Name>Texture\pp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\pp.xnb</Output>
+      <Time>2012-01-07T13:08:08.7601668+04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -21,7 +21,7 @@ namespace Survival
 		public Texture2D bulletTexture; //текстура пуль
 		public Vector2 bulletPosition; //позиция пули
 		float angle; //угол при повороте мыши
-		public int time, time2 = 0;
+		public int time, time2 = 0, time3 = 0;
 		int attackSpeed = 0; //время между выстрелами
 
 		bool shoot = false;
@@ -67,6 +67,7 @@ namespace Survival
 		{
 			time = 0;
 			time2 = 0;
+			time3 = 0;
 			if (mouse.X < heroPosition.X & mouse.Y < heroPosition.Y)
 			{
 				angle = (float)Math.Atan((heroPosition.Y - mouse.Y) / (heroPosition.X - mouse.X)) + (float)Math.PI;
@@ -85,7 +86,7 @@ namespace Survival
 			}
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool pistol)
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool pistol, bool subgun)
 		{
 			//Логика пули
 			if (!reload)
@@ -133,6 +134,22 @@ namespace Survival
 							AddBullet(angle, heroPosition);
 						}
 						oldmouse = m_mouse;
+					}
+				}
+
+				if (subgun)
+				{
+					attackSpeed = 5;
+					if (time3 != attackSpeed)
+						time3++;
+					else 
+					{
+						MouseState m_mouse = Mouse.GetState();
+						if (m_mouse.LeftButton == ButtonState.Pressed)
+						{
+							Shoot(heroPosition, m_mouse);
+							AddBullet(angle, heroPosition);
+						}
 					}
 				}
 			}
