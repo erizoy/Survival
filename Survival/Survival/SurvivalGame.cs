@@ -180,215 +180,6 @@ namespace Survival
 			}
 			MouseState m_mouse = Mouse.GetState();
 			MouseState m_mouse2 = Mouse.GetState();
-			if ((m_mouse.RightButton == ButtonState.Pressed) && (oldmouse.RightButton == ButtonState.Released) && (info.b_levelup))
-				p_choose = true;
-			if (p_choose)
-			{
-				u_indicator = true;
-				perk.Update(gameTime);
-				cursor.Update(gameTime, u_indicator);
-				if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_big) // перк здоровяк
-				{
-					hero.currentHealth = item_b.p_husky(hero.currentHealth);
-					p_choose = false;
-				}
-				if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_athlete) // перк атлет
-				{
-					hero.velocity = new Vector2(4, 4);
-					p_choose = false;
-				}
-			}
-			else
-			{
-				if (game_start)
-				{
-					u_indicator = false;
-					menu.mainsound.Stop();
-					deathmenu.deathsound.Stop();
-					gamesound.Play();
-					perk.Update(gameTime);
-					if (b_restart) // сброс параметров на defualt после перезапуска(!)
-					{
-						auto = false;
-						b_flame = false;
-						b_pistol = true;
-						rifle.raised_rifle = false;
-						hero.Health = 100;
-						hero.currentHealth = 100;
-						score = 0;
-						b_restart = false;
-						monsters.Clear();
-						hero.heroPosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
-						bullet.bullets.Clear();
-					}
-					if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
-					{
-						enableConsole = !enableConsole;
-					}
-					//mouse = Mouse.GetState();
-
-					if (subgun.raised_rifle)
-					{
-						if (first_raised)
-						{
-							bullet.bullets.Clear();
-							first_raised = false;
-						}
-						subgun.Update(gameTime, bullet.bullets, reload);
-						if (subgun.l_reload)
-							reload = true;
-						else
-							reload = false;
-					}
-
-					if (rifle.raised_rifle)
-					{
-						if (first_raised)
-						{
-							bullet.bullets.Clear();
-							first_raised = false;
-						}
-						rifle.Update(gameTime, bullet.bullets, reload);
-						if (rifle.l_reload)
-							reload = true;
-						else
-							reload = false;
-					}
-					if (b_pistol) // Валера, пришло твое время
-					{
-						if (p_first_raised)
-						{
-							bullet.bullets.Clear();
-							p_first_raised = false;
-						}
-						pistol.Update(gameTime, bullet.bullets, reload);
-						if (pistol.l_reload)
-							reload = true;
-						else
-							reload = false;
-					}
-
-					info.Update(gameTime, hero.Health);
-					cursor.Update(gameTime, u_indicator);
-					if (!hero.heroIsDead)
-					{
-						hero.Update(gameTime);
-						bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol, b_subgun);
-					}
-					else
-					{
-						game_start = false;
-						b_deathState = true;
-					}
-					//
-					//if (monsters.Count < 1)
-					//{
-					if (time > 100)
-					{
-						time = 0;
-					}
-					if (time == randomPosition.Next(0, 100))
-					{
-						AddMonster();
-					}
-					else
-						time++;
-					//}
-					heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
-					rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
-					subgunRectangle = new Rectangle((int)subgun.subgunPosition.X, (int)subgun.subgunPosition.Y, subgun.drawingRectangle.Width, subgun.drawingRectangle.Height);
-					flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
-					firstaidbRectangle = new Rectangle((int)item_b.itemPosition.X, (int)item_b.itemPosition.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
-					huskyRectangle = new Rectangle((int)item_b.itemPosition2.X, (int)item_b.itemPosition2.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
-
-					if (heroRectangle.Intersects(huskyRectangle))
-					{
-						hero.currentHealth = item_b.p_husky(hero.currentHealth);
-					}
-
-					if (heroRectangle.Intersects(firstaidbRectangle))
-					{
-						hero.Health = item_b.first_aid(hero.Health, hero.currentHealth);
-					}
-
-					if (heroRectangle.Intersects(subgunRectangle))
-					{
-						subgun.raised_rifle = true;
-						auto = false;
-						b_subgun = true;
-						b_flame = false;
-						b_pistol = false;
-						p_first_raised = true;
-						first_raised = true;
-					}
-
-					if (heroRectangle.Intersects(rifleRectangle))
-					{
-						rifle.raised_rifle = true;
-						auto = true;
-						b_flame = false;
-						b_pistol = false;
-						b_subgun = false;
-						p_first_raised = true;
-						first_raised = true;
-					}
-
-					if (heroRectangle.Intersects(flameRectangle))
-					{
-						flame.raised_flame = true;
-						b_flame = true;
-						auto = false;
-						b_pistol = false;
-						first_raised = true;
-						p_first_raised = true;
-						b_subgun = false;
-					}
-
-					foreach (monsterSprite one_monster in monsters)
-					{
-
-						if (!one_monster.isDead)
-							foreach (bulletSprite one_bullet in bullet.bullets)
-							{
-								//int m_health = 100;
-								Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
-								if (one_monster.monsterRectangle.Intersects(bulletRectangle))
-								{
-									one_bullet.deleting = true;
-									if (b_pistol)
-										one_monster.health -= pistol.damage;
-									if (b_subgun)
-										one_monster.health -= subgun.damage;
-									if (auto)
-										one_monster.health -= rifle.damage;
-									if (one_monster.health <= 0)
-									{
-										if (!one_monster.isDead)
-											one_monster.rotationAngle = (float)Math.PI + one_bullet.angle;//угол падения трупа
-										one_monster.isDead = true;
-										one_monster.currentFrame = 0;
-										one_monster.timeElapsed = 151;
-										score += 30;
-									}
-								}
-							}
-						if (!one_monster.isDead)
-						{
-							if (one_monster.monsterRectangle.Intersects(heroRectangle))
-								hero.Damage(one_monster.damage);
-						}
-						one_monster.Update(gameTime, heroRectangle);
-					}
-
-					if (score >= i_levelup)
-					{
-						info.b_levelup = true;
-						i_levelup += 600;
-					}
-				}
-			}
-			oldmouse = m_mouse;
-
 			if (b_deathState)
 			{
 				u_indicator = true;
@@ -413,7 +204,222 @@ namespace Survival
 					b_restart = true;
 					hero.heroIsDead = false;
 					menu.choose.Play();
+					game_start = false;
 				}
+			}
+			else
+			{
+				if ((m_mouse.RightButton == ButtonState.Pressed) && (oldmouse.RightButton == ButtonState.Released) && (info.b_levelup))
+					p_choose = true;
+				if (p_choose)
+				{
+					u_indicator = true;
+					perk.Update(gameTime);
+					cursor.Update(gameTime, u_indicator);
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_big) // перк здоровяк
+					{
+						hero.currentHealth = item_b.p_husky(hero.currentHealth);
+						p_choose = false;
+					}
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_athlete) // перк атлет
+					{
+						hero.velocity = new Vector2(4, 4);
+						p_choose = false;
+					}
+				}
+				else
+				{
+					if (game_start)
+					{
+						u_indicator = false;
+						menu.mainsound.Stop();
+						deathmenu.deathsound.Stop();
+						gamesound.Play();
+						perk.Update(gameTime);
+						if (b_restart) // сброс параметров на defualt после перезапуска(!)
+						{
+							auto = false;
+							b_flame = false;
+							b_pistol = true;
+							rifle.raised_rifle = false;
+							hero.Health = 100;
+							hero.currentHealth = 100;
+							score = 0;
+							b_restart = false;
+							monsters.Clear();
+							hero.heroPosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
+							bullet.bullets.Clear();
+						}
+						if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
+						{
+							enableConsole = !enableConsole;
+						}
+						//mouse = Mouse.GetState();
+
+						if (subgun.raised_rifle)
+						{
+							if (first_raised)
+							{
+								bullet.bullets.Clear();
+								first_raised = false;
+							}
+							subgun.Update(gameTime, bullet.bullets, reload);
+							if (subgun.l_reload)
+								reload = true;
+							else
+								reload = false;
+						}
+
+						if (rifle.raised_rifle)
+						{
+							if (first_raised)
+							{
+								bullet.bullets.Clear();
+								first_raised = false;
+							}
+							rifle.Update(gameTime, bullet.bullets, reload);
+							if (rifle.l_reload)
+								reload = true;
+							else
+								reload = false;
+						}
+						if (b_pistol) // Валера, пришло твое время
+						{
+							if (p_first_raised)
+							{
+								bullet.bullets.Clear();
+								p_first_raised = false;
+							}
+							pistol.Update(gameTime, bullet.bullets, reload);
+							if (pistol.l_reload)
+								reload = true;
+							else
+								reload = false;
+						}
+
+						info.Update(gameTime, hero.Health);
+						cursor.Update(gameTime, u_indicator);
+						if (!hero.heroIsDead)
+						{
+							hero.Update(gameTime);
+							bullet.Update(gameTime, hero.heroPosition, reload, auto, b_flame, b_pistol, b_subgun);
+						}
+						else
+						{
+							game_start = true;
+							b_deathState = true;
+						}
+						//
+						//if (monsters.Count < 1)
+						//{
+						if (time > 100)
+						{
+							time = 0;
+						}
+						if (time == randomPosition.Next(0, 100))
+						{
+							AddMonster();
+						}
+						else
+							time++;
+						//}
+						heroRectangle = new Rectangle((int)hero.heroPosition.X, (int)hero.heroPosition.Y, hero.drawingRectangle.Width / 2, hero.drawingRectangle.Height / 2);
+						rifleRectangle = new Rectangle((int)rifle.riflePosition.X, (int)rifle.riflePosition.Y, rifle.drawingRectangle.Width, rifle.drawingRectangle.Height);
+						subgunRectangle = new Rectangle((int)subgun.subgunPosition.X, (int)subgun.subgunPosition.Y, subgun.drawingRectangle.Width, subgun.drawingRectangle.Height);
+						flameRectangle = new Rectangle((int)flame.flamePosition.X, (int)flame.flamePosition.Y, flame.drawingRectangle.Width, flame.drawingRectangle.Height);
+						firstaidbRectangle = new Rectangle((int)item_b.itemPosition.X, (int)item_b.itemPosition.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
+						huskyRectangle = new Rectangle((int)item_b.itemPosition2.X, (int)item_b.itemPosition2.Y, item_b.drawingRectangle.Width, item_b.drawingRectangle.Height);
+
+						if (heroRectangle.Intersects(huskyRectangle))
+						{
+							hero.currentHealth = item_b.p_husky(hero.currentHealth);
+						}
+
+						if (heroRectangle.Intersects(firstaidbRectangle))
+						{
+							hero.Health = item_b.first_aid(hero.Health, hero.currentHealth);
+						}
+
+						if (heroRectangle.Intersects(subgunRectangle))
+						{
+							subgun.raised_rifle = true;
+							auto = false;
+							b_subgun = true;
+							b_flame = false;
+							b_pistol = false;
+							p_first_raised = true;
+							first_raised = true;
+						}
+
+						if (heroRectangle.Intersects(rifleRectangle))
+						{
+							rifle.raised_rifle = true;
+							auto = true;
+							b_flame = false;
+							b_pistol = false;
+							b_subgun = false;
+							p_first_raised = true;
+							first_raised = true;
+						}
+
+						if (heroRectangle.Intersects(flameRectangle))
+						{
+							flame.raised_flame = true;
+							b_flame = true;
+							auto = false;
+							b_pistol = false;
+							first_raised = true;
+							p_first_raised = true;
+							b_subgun = false;
+						}
+
+						foreach (monsterSprite one_monster in monsters)
+						{
+
+							if (!one_monster.isDead)
+								foreach (bulletSprite one_bullet in bullet.bullets)
+								{
+									//int m_health = 100;
+									Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
+									if (one_monster.monsterRectangle.Intersects(bulletRectangle))
+									{
+										one_bullet.deleting = true;
+										if (b_pistol)
+											one_monster.health -= pistol.damage;
+										if (b_subgun)
+											one_monster.health -= subgun.damage;
+										if (auto)
+											one_monster.health -= rifle.damage;
+										if (one_monster.health <= 0)
+										{
+											if (!one_monster.isDead)
+												one_monster.rotationAngle = (float)Math.PI + one_bullet.angle;//угол падения трупа
+											one_monster.isDead = true;
+											one_monster.currentFrame = 0;
+											one_monster.timeElapsed = 151;
+											score += 30;
+										}
+									}
+								}
+							if (!one_monster.isDead)
+							{
+								if (one_monster.monsterRectangle.Intersects(heroRectangle))
+									hero.Damage(one_monster.damage);
+							}
+							one_monster.Update(gameTime, heroRectangle);
+						}
+
+						if (score >= i_levelup)
+						{
+							info.b_levelup = true;
+							i_levelup += 600;
+						}
+					}
+
+					oldmouse = m_mouse;
+				}
+
+
 			}
 
             base.Update(gameTime);
@@ -436,65 +442,66 @@ namespace Survival
 				spriteBatch.DrawString(gameFont, "version 1.0", new Vector2(925, 730), Color.FromNonPremultiplied(0, 175, 220, 500));
 				spriteBatch.End();
 			}
-			if (p_choose)
+
+			if (game_start)
 			{
-				d_indicator = true;
-				perk.Draw(spriteBatch);
-				cursor.Draw(spriteBatch, d_indicator);
-			}
-			else
-			{
-				if (game_start)
+				d_indicator = false;
+				//GraphicsDevice.Clear(Color.CornflowerBlue);
+				background.Draw(spriteBatch);
+				bullet.Draw(spriteBatch);
+				flame.Draw(spriteBatch);
+				subgun.Draw(spriteBatch);
+				item_b.Draw(spriteBatch);
+
+				// отрисовка монстров
+				foreach (monsterSprite item in monsters)
 				{
-					d_indicator = false;
-					GraphicsDevice.Clear(Color.CornflowerBlue);
-					background.Draw(spriteBatch);
-					bullet.Draw(spriteBatch);
-					flame.Draw(spriteBatch);
-					subgun.Draw(spriteBatch);
-					item_b.Draw(spriteBatch);
+					item.Draw(spriteBatch);
+				}
 
-					// отрисовка монстров
-					foreach (monsterSprite item in monsters)
-					{
-						item.Draw(spriteBatch);
-					}
-
-					hero.Draw(spriteBatch);
-					info.Draw(spriteBatch);
+				hero.Draw(spriteBatch);
+				info.Draw(spriteBatch);
+				cursor.Draw(spriteBatch, d_indicator);
+				rifle.Draw(spriteBatch);
+				spriteBatch.Begin();
+				spriteBatch.DrawString(gameFont, "" + score, new Vector2(60, 212), Color.FromNonPremultiplied(0, 175, 220, 1000));
+				spriteBatch.End();
+				if (p_choose)
+				{
+					d_indicator = true;
+					perk.Draw(spriteBatch);
 					cursor.Draw(spriteBatch, d_indicator);
-					rifle.Draw(spriteBatch);
-					spriteBatch.Begin();
-					spriteBatch.DrawString(gameFont, "" + score, new Vector2(60, 212), Color.FromNonPremultiplied(0, 175, 220, 1000));
-					spriteBatch.End();
+				}
 
-					if (enableConsole)
-					{
-						spriteBatch.Begin();
-						spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString() + ";" + heroRectangle.Width.ToString() + ";" + heroRectangle.Height.ToString(), new Vector2(15, 15), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "      Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "       Time: " + bullet.time, new Vector2(15, 45), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
-						if (monsters.Count != 0)
-							spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "     Health: " + (int)hero.Health, new Vector2(15, 105), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "  curHealth: " + (int)hero.currentHealth, new Vector2(15, 120), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "      Score: " + score, new Vector2(15, 135), Color.YellowGreen);
-						spriteBatch.DrawString(gameFont, "Bullet Count:" + bullet.bullets.Count, new Vector2(15, 150), Color.YellowGreen);
-						if (bullet.bullets.Count != 0)
-							spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 165), Color.YellowGreen);
-						spriteBatch.End();
-					}
+				if (b_deathState)
+				{
+					d_indicator = true;
+					deathmenu.Draw(spriteBatch);
+					cursor.Draw(spriteBatch, d_indicator);
+				}
+
+				if (enableConsole)
+				{
+					spriteBatch.Begin();
+					spriteBatch.DrawString(gameFont, "   Position: " + hero.heroPosition.X.ToString() + ";" + hero.heroPosition.Y.ToString() + ";" + heroRectangle.Width.ToString() + ";" + heroRectangle.Height.ToString(), new Vector2(15, 15), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "      Mouse: " + mouse.X.ToString() + ";" + mouse.Y.ToString(), new Vector2(15, 30), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "       Time: " + bullet.time, new Vector2(15, 45), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "   Monsters: " + monsters.Count, new Vector2(15, 60), Color.YellowGreen);
+					if (monsters.Count != 0)
+						spriteBatch.DrawString(gameFont, "Monster Pos: " + monsters[0].monsterRectangle.X.ToString() + ";" + monsters[0].monsterRectangle.Y.ToString() + ";" + monsters[0].monsterRectangle.Width.ToString() + ";" + monsters[0].monsterRectangle.Height.ToString(), new Vector2(15, 75), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "     Target: " + heroRectangle.X + ";" + heroRectangle.Y, new Vector2(15, 90), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "     Health: " + (int)hero.Health, new Vector2(15, 105), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "  curHealth: " + (int)hero.currentHealth, new Vector2(15, 120), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "      Score: " + score, new Vector2(15, 135), Color.YellowGreen);
+					spriteBatch.DrawString(gameFont, "Bullet Count:" + bullet.bullets.Count, new Vector2(15, 150), Color.YellowGreen);
+					if (bullet.bullets.Count != 0)
+						spriteBatch.DrawString(gameFont, "     Bullet: " + (int)bullet.bullets[0].bulletPosition.X + ";" + (int)bullet.bullets[0].bulletPosition.Y, new Vector2(15, 165), Color.YellowGreen);
+					spriteBatch.End();
 				}
 			}
 
-			if (b_deathState)
-			{
-				d_indicator = true;
-				deathmenu.Draw(spriteBatch);
-				cursor.Draw(spriteBatch, d_indicator);
-			}
+			
+
             base.Draw(gameTime);
 
         }

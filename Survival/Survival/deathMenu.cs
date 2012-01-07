@@ -47,19 +47,11 @@ namespace Survival
 		{
 			spriteBatch.Begin();
 			spriteBatch.Draw(deathMenuTexture, new Rectangle(0, 0, 1024, 768), Color.White);
-			spriteBatch.End();
 			if (b_restart)
-			{
-				spriteBatch.Begin();
 				spriteBatch.Draw(restartTexture, new Rectangle(517, 398, 231, 44), Color.White);
-				spriteBatch.End();
-			}
 			if (b_mainmenu)
-			{
-				spriteBatch.Begin();
 				spriteBatch.Draw(mainMenuTexture, new Rectangle(275, 398, 231, 44), Color.White);
-				spriteBatch.End();
-			}
+			spriteBatch.End();
 		}
 	}
 }
