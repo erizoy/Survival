@@ -19,9 +19,11 @@ namespace Survival
 		Texture2D about_def;
 		Texture2D big;
 		Texture2D about_big;
-		public bool show_fr = false, show_def = true, show_big = false, show_athlete = false;
+		Texture2D regeneration;
+		Texture2D about_regeneration;
+		public bool show_fr = false, show_def = true, show_big = false, show_athlete = false, show_regeneration = false;
 
-		public perkSprite(Texture2D newMainPerkMenu, Texture2D newFrPerk, Texture2D newAdout_FrPerk, Texture2D newAthlete, Texture2D newAbout_Athlete, Texture2D newAbout_def, Texture2D newBig, Texture2D newAbout_Big)
+		public perkSprite(Texture2D newMainPerkMenu, Texture2D newFrPerk, Texture2D newAdout_FrPerk, Texture2D newAthlete, Texture2D newAbout_Athlete, Texture2D newAbout_def, Texture2D newBig, Texture2D newAbout_Big, Texture2D newRegeneration, Texture2D newAbout_Regeneration)
 		{
 			mainperkmenu = newMainPerkMenu;
 			frperk = newFrPerk;
@@ -31,6 +33,8 @@ namespace Survival
 			about_def = newAbout_def;
 			big = newBig;
 			about_big = newAbout_Big;
+			regeneration = newRegeneration;
+			about_regeneration = newAbout_Regeneration;
 		}
 
 		public void Update(GameTime gameTime)
@@ -39,6 +43,7 @@ namespace Survival
 			Rectangle fr_rec = new Rectangle(296, 323, 200, 28);
 			Rectangle big_rec = new Rectangle(296, 351, 200, 28);
 			Rectangle athlete_rec = new Rectangle(296, 379, 200, 28);
+			Rectangle regeneration_rec = new Rectangle(296, 407, 200, 28);
 			Rectangle r_cursor = new Rectangle((int)m_cursor.X, (int)m_cursor.Y, 1, 1);
 			
 			if (r_cursor.Intersects(fr_rec))
@@ -65,7 +70,15 @@ namespace Survival
 			else
 				show_athlete = false;
 
-			if (!show_big && !show_fr && !show_athlete)
+			if (r_cursor.Intersects(regeneration_rec))
+			{
+				show_regeneration = true;
+				show_def = false;
+			}
+			else
+				show_regeneration = false;
+
+			if (!show_big && !show_fr && !show_athlete && !show_regeneration)
 				show_def = true;
 		}
 
@@ -89,6 +102,11 @@ namespace Survival
 			{
 				spriteBatch.Draw(athlete, new Rectangle(296, 379, 200, 28), Color.White);
 				spriteBatch.Draw(about_athlete, new Rectangle(296, 461, 460, 26), Color.White);
+			}
+			if (show_regeneration)
+			{
+				spriteBatch.Draw(regeneration, new Rectangle(296, 407, 200, 28), Color.White);
+				spriteBatch.Draw(about_regeneration, new Rectangle(296, 461, 460, 26), Color.White);
 			}
 			spriteBatch.End();
 		}

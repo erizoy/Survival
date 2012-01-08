@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Survival
 {
@@ -12,17 +13,20 @@ namespace Survival
 	{
 		public Texture2D rifle;
 		public Vector2 riflePosition;
+		public SoundEffectInstance rifleshot;
 		public Rectangle drawingRectangle;
-		int time_reload = 0;
+		public int time_reload = 120;
 		int openfire = 0;
 		public bool l_reload = false;
+		public int countammo = 30;
 		public int damage = 100;
 
 		public bool raised_rifle = false; // поднял оружие
 
-		public rifleSprite(Texture2D newRifle, Vector2 NewriflePosition)
+		public rifleSprite(Texture2D newRifle, Vector2 NewriflePosition, SoundEffectInstance newRifleShot)
 		{
 			rifle = newRifle;
+			rifleshot = newRifleShot;
 			riflePosition = NewriflePosition;
 		}
 
@@ -33,7 +37,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload += 100;
+			openfire = 0;
 			l_reload = true;
 		}
 
@@ -56,11 +60,11 @@ namespace Survival
 			}
 		}
 
-		public void Update(GameTime gameTime, List<bulletSprite> bullets, bool reload)
+		public void Update(GameTime gameTime, List<bulletSprite> bullets, bool reload /*bool perk_aktiv*/)
 		{
 			if (raised_rifle)
 			{
-				if (bullets.Count == 30)
+				if (bullets.Count == countammo)
 				{
 					Reload(gameTime);
 					bullets.Clear();

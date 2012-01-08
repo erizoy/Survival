@@ -88,7 +88,7 @@ namespace Survival
 			}
 		}
 
-		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool b_pistol, bool subgun, SoundEffectInstance pistolshot)
+		public void Update(GameTime gameTime, Vector2 heroPosition, bool reload, bool auto, bool b_flame, bool b_pistol, bool subgun, SoundEffectInstance pistolshot, SoundEffectInstance rifleshot)
 		{
 			//Логика пули
 			if (!reload)
@@ -104,6 +104,7 @@ namespace Survival
 						if (mouse.LeftButton == ButtonState.Pressed)
 						{
 							Shoot(heroPosition, mouse);
+							rifleshot.Play();
 							AddBullet(angle, heroPosition);
 						}
 					}

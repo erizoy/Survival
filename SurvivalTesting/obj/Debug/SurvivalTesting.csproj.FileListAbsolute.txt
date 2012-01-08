@@ -106,3 +106,6 @@ C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\big.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\fr.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\mainmenuperk.xnb
 C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Sound\pistolshot.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Sound\rifleshot.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\about_regeneration.xnb
+C:\Users\Admin\Survival\SurvivalTesting\bin\Debug\Content\Texture\regeneration.xnb

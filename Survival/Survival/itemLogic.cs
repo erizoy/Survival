@@ -18,6 +18,10 @@ namespace Survival
 		public bool activ2 = false;
 		double rez = 0.0;
 
+		subgunSprite subgun = new subgunSprite();
+		pistolDefault pistol = new pistolDefault();
+		rifleSprite rifle = new rifleSprite();
+
 		public itemLogic(Texture2D newItemTexture, Vector2 newitemPosition)
 		{
 			firstaidTexture = newItemTexture;
@@ -29,15 +33,16 @@ namespace Survival
 			
 		}
 
-		public int p_fast_reload(int time)// быстрая перезарядка
+		public void p_fast_reload(int pistol_time_reload, int subgun_time_reload2, int rifle_time_reload3)
 		{
-			time -= 30;
-			return time;
+			pistol_time_reload -= 30;
+			subgun_time_reload2 -= 30;
+			rifle_time_reload3 -= 30;
 		}
 
 		public int p_armorer(/*уточнить параметры*/) // оружейник
 		{
-			// нужен класс с оружием т. к. передаваемые параметры зависят именно от количества патронов в разных стволах
+			
 			return 0;
 		}
 
@@ -50,26 +55,6 @@ namespace Survival
 		{
 			health += 60;
 			return health;
-		}
-
-		public void p_regeneration(int health) // в основной программе сделать глобальную проверку health при взятии этого перка(!)
-		{
-			if ((health != 100) || (health != 130))
-			{
-				while ((health == 100) || (health == 130))
-				{
-					if (reg_time != 0)
-					{
-						reg_time--; // скорее всего здоровье будет восстанавливаться слишком быстро(!)
-					}
-					else
-					{
-						health += 1;
-						reg_time = 300; // но будем посмотреть
-					}
-				}
-			}
-
 		}
 
 		public double first_aid(double health, double currentHealth)

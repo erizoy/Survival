@@ -379,6 +379,33 @@
       <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\pistolshot.xnb</Output>
       <Time>2012-01-08T00:54:59.9881022+04:00</Time>
     </Item>
+    <Item>
+      <Source>Sound\rifleshot.wav</Source>
+      <Name>Sound\rifleshot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\rifleshot.xnb</Output>
+      <Time>2012-01-08T12:13:01.6007506+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\about_regeneration.png</Source>
+      <Name>Texture\about_regeneration</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_regeneration.xnb</Output>
+      <Time>2012-01-08T13:14:19.5331911+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Texture\regeneration.png</Source>
+      <Name>Texture\regeneration</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\regeneration.xnb</Output>
+      <Time>2012-01-08T13:14:15.2275835+04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

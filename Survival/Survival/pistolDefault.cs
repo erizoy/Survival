@@ -11,7 +11,7 @@ namespace Survival
 	{
 		public SoundEffectInstance pistolshot;
 
-		int time_reload;
+		public int time_reload = 100;
 		int openfire = 0;
 		public bool l_reload = false;
 		public int damage = 35;
@@ -28,7 +28,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload = 100;
+			openfire = 0;
 			l_reload = true;
 		}
 

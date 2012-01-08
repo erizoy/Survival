@@ -12,7 +12,7 @@ namespace Survival
 		public Texture2D subgun;
 		public Vector2 subgunPosition;
 		public Rectangle drawingRectangle;
-		int time_reload = 0;
+		public int time_reload = 110;
 		int openfire = 0;
 		public bool l_reload = false;
 		public int damage = 50;
@@ -32,7 +32,7 @@ namespace Survival
 
 		public void Reload(GameTime gameTime)
 		{
-			time_reload += 100;
+			openfire = 0;
 			l_reload = true;
 		}
 
