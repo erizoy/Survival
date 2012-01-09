@@ -140,3 +140,9 @@ C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\pistolshot
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Sound\rifleshot.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\about_regeneration.xnb
 C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\regeneration.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\notathlete.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\notbig.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\notfr.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\notregeneration.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\back.xnb
+C:\Users\Admin\Survival\Survival\Survival\bin\x86\Debug\Content\Texture\hp100.xnb

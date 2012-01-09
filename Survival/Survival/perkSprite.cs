@@ -21,9 +21,16 @@ namespace Survival
 		Texture2D about_big;
 		Texture2D regeneration;
 		Texture2D about_regeneration;
-		public bool show_fr = false, show_def = true, show_big = false, show_athlete = false, show_regeneration = false;
+		Texture2D notfrperk;
+		Texture2D notathlete;
+		Texture2D notbig;
+		Texture2D notregeneration;
+		Texture2D back;
+		public bool show_fr = false, show_def = true, show_big = false, show_athlete = false, show_regeneration = false, notshow_fr = false, notshow_athlete, notshow_big, notshow_regeneration, show_back = false;
 
-		public perkSprite(Texture2D newMainPerkMenu, Texture2D newFrPerk, Texture2D newAdout_FrPerk, Texture2D newAthlete, Texture2D newAbout_Athlete, Texture2D newAbout_def, Texture2D newBig, Texture2D newAbout_Big, Texture2D newRegeneration, Texture2D newAbout_Regeneration)
+		public perkSprite(Texture2D newMainPerkMenu, Texture2D newFrPerk, Texture2D newAdout_FrPerk, Texture2D newAthlete, Texture2D newAbout_Athlete, Texture2D newAbout_def, 
+			Texture2D newBig, Texture2D newAbout_Big, Texture2D newRegeneration, Texture2D newAbout_Regeneration, Texture2D newnotfrperk, Texture2D newnotathlete, Texture2D newnotbig, Texture2D newnotregeneration,
+			Texture2D newBack)
 		{
 			mainperkmenu = newMainPerkMenu;
 			frperk = newFrPerk;
@@ -35,6 +42,11 @@ namespace Survival
 			about_big = newAbout_Big;
 			regeneration = newRegeneration;
 			about_regeneration = newAbout_Regeneration;
+			notfrperk = newnotfrperk;
+			notathlete = newnotathlete;
+			notbig = newnotbig;
+			notregeneration = newnotregeneration;
+			back = newBack;
 		}
 
 		public void Update(GameTime gameTime)
@@ -45,8 +57,13 @@ namespace Survival
 			Rectangle athlete_rec = new Rectangle(296, 379, 200, 28);
 			Rectangle regeneration_rec = new Rectangle(296, 407, 200, 28);
 			Rectangle r_cursor = new Rectangle((int)m_cursor.X, (int)m_cursor.Y, 1, 1);
+			Rectangle back_rec = new Rectangle(658, 471, 97, 33);
 			
-			if (r_cursor.Intersects(fr_rec))
+			if(r_cursor.Intersects(back_rec))
+				show_back = true;
+			else
+				show_back = false;
+			if (r_cursor.Intersects(fr_rec) && !notshow_fr)
 			{
 				show_def = false;
 				show_fr = true;				
@@ -54,7 +71,7 @@ namespace Survival
 			else
 				show_fr = false;
 
-			if (r_cursor.Intersects(big_rec))
+			if (r_cursor.Intersects(big_rec) && !notshow_big)
 			{
 				show_big = true;
 				show_def = false;
@@ -62,7 +79,7 @@ namespace Survival
 			else
 				show_big = false;
 
-			if (r_cursor.Intersects(athlete_rec))
+			if (r_cursor.Intersects(athlete_rec) && !notshow_athlete)
 			{
 				show_athlete = true;
 				show_def = false;
@@ -70,7 +87,7 @@ namespace Survival
 			else
 				show_athlete = false;
 
-			if (r_cursor.Intersects(regeneration_rec))
+			if (r_cursor.Intersects(regeneration_rec) && !notshow_regeneration)
 			{
 				show_regeneration = true;
 				show_def = false;
@@ -89,25 +106,35 @@ namespace Survival
 			if (show_fr)
 			{
 				spriteBatch.Draw(frperk, new Rectangle(296, 323, 200, 28), Color.White);
-				spriteBatch.Draw(about_frperk, new Rectangle(296, 461, 460, 26), Color.White);
+				spriteBatch.Draw(about_frperk, new Rectangle(296, 445, 460, 26), Color.White);
 			}
 			if (show_def)
-				spriteBatch.Draw(about_def, new Rectangle(296, 461, 460, 26), Color.White);
+				spriteBatch.Draw(about_def, new Rectangle(296, 445, 460, 26), Color.White);
 			if (show_big)
 			{
 				spriteBatch.Draw(big, new Rectangle(296, 351, 200, 28), Color.White);
-				spriteBatch.Draw(about_big, new Rectangle(296, 461, 460, 26), Color.White);
+				spriteBatch.Draw(about_big, new Rectangle(296, 445, 460, 26), Color.White);
 			}
 			if (show_athlete)
 			{
 				spriteBatch.Draw(athlete, new Rectangle(296, 379, 200, 28), Color.White);
-				spriteBatch.Draw(about_athlete, new Rectangle(296, 461, 460, 26), Color.White);
+				spriteBatch.Draw(about_athlete, new Rectangle(296, 445, 460, 26), Color.White);
 			}
 			if (show_regeneration)
 			{
 				spriteBatch.Draw(regeneration, new Rectangle(296, 407, 200, 28), Color.White);
-				spriteBatch.Draw(about_regeneration, new Rectangle(296, 461, 460, 26), Color.White);
+				spriteBatch.Draw(about_regeneration, new Rectangle(296, 445, 460, 26), Color.White);
 			}
+			if (notshow_athlete)
+				spriteBatch.Draw(notathlete, new Rectangle(296, 379, 200, 28), Color.White);
+			if (notshow_big)
+				spriteBatch.Draw(notbig, new Rectangle(296, 351, 200, 28), Color.White);
+			if (notshow_fr)
+				spriteBatch.Draw(notfrperk, new Rectangle(296, 323, 200, 28), Color.White);
+			if (notshow_regeneration)
+				spriteBatch.Draw(notregeneration, new Rectangle(296, 407, 200, 28), Color.White);
+			if(show_back)
+				spriteBatch.Draw(back, new Rectangle(658, 471, 97, 33), Color.White);
 			spriteBatch.End();
 		}
 	}

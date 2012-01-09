@@ -29,15 +29,8 @@ namespace Survival
 		}
 
 		public itemLogic()
-		{ 
-			
-		}
-
-		public void p_fast_reload(int pistol_time_reload, int subgun_time_reload2, int rifle_time_reload3)
 		{
-			pistol_time_reload -= 30;
-			subgun_time_reload2 -= 30;
-			rifle_time_reload3 -= 30;
+
 		}
 
 		public int p_armorer(/*уточнить параметры*/) // оружейник
@@ -53,7 +46,7 @@ namespace Survival
 
 		public double p_husky(double health) // здоровяк
 		{
-			health += 60;
+			health += 30;
 			return health;
 		}
 

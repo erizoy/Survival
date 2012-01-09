@@ -41,7 +41,7 @@ namespace Survival
         Random randomPosition = new Random();
         int time;
 		public int score = 0;
-		int i_levelup = 300;
+		int i_levelup = 900;
         bool enableConsole;
 		bool reload;
 		bool auto = false;
@@ -59,12 +59,13 @@ namespace Survival
 		bool perk_reg_activ = false;
 		int reg_time;
 		int level = 0;
+		int monsteratack = 100;
+		int hard = 4, count_monster = 0;
 
         Rectangle heroRectangle;
 		Rectangle rifleRectangle;
 		Rectangle flameRectangle;
 		Rectangle firstaidbRectangle;
-		Rectangle huskyRectangle;
 		Rectangle subgunRectangle;
 
         MouseState mouse = Mouse.GetState();
@@ -89,7 +90,7 @@ namespace Survival
       
         protected override void Initialize()
 		{
-			//graphics.IsFullScreen = true;
+			graphics.IsFullScreen = true;
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
 			graphics.ApplyChanges();
@@ -122,10 +123,12 @@ namespace Survival
 			menu = new Menu(Content.Load<Texture2D>("Texture/Menu"), Content.Load<Texture2D>("Texture/start_game"), Content.Load<Texture2D>("Texture/options"), Content.Load<Texture2D>("Texture/stat"), Content.Load<Texture2D>("Texture/exit"),
 				Content.Load<SoundEffect>("Sound/choose").CreateInstance(), Content.Load<SoundEffect>("Sound/guidance").CreateInstance(), Content.Load<SoundEffect>("Sound/mainsound").CreateInstance());
 			deathmenu = new deathMenu(Content.Load<Texture2D>("Texture/deathmenu"), Content.Load<Texture2D>("Texture/restart"), Content.Load<Texture2D>("Texture/mainmenu"), Content.Load<SoundEffect>("Sound/deathsound").CreateInstance());
-			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"), Content.Load<Texture2D>("Texture/xp"));
+			info = new interfaceSprite(Content.Load<Texture2D>("Texture/healthammo"), Content.Load<Texture2D>("Texture/curhealth"), Content.Load<Texture2D>("Texture/curammo"), Content.Load<Texture2D>("Texture/levelup"), Content.Load<Texture2D>("Texture/xp"), 
+				Content.Load<Texture2D>("Texture/hp100"));
 			subgun = new subgunSprite(Content.Load<Texture2D>("Texture/pp"), subgunPosition);
 			perk = new perkSprite(Content.Load<Texture2D>("Texture/mainmenuperk"), Content.Load<Texture2D>("Texture/fr"), Content.Load<Texture2D>("Texture/about_fr"), Content.Load<Texture2D>("Texture/athlete"), Content.Load<Texture2D>("Texture/about_athlete"),
-				Content.Load<Texture2D>("Texture/about_def"), Content.Load<Texture2D>("Texture/big"), Content.Load<Texture2D>("Texture/about_big"), Content.Load<Texture2D>("Texture/regeneration"), Content.Load<Texture2D>("Texture/about_regeneration"));
+				Content.Load<Texture2D>("Texture/about_def"), Content.Load<Texture2D>("Texture/big"), Content.Load<Texture2D>("Texture/about_big"), Content.Load<Texture2D>("Texture/regeneration"), Content.Load<Texture2D>("Texture/about_regeneration"),
+				Content.Load<Texture2D>("Texture/notfr"), Content.Load<Texture2D>("Texture/notathlete"), Content.Load<Texture2D>("Texture/notbig"), Content.Load<Texture2D>("Texture/notregeneration"), Content.Load<Texture2D>("Texture/back"));
 			pistol = new pistolDefault(Content.Load<SoundEffect>("Sound/pistolshot").CreateInstance());
 
             background = new backSprite(Content.Load<Texture2D>("Texture/background"));
@@ -190,7 +193,6 @@ namespace Survival
 				menu.mainsound.Stop();
 				gamesound.Stop();
 				deathmenu.Update(gameTime);
-				//cursor.Update(gameTime, u_indicator);
 				MouseState m_state = Mouse.GetState();
 				if (m_state.LeftButton == ButtonState.Pressed && deathmenu.b_restart)
 				{
@@ -220,28 +222,37 @@ namespace Survival
 					u_indicator = true;
 					perk.Update(gameTime);
 					//cursor.Update(gameTime, u_indicator);
-					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_big) // перк здоровяк
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_back)
+						p_choose = false;
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_big && !perk.notshow_big) // перк здоровяк
 					{
 						hero.currentHealth = item_b.p_husky(hero.currentHealth);
 						p_choose = false;
+						perk.notshow_big = true;
+						info.b_hp100 = false;
 						level--;
 					}
-					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_athlete) // перк атлет
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_athlete && !perk.notshow_athlete) // перк атлет
 					{
 						hero.velocity = new Vector2(3, 3);
 						p_choose = false;
+						perk.notshow_athlete = true;
 						level--;
 					}
-					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_fr) // перк быстрая перезарядка
+					if (m_mouse2.LeftButton == ButtonState.Pressed && perk.show_fr && !perk.notshow_fr) // перк быстрая перезарядка
 					{
-						item_b.p_fast_reload(pistol.time_reload, subgun.time_reload, rifle.time_reload);
+						pistol.time_reload -= 30;
+						subgun.time_reload -= 30;
+						rifle.time_reload -= 30;
 						p_choose = false;
+						perk.notshow_fr = true;
 						level--;
 					}
-					if(m_mouse2.LeftButton == ButtonState.Pressed && perk.show_regeneration) // восстановление здоровья
+					if(m_mouse2.LeftButton == ButtonState.Pressed && perk.show_regeneration && !perk.notshow_regeneration) // восстановление здоровья
 					{
 						perk_reg_activ = true;
 						p_choose = false;
+						perk.notshow_regeneration = true;
 						level--;
 					}
 				}
@@ -268,6 +279,12 @@ namespace Survival
 							hero.heroPosition = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
 							bullet.bullets.Clear();
 							perk_reg_activ = false;
+							level = 0;
+							hero.velocity = new Vector2(2, 2);
+							pistol.time_reload += 30;
+							subgun.time_reload += 30;
+							rifle.time_reload += 30;
+							info.b_hp100 = true;
 						}
 						if (Keyboard.GetState().IsKeyDown(Keys.OemTilde) && oldKey.IsKeyUp(Keys.OemTilde))
 						{
@@ -345,7 +362,16 @@ namespace Survival
 						//
 						//if (monsters.Count < 1)
 						//{
-						if (time > 100)
+						if (count_monster == hard)
+						{
+							monsteratack -= 50;
+						}
+						else
+						{
+							count_monster++;
+						}
+
+						if (time > monsteratack)
 						{
 							time = 0;
 						}
@@ -406,7 +432,6 @@ namespace Survival
 							if (!one_monster.isDead)
 								foreach (bulletSprite one_bullet in bullet.bullets)
 								{
-									//int m_health = 100;
 									Rectangle bulletRectangle = new Rectangle((int)one_bullet.bulletPosition.X, (int)one_bullet.bulletPosition.Y, 1, 1);
 									if (one_monster.monsterRectangle.Intersects(bulletRectangle))
 									{
@@ -439,7 +464,7 @@ namespace Survival
 						if (score >= i_levelup)
 						{
 							level++;
-							i_levelup += 600;
+							i_levelup *= 3;
 						}
 
 						if (level != 0)
@@ -495,7 +520,6 @@ namespace Survival
 
 				hero.Draw(spriteBatch);
 				info.Draw(spriteBatch);
-				//cursor.Draw(spriteBatch, d_indicator);
 				rifle.Draw(spriteBatch);
 				spriteBatch.Begin();
 				spriteBatch.DrawString(gameFont, "" + score, new Vector2(60, 212), Color.FromNonPremultiplied(0, 175, 220, 1000));
@@ -504,14 +528,12 @@ namespace Survival
 				{
 					d_indicator = true;
 					perk.Draw(spriteBatch);
-					//cursor.Draw(spriteBatch, d_indicator);
 				}
 
 				if (b_deathState)
 				{
 					d_indicator = true;
 					deathmenu.Draw(spriteBatch);
-					//cursor.Draw(spriteBatch, d_indicator);
 				}
 				cursor.Draw(spriteBatch, d_indicator);
 
