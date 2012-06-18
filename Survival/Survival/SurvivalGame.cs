@@ -90,7 +90,7 @@ namespace Survival
       
         protected override void Initialize()
 		{
-			graphics.IsFullScreen = true;
+			//graphics.IsFullScreen = true;
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
 			graphics.ApplyChanges();

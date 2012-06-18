@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<project name="${project.name}" default="build">
+
+  <include buildfile="main.build.props" />
+
+
+  <target name="clean">
+    <delete dir="${bin.dir}" />
+	<delete dir="${out.dir}" />
+	<delete dir="${src.dir}" />
+  </target>
+
+  <target name="compile">
+    <csc target="exe" debug="false"
+         output="${bin.dir}/${project.name}.exe">
+      <sources>
+        <include name="${src.dir}/**/*.cs" />
+      </sources>
+	<references>
+	<include name="${lib.dir}\Microsoft.Xna.Framework.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Audio.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Game.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Avatar.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.GamerServices.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Graphics.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll" />
+	<include name="${lib.dir}\Microsoft.Xna.Framework.Media.dll" />
+	<include name="${lib.dir}\System.Core.dll" />
+	<include name="${lib.dir}\System.dll" />
+    </references>  
+    </csc>
+  </target>
+
+<target name="archivation">
+
+    <mkdir dir="nowtime" />
+	<copy todir="nowtime">
+	<fileset basedir="${src.dir}">	
+		<include name="**\*" />
+	</fileset>
+	</copy>
+
+    <zip zipfile="nowtime.zip">
+      <fileset basedir="nowtime">
+        <include name="**/*" />
+      
+      </fileset>
+    </zip>
+    <checksum algorithm="MD5" fileext="md5">
+      <fileset>
+        <include name="nowtime.zip" />
+      </fileset>
+    </checksum>
+  </target>
+
+
+
+  <target name="build">
+    <call target="compile" />
+
+    <zip zipfile="${out.dir}/${project.name}.zip">
+      <fileset basedir="${bin.dir}">
+        <include name="**/*" />
+      </fileset>
+	  <fileset basedir="${lib.dir}">
+        <include name="**/*" />
+      </fileset>
+      <fileset basedir="${src.dir}">
+        <exclude name="**/*.cs" />
+        <include name="**/*" />
+      </fileset>
+    </zip>
+    <checksum algorithm="MD5" fileext="md5">
+      <fileset>
+        <include name="${out.dir}/${project.name}.zip" />
+      </fileset>
+    </checksum>
+  </target>
+
+</project>

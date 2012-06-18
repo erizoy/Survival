@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<project>
+
+  <property name="project.name" value="Survival" />
+  <property name="project.dir" value="${project::get-base-directory()}" />
+
+
+  <property name="nant.home" value="${environment::get-variable('NANT_HOME')}"
+            if="${environment::variable-exists('NANT_HOME')}" />
+  <property name="nantcontrib.home" value="${environment::get-variable('NANTCONTRIB_HOME')}"
+            if="${environment::variable-exists('NANTCONTRIB_HOME')}" />
+
+  <loadtasks assembly="${nantcontrib.home}/bin/NAnt.Contrib.Tasks.dll"
+             if="${property::exists('nantcontrib.home')}" />
+
+  <property name="src.dir" value="${project.dir}/src" />
+  <property name="bin.dir" value="${project.dir}/bin" />
+  <property name="out.dir" value="${project.dir}/out" />
+  <property name="lib.dir" value="${project.dir}/lib" />
+
+</project>
